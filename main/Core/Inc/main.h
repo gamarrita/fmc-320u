@@ -67,6 +67,8 @@ void Error_Handler(void);
 #define PCF8553_SDIO_GPIO_Port GPIOA
 #define led_red_Pin GPIO_PIN_2
 #define led_red_GPIO_Port GPIOG
+#define PCF8553_BACKLIGHT_Pin GPIO_PIN_8
+#define PCF8553_BACKLIGHT_GPIO_Port GPIOC
 #define led_blue_Pin GPIO_PIN_7
 #define led_blue_GPIO_Port GPIOB
 

@@ -246,7 +246,6 @@ VOID menu_task_entry(ULONG initial_input)
     while(1)
     {
         ret_status = tx_queue_receive(&event_queue_ptr,&event_next,100);
-
         if(ptr_menu != fm_menu_show_init && ptr_menu != fm_menu_show_version)
         {
             if(event_next == EVENT_LCD_REFRESH && backlight_cd > 0)

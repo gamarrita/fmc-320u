@@ -246,25 +246,21 @@ VOID menu_task_entry(ULONG initial_input)
     while(1)
     {
         ret_status = tx_queue_receive(&event_queue_ptr,&event_next,100);
-
-        if(ptr_menu != fm_menu_show_init && ptr_menu != fm_menu_show_version)
+        if(event_next == EVENT_LCD_REFRESH && backlight_cd > 0)
         {
-            if(event_next == EVENT_LCD_REFRESH && backlight_cd > 0)
-            {
-                backlight_cd--;
-            }
-            else if(event_next == EVENT_LCD_REFRESH && backlight_cd <= 0)
-            {
-                HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port,
-                PCF8553_BACKLIGHT_Pin, GPIO_PIN_SET);
-                backlight_cd = 0;
-            }
-            else if(event_next != EVENT_LCD_REFRESH)
-            {
-                HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port,
-                PCF8553_BACKLIGHT_Pin, GPIO_PIN_RESET);
-                backlight_cd = 10;
-            }
+            backlight_cd--;
+        }
+        else if(event_next == EVENT_LCD_REFRESH && backlight_cd <= 0)
+        {
+            HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port,
+            PCF8553_BACKLIGHT_Pin, GPIO_PIN_RESET);
+            backlight_cd = 0;
+        }
+        else if(event_next != EVENT_LCD_REFRESH)
+        {
+            HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port,
+            PCF8553_BACKLIGHT_Pin, GPIO_PIN_SET);
+            backlight_cd = 10;
         }
 
         if(ret_status == TX_SUCCESS)

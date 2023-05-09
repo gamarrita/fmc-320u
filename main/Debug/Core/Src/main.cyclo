@@ -8,6 +8,6 @@ main.c:355:13:MX_RTC_Init	6
 main.c:437:13:MX_SPI1_Init	3
 main.c:494:13:MX_USART2_UART_Init	5
 main.c:542:13:MX_GPIO_Init	1
-main.c:615:13:HAL_RTCEx_WakeUpTimerEventCallback	1
-main.c:636:6:HAL_TIM_PeriodElapsedCallback	2
-main.c:653:6:Error_Handler	1
+main.c:625:13:HAL_RTCEx_WakeUpTimerEventCallback	1
+main.c:646:6:HAL_TIM_PeriodElapsedCallback	2
+main.c:663:6:Error_Handler	1

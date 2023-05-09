@@ -1418,3 +1418,13 @@ java.lang.NullPointerException
 !MESSAGE Internal Error
 !STACK 0
 java.lang.NullPointerException
+
+!ENTRY org.eclipse.cdt.codan.core 4 1 2023-05-09 16:31:30.092
+!MESSAGE Internal Error
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.cdt.codan.core 4 1 2023-05-09 16:31:32.311
+!MESSAGE Internal Error
+!STACK 0
+java.lang.NullPointerException

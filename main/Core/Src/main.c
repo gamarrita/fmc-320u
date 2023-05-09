@@ -558,6 +558,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(led_red_GPIO_Port, led_red_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port, PCF8553_BACKLIGHT_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(led_blue_GPIO_Port, led_blue_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PCF8553_CE_Pin PCF8553_RESET_Pin */
@@ -579,6 +582,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(led_red_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PCF8553_BACKLIGHT_Pin */
+  GPIO_InitStruct.Pin = PCF8553_BACKLIGHT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(PCF8553_BACKLIGHT_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PC10 PC11 PC12 */
   GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12;
