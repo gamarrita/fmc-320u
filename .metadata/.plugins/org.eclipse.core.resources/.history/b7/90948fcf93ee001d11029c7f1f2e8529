@@ -58,6 +58,8 @@
 
 extern RTC_HandleTypeDef hrtc;
 
+extern ADC_HandleTypeDef hadc1;
+
 uint16_t g_lptim1_start;
 uint16_t g_lptim1_end;
 
@@ -117,7 +119,7 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
   #endif
   /* USER CODE END App_ThreadX_Init */
 
-  return ret;
+  return (ret);
 }
 
   /**
@@ -181,7 +183,7 @@ void App_ThreadX_LowPower_Enter(void)
   /* USER CODE BEGIN  App_ThreadX_LowPower_Enter */
 
   HAL_GPIO_WritePin(led_blue_GPIO_Port, led_blue_Pin, GPIO_PIN_RESET);
-
+  HAL_ADC_Stop(&hadc1);
 
   #ifdef FM_THREADX_LOW_POWER
   HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);

@@ -968,7 +968,6 @@ ptr_ret_menu_t fm_menu_config_k_lin_5(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ESC:
-            correct_password = 0;
             new_exit = 1;
             ret_menu = (ptr_ret_menu_t) fm_menu_show_init;
             event_now = EVENT_LCD_REFRESH;
@@ -988,6 +987,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_5(fm_event_t event_id)
 
     if (new_exit == 1)
     {
+        correct_password = 0;
         digit_lin_modify = DIG_LIN_0;
         new_entry = 1;
         new_exit = 0;

@@ -39,7 +39,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define FM_THREADX_LOW_POWER
+//#define FM_THREADX_LOW_POWER
 
 #define THREAD_STACK_SIZE 1024
 
@@ -117,7 +117,7 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
   #endif
   /* USER CODE END App_ThreadX_Init */
 
-  return ret;
+  return (ret);
 }
 
   /**

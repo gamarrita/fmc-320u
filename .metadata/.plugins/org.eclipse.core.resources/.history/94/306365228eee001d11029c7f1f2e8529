@@ -968,9 +968,8 @@ ptr_ret_menu_t fm_menu_config_k_lin_5(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ESC:
-            correct_password = 0;
             new_exit = 1;
-            ret_menu = (ptr_ret_menu_t) fm_menu_show_init;
+            ret_menu = (ptr_ret_menu_t) fm_menu_config_units_vol;
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
@@ -1176,8 +1175,6 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
 
-    static uint8_t password_try = 0;
-
     /*
      * Arreglo estático que almacena la contraseña que ingresa el usuario.
      * Inicialmente está relleno con ceros.
@@ -1237,6 +1234,9 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
             else
             {
                 new_exit = 1;
+                ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
+                event_now = EVENT_LCD_REFRESH;
+                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
             }
         break;
         case EVENT_KEY_DOWN:
@@ -1251,6 +1251,9 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
             else
             {
                 new_exit = 1;
+                ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
+                event_now = EVENT_LCD_REFRESH;
+                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
             }
         break;
         case EVENT_KEY_ENTER:
@@ -1265,6 +1268,9 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
             else
             {
                 new_exit = 1;
+                ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
+                event_now = EVENT_LCD_REFRESH;
+                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
             }
         break;
         case EVENT_KEY_ESC:
@@ -1279,6 +1285,9 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
             else
             {
                 new_exit = 1;
+                ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
+                event_now = EVENT_LCD_REFRESH;
+                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
             }
         break;
         case EVENT_LCD_REFRESH:
@@ -1303,51 +1312,12 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
         && password[PASSWORD_LENGTH - 1] == 3)
         {
             correct_password = 1;
-
-            ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
-            event_now = EVENT_LCD_REFRESH;
-            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
-
-            password_try = 0;
         }
-        else if(password[0] == 2 && password[1] == 2 && password[2] == 1
-        && password[PASSWORD_LENGTH - 1] == 1)
-        {
-            correct_password = 1;
+        fm_factory_modify_date(fm_calendar_get_day(),
+        fm_calendar_get_month(), fm_calendar_get_year());
 
-            ret_menu = (ptr_ret_menu_t) fm_menu_config_units_vol;
-            event_now = EVENT_LCD_REFRESH;
-            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
-
-            fm_factory_modify_date(fm_calendar_get_day(),
-            fm_calendar_get_month(), fm_calendar_get_year());
-
-            fm_factory_modify_time(fm_calendar_get_hour(),
-            fm_calendar_get_minute(), fm_calendar_get_second());
-
-            password_try = 0;
-        }
-        else
-        {
-            correct_password = 0;
-            password_try++;
-
-            if(password_try < 3)
-            {
-                ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
-                event_now = EVENT_LCD_REFRESH;
-                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
-            }
-            else
-            {
-                ret_menu = (ptr_ret_menu_t) fm_menu_show_init;
-                event_now = EVENT_LCD_REFRESH;
-                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
-
-                password_try = 0;
-            }
-        }
-
+        fm_factory_modify_time(fm_calendar_get_hour(),
+        fm_calendar_get_minute(), fm_calendar_get_second());
         /*
          * Reinicio el arreglo de la contraseña ingresada.
          */

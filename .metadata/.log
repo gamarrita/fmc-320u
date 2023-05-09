@@ -1410,3 +1410,11 @@ java.lang.NullPointerException
 !MESSAGE Internal Error
 !STACK 0
 java.lang.NullPointerException
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-09 14:15:55.804
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.internal.ui.actions.DsfTerminateCommand$3$1@2cc18fbe): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.codan.core 4 1 2023-05-09 14:18:29.259
+!MESSAGE Internal Error
+!STACK 0
+java.lang.NullPointerException

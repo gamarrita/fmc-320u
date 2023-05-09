@@ -39,7 +39,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define FM_THREADX_LOW_POWER
+//#define FM_THREADX_LOW_POWER
 
 #define THREAD_STACK_SIZE 1024
 
