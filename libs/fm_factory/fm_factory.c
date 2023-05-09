@@ -752,6 +752,12 @@ void fm_factory_modify_volume_units(fmc_unit_volume_t volume_units)
     rate_config.unit_volume = volume_units;
 }
 
+void fm_factory_reset_acm()
+{
+    acm_config.pulse = 0;
+    acm_config.volume.num = 0;
+}
+
 /*
  * @brief Función que separa en dígitos el factor K y los guarda en un arreglo
  * global.

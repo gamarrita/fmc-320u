@@ -23,5 +23,6 @@ fm_factory.c:709:6:fm_factory_modify_res_acm_ttl	1
 fm_factory.c:722:6:fm_factory_modify_res_rate	1
 fm_factory.c:735:6:fm_factory_modify_time_units	1
 fm_factory.c:748:6:fm_factory_modify_volume_units	1
-fm_factory.c:761:6:fm_factory_separate_k_factor	3
-fm_factory.c:782:6:fm_factory_separate_k_lin_and_frec	5
+fm_factory.c:755:6:fm_factory_reset_acm	1
+fm_factory.c:767:6:fm_factory_separate_k_factor	3
+fm_factory.c:788:6:fm_factory_separate_k_lin_and_frec	5

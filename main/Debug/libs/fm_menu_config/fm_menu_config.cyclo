@@ -9,5 +9,5 @@ fm_menu_config.c:1004:16:fm_menu_config_k_param	18
 fm_menu_config.c:1113:16:fm_menu_config_ko_param	4
 fm_menu_config.c:1173:16:fm_menu_config_pass	19
 fm_menu_config.c:1341:16:fm_menu_config_span	4
-fm_menu_config.c:1399:16:fm_menu_config_units_tim	17
-fm_menu_config.c:1502:16:fm_menu_config_units_vol	19
+fm_menu_config.c:1399:16:fm_menu_config_units_tim	22
+fm_menu_config.c:1522:16:fm_menu_config_units_vol	28

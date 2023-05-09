@@ -1440,6 +1440,26 @@ ptr_ret_menu_t fm_menu_config_units_tim(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_DOWN:
+            if (correct_password)
+            {
+                if (fm_factory_get_rate().unit_time == H)
+                {
+                    fm_factory_modify_time_units(M);
+                }
+                else if (fm_factory_get_rate().unit_time == M)
+                {
+                    fm_factory_modify_time_units(S);
+                }
+                else if (fm_factory_get_rate().unit_time == S)
+                {
+                    fm_factory_modify_time_units(D);
+                }
+                else if (fm_factory_get_rate().unit_time == D)
+                {
+                    fm_factory_modify_time_units(H);
+                }
+                fm_lcd_clear();
+            }
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
@@ -1527,6 +1547,10 @@ ptr_ret_menu_t fm_menu_config_units_vol(fm_event_t event_id)
                 }
                 else if (fm_factory_get_acm().unit_volume == M3)
                 {
+                    fm_factory_modify_volume_units(MC);
+                }
+                else if (fm_factory_get_acm().unit_volume == MC)
+                {
                     fm_factory_modify_volume_units(KG);
                 }
                 else if (fm_factory_get_acm().unit_volume == KG)
@@ -1551,6 +1575,38 @@ ptr_ret_menu_t fm_menu_config_units_vol(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_DOWN:
+            if (correct_password)
+            {
+                if (fm_factory_get_acm().unit_volume == LT)
+                {
+                    fm_factory_modify_volume_units(NOTHING);
+                }
+                else if (fm_factory_get_acm().unit_volume == NOTHING)
+                {
+                    fm_factory_modify_volume_units(BR);
+                }
+                else if (fm_factory_get_acm().unit_volume == BR)
+                {
+                    fm_factory_modify_volume_units(GL);
+                }
+                else if (fm_factory_get_acm().unit_volume == GL)
+                {
+                    fm_factory_modify_volume_units(KG);
+                }
+                else if (fm_factory_get_acm().unit_volume == KG)
+                {
+                    fm_factory_modify_volume_units(MC);
+                }
+                else if (fm_factory_get_acm().unit_volume == MC)
+                {
+                    fm_factory_modify_volume_units(M3);
+                }
+                else if (fm_factory_get_acm().unit_volume == M3)
+                {
+                    fm_factory_modify_volume_units(LT);
+                }
+                fm_lcd_clear();
+            }
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;

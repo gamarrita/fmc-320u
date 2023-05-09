@@ -97,12 +97,11 @@ ptr_ret_menu_t fm_menu_show_acm_rate(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ENTER:
-        break;
-        case EVENT_KEY_ESC:
-            new_exit = 1;
-            ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
+            fm_factory_reset_acm();
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ESC:
         break;
         case EVENT_LCD_REFRESH:
         break;
@@ -164,10 +163,6 @@ ptr_ret_menu_t fm_menu_show_acm_temp(fm_event_t event_id)
         case EVENT_KEY_ENTER:
         break;
         case EVENT_KEY_ESC:
-            new_exit = 1;
-            ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
-            event_now = EVENT_LCD_REFRESH;
-            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_LCD_REFRESH:
         break;
@@ -226,10 +221,6 @@ ptr_ret_menu_t fm_menu_show_date_hour(fm_event_t event_id)
         case EVENT_KEY_ENTER:
         break;
         case EVENT_KEY_ESC:
-            new_exit = 1;
-            ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
-            event_now = EVENT_LCD_REFRESH;
-            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_LCD_REFRESH:
         break;

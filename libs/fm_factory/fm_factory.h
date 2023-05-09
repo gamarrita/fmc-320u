@@ -139,6 +139,7 @@ void fm_factory_modify_res_rate(sel_resolution_t units_res,
 sel_resolution_t rate_res);
 void fm_factory_modify_time_units(fmc_unit_time_t time_units);
 void fm_factory_modify_volume_units(fmc_unit_volume_t volume_units);
+void fm_factory_reset_acm();
 void fm_factory_separate_k_factor();
 void fm_factory_separate_k_lin_and_frec(sel_k k_sel);
 

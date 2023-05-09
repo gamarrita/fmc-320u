@@ -50,12 +50,13 @@ typedef enum
     LIN_2,
     LIN_3,
     LIN_4,
-    LIN_5
+    LIN_5,
+    HZ
 } symbols_t;
 
 typedef enum
 {
-    LT, M3, KG, GL, BR, CELSIUS, NOTHING
+    LT, M3, MC, KG, GL, BR, CELSIUS, NOTHING
 } fmc_unit_volume_t;
 
 typedef enum

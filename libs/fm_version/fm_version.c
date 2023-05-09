@@ -33,7 +33,7 @@
 
 #define VERSION     1
 #define REVISION    2
-#define RELEASE     1
+#define RELEASE     2
 
 //Debug.
 

@@ -518,6 +518,7 @@ void fm_lcd_k_lin(sel_k k_sel, fm_event_t event_id, sel_digit_k_lin_t digit_lin_
     {
         lcd_set_symbol(LIN_5, 0x00);
     }
+    lcd_set_symbol(HZ,0x00);
 }
 
 /*

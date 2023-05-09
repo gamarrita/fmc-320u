@@ -3434,3 +3434,679 @@
 2023-05-09 10:38:04,816 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 1906mS.
 2023-05-09 10:38:04,816 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
 2023-05-09 10:38:04,832 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
+2023-05-09 11:01:36,936 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 365686560 Bytes (1040187392)
+2023-05-09 11:01:37,391 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 464774944 Bytes (1040187392)
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: LPTIM
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: PWR
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RTC
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ThreadX
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ICACHE
+2023-05-09 11:01:37,608 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-05-09 11:01:37,608 [INFO] CodeGenerator:793 - code generatio: config db path: C:\ST\STM32CubeIDE_1.12.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.8.1.202304191431\\db\
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PowerMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM1Page4PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM1Page5PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM1Page6PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM1Page7PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM1Page8PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM1Page9PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM1Page10PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM1Page11PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM1Page12PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM3Page9PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM3Page10PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM3Page11PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM3Page12PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM3Page13PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page1PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page2PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page3PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page4PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page5PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page6PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page7PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page8PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page9PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page10PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page11PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page12PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - RAM5Page13PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - Dcache2PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - GRAPHICPRAMPowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - DSIRAMPowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - pwrPrivilegeSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - pwrPrivilegeNSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_WKUP1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_WKUP2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_WKUP3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_WKUP4 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_WKUP5 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_WKUP6 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_WKUP7 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_WKUP8 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_VDM not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_APC not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_LPM not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,608 [WARN] IP:2113 - PWR_VB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,671 [WARN] IP:2113 - rccPrivilegeSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,671 [WARN] IP:2113 - rccSecurity not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - OutPut1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - OutPut2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - OutPut3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - rtcSecureFull not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - rtcNonSecureFeatures not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_NONE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_INIT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRA not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_TS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_CAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_WUT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - Sec_BKP_Registers1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - backupRegisterStartZone2_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - backupRegisterStartZone3_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - OutPut1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - OutPut2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - OutPut3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - rtcSecureFull not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - rtcNonSecureFeatures not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_NONE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_INIT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRA not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_TS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_CAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_WUT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - Sec_BKP_Registers1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - backupRegisterStartZone2_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - backupRegisterStartZone3_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - ALIGN_TYPE_VAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_APP_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_APP_THREAD_ENTRY not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_APP_THREAD_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_APP_THREAD_PRIO not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_APP_STACK_SIZE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_APP_SEM_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_SEMAPHORE_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_SEMAPHORE_COUNT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_APP_MUTEX_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_MUTEX_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_MUTEX_INHERITANCE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_APP_MSG_QUEUE_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_MSG_QUEUE_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_MSG_SIZE_WORDS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_NB_MSG not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_BASEPRI_VALUE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,686 [WARN] IP:2113 - TX_PORT_BASEPRI_VALUE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:37,843 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\MXTmpFiles\license.tmp_save
+2023-05-09 11:01:37,936 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\MXTmpFiles\license.tmp
+2023-05-09 11:01:37,968 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\MXTmpFiles\gpio.tmp_save
+2023-05-09 11:01:38,046 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\MXTmpFiles\gpio.tmp
+2023-05-09 11:01:38,202 [WARN] IP:2113 - OutPut1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - OutPut2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - OutPut3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - rtcSecureFull not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - rtcNonSecureFeatures not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_NONE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_INIT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRA not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_TS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_CAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_WUT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - Sec_BKP_Registers1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - backupRegisterStartZone2_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - backupRegisterStartZone3_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,202 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:01:38,436 [ERROR] CodeGenerator:9127 - The current RTOS owner has not been found in the list of IPs
+2023-05-09 11:01:38,436 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-05-09 11:01:38,436 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-05-09 11:01:38,436 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-05-09 11:01:38,436 [ERROR] SWIPConfigModel:147 - Object (RefParameter) name : ALIGN_TYPE_VAL  is not a String or a Boolean
+2023-05-09 11:01:38,452 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\MXTmpFiles\cortex.tmp_save
+2023-05-09 11:01:38,515 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\MXTmpFiles\cortex.tmp
+2023-05-09 11:01:38,530 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-05-09 11:01:38,530 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-05-09 11:01:38,530 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-05-09 11:01:38,530 [ERROR] SWIPConfigModel:147 - Object (RefParameter) name : ALIGN_TYPE_VAL  is not a String or a Boolean
+2023-05-09 11:01:38,530 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Inc\app_threadx.h_save
+2023-05-09 11:01:38,608 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\Core\Inc\app_threadx.h
+2023-05-09 11:01:38,624 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Src\app_threadx.c_save
+2023-05-09 11:01:38,687 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\Core\Src\app_threadx.c
+2023-05-09 11:01:38,702 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\AZURE_RTOS\App\app_azure_rtos.c_save
+2023-05-09 11:01:38,765 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\AZURE_RTOS\App\app_azure_rtos.c
+2023-05-09 11:01:38,765 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\AZURE_RTOS\App\app_azure_rtos.h_save
+2023-05-09 11:01:38,827 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\AZURE_RTOS\App\app_azure_rtos.h
+2023-05-09 11:01:38,843 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Inc\tx_user.h_save
+2023-05-09 11:01:38,905 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\Core\Inc\tx_user.h
+2023-05-09 11:01:38,921 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Src\tx_initialize_low_level.S_save
+2023-05-09 11:01:38,999 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\Core\Src\tx_initialize_low_level.S
+2023-05-09 11:01:39,015 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\AZURE_RTOS\App\app_azure_rtos_config.h_save
+2023-05-09 11:01:39,077 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\AZURE_RTOS\App\app_azure_rtos_config.h
+2023-05-09 11:01:39,093 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Src\stm32u5xx_it.c_save
+2023-05-09 11:01:39,233 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\Core\Src\stm32u5xx_it.c
+2023-05-09 11:01:39,249 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Inc\stm32u5xx_it.h_save
+2023-05-09 11:01:39,296 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\Core\Inc\stm32u5xx_it.h
+2023-05-09 11:01:39,343 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Src\stm32u5xx_hal_msp.c_save
+2023-05-09 11:01:39,452 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\Core\Src\stm32u5xx_hal_msp.c
+2023-05-09 11:01:39,468 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\MXTmpFiles\system.tmp_save
+2023-05-09 11:01:39,515 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\MXTmpFiles\system.tmp
+2023-05-09 11:01:39,531 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Src\stm32u5xx_hal_timebase_tim.c_save
+2023-05-09 11:01:39,577 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\Core\Src\stm32u5xx_hal_timebase_tim.c
+2023-05-09 11:01:39,593 [INFO] CodeEngine:311 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Inc\stm32u5xx_hal_conf.h_save
+2023-05-09 11:01:39,671 [INFO] CodeEngine:335 - Generated code: D:\githubs\fmc-320u\main\Core\Inc\stm32u5xx_hal_conf.h
+2023-05-09 11:01:39,702 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Inc\main.h_save
+2023-05-09 11:01:39,796 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\Core\Inc\main.h
+2023-05-09 11:01:39,812 [INFO] CodeEngine:255 - oldGeneratedFile, D:\githubs\fmc-320u\main\Core\Src\main.c_save
+2023-05-09 11:01:39,921 [INFO] CodeEngine:279 - Generated code: D:\githubs\fmc-320u\main\Core\Src\main.c
+2023-05-09 11:01:41,046 [INFO] ProjectBuilder:2996 - Time for Copy HAL[1] : 781mS.
+2023-05-09 11:01:41,046 [INFO] ProjectBuilder:4304 - Project Generator version: 3.19.2
+2023-05-09 11:01:41,234 [INFO] ConfigFileManager:1483 - The Die is : DIE482
+2023-05-09 11:01:42,640 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 1594mS.
+2023-05-09 11:01:42,640 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
+2023-05-09 11:01:42,640 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
+2023-05-09 11:16:17,952 [INFO] MainUpdater:2854 - connection check result : 10
+2023-05-09 11:16:17,952 [INFO] MainUpdater:2854 - connection check result : 10
+2023-05-09 11:16:18,008 [INFO] MicroXplorer:468 - Change Database Path : 
+2023-05-09 11:16:18,008 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.81
+2023-05-09 11:16:18,024 [WARN] ThirdParty:871 - waiting for thirdparty lock release [close project]
+2023-05-09 11:16:18,024 [INFO] ThirdParty:873 - entering critical section [close project]
+2023-05-09 11:16:18,024 [INFO] ThirdParty:883 - exiting critical section [close project]
+2023-05-09 11:16:18,024 [INFO] PinOutPanel:1499 - setPackage(No Configuration,No Configuration)
+2023-05-09 11:16:18,040 [INFO] UtilMem:75 - Begin LoadConfig() Used Memory: 414727856 Bytes (1073741824)
+2023-05-09 11:16:18,040 [INFO] MicroXplorer:468 - Change Database Path : 
+2023-05-09 11:16:18,040 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.81
+2023-05-09 11:16:18,040 [INFO] OpenFileManager:308 - Change cursor
+2023-05-09 11:16:18,060 [INFO] RulesReader:64 - Compatibility file has been processed (293 Rules)
+2023-05-09 11:16:18,070 [INFO] Mcu:1937 - Initializing MCU STM32U575ZITx STM32U575ZITx STM32U575ZIT6
+2023-05-09 11:16:21,837 [INFO] Context:659 - Trying to add GPIOservice into a context  which must be forbidden
+2023-05-09 11:16:21,837 [INFO] Context:659 - Trying to add GPIOservice into a context  which must be forbidden
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2023-05-09 11:16:23,118 [INFO] RtosManager:555 - Registered RTOS mode: class=RTOS, group=ThreadX, mode=Core, owner=THREADX
+2023-05-09 11:16:23,134 [INFO] ThirdPartyModel:298 - Start build external matchings
+2023-05-09 11:16:23,274 [INFO] ThirdPartyModel:316 - End build external matchings
+2023-05-09 11:16:23,274 [INFO] RtosManager:919 - Current active RTOS is THREADX [CortexM33]
+2023-05-09 11:16:23,274 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (ADC1) : Parameter (CommonPathInternal) has invalid value (ADC_CHANNEL_VREFINT|ADC_CHANNEL_TEMPSENSOR|null|null)
+2023-05-09 11:16:23,274 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (RCC) : Parameter (FDCANFreq_Value) has invalid value (3096000000)
+2023-05-09 11:16:23,274 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (RCC) : Invalid parameter (FamilyName)
+2023-05-09 11:16:23,274 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (RCC) : Parameter (SAI1Freq_Value) has invalid value (3096000000)
+2023-05-09 11:16:23,274 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (RCC) : Parameter (SAI2Freq_Value) has invalid value (3096000000)
+2023-05-09 11:16:23,274 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (RCC) : Parameter (SDMMCFreq_Value) has invalid value (3096000000)
+2023-05-09 11:16:23,274 [WARN] IP:2113 - OutPut1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,274 [WARN] IP:2113 - OutPut2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,274 [WARN] IP:2113 - OutPut3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,274 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,274 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,274 [WARN] IP:2113 - rtcSecureFull not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,274 [WARN] IP:2113 - rtcNonSecureFeatures not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,274 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_NONE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_INIT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRA not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_TS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_CAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_WUT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - Sec_BKP_Registers1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - backupRegisterStartZone2_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - backupRegisterStartZone3_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - OutPut1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - OutPut2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - OutPut3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - rtcSecureFull not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - rtcNonSecureFeatures not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_NONE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_INIT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRA not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_TS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_CAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_WUT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - Sec_BKP_Registers1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - backupRegisterStartZone2_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - backupRegisterStartZone3_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - OutPut1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - OutPut2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - OutPut3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - rtcSecureFull not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - rtcNonSecureFeatures not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_NONE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_INIT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRA not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_TS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_CAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_WUT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - Sec_BKP_Registers1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - backupRegisterStartZone2_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - backupRegisterStartZone3_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - ALIGN_TYPE_VAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_APP_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_APP_THREAD_ENTRY not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_APP_THREAD_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_APP_THREAD_PRIO not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_APP_STACK_SIZE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_APP_SEM_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_SEMAPHORE_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_SEMAPHORE_COUNT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_APP_MUTEX_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_MUTEX_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_MUTEX_INHERITANCE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_APP_MSG_QUEUE_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_MSG_QUEUE_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_MSG_SIZE_WORDS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_NB_MSG not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_BASEPRI_VALUE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,290 [WARN] IP:2113 - TX_PORT_BASEPRI_VALUE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:23,729 [INFO] UtilMem:75 - End LoadConfig() Used Memory: 746260592 Bytes (1073741824)
+2023-05-09 11:16:23,752 [WARN] ThirdParty:833 - waiting for thirdparty lock release [change project]
+2023-05-09 11:16:23,752 [INFO] ThirdParty:835 - entering critical section [change project]
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ISPU 1.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 6.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F4 1.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics LIBJPEG 8.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SMBUS 2.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSL 5.6.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 8.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.0.1
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.21.3
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F7 1.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.6.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.3.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.2.4
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 1.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :emotas I-CUBE-CANOPEN 1.1.3
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G0 1.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 2.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 5.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 3.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics STM32_WPAN 1.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 2.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.3.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 3.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-SIGFOX1 3.2.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 1.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 1.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 1.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 4.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :portGmbH I-Cube-SoM-uGOAL 1.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALS 1.0.1
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics ThreadX 1.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 1.1.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.1
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics ThreadX 0.0.2
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :WES I-CUBE-Cesium 1.3.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-ASTRA1 2.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 4.0.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.3.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2023-05-09 11:16:23,752 [INFO] ThirdParty:841 - exiting critical section [change project]
+2023-05-09 11:16:23,986 [INFO] PinOutPanel:1499 - setPackage(No Configuration,No Configuration)
+2023-05-09 11:16:23,986 [INFO] PinOutPanel:1499 - setPackage(STM32U575ZITx,LQFP144)
+2023-05-09 11:16:24,064 [WARN] IP:2113 - rccPrivilegeSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:24,064 [WARN] IP:2113 - rccSecurity not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:24,252 [WARN] IP:2113 - rccPrivilegeSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:24,252 [WARN] IP:2113 - rccSecurity not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:24,517 [WARN] IP:2113 - rccPrivilegeSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:24,517 [WARN] IP:2113 - rccSecurity not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:24,533 [INFO] UtilMem:75 - Before build in PCC Used Memory: 548039728 Bytes (1073741824)
+2023-05-09 11:16:24,846 [INFO] UtilMem:75 - After build in PCC Used Memory: 697986096 Bytes (1073741824)
+2023-05-09 11:16:24,861 [INFO] ApiDbMcu:507 - Load IP Config File for ThreadX
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,893 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2023-05-09 11:16:24,955 [INFO] CADModel:165 - CPN selected for project levelSTM32U575ZIT6
+2023-05-09 11:16:24,955 [INFO] CADModel:114 - Register for checkConnection events
+2023-05-09 11:16:24,955 [INFO] RtosManager:697 - Active RTOS found at IOC load: THREADX [CortexM33]
+2023-05-09 11:16:25,015 [INFO] OpenFileManager:328 - Restore cursor
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PowerMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page4PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page5PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page6PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page7PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page8PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page9PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page10PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page11PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page12PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM3Page9PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM3Page10PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM3Page11PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM3Page12PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM3Page13PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page1PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page2PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page3PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page4PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page5PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page6PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page7PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page8PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page9PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page10PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page11PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page12PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page13PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - Dcache2PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - GRAPHICPRAMPowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - DSIRAMPowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - pwrPrivilegeSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - pwrPrivilegeNSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP4 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP5 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP6 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP7 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP8 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_VDM not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_APC not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_LPM not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_VB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PowerMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page4PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page5PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page6PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page7PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page8PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page9PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page10PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page11PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM1Page12PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM3Page9PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM3Page10PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM3Page11PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM3Page12PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM3Page13PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page1PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page2PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page3PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page4PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page5PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page6PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page7PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page8PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page9PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page10PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page11PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page12PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - RAM5Page13PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - Dcache2PowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - GRAPHICPRAMPowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - DSIRAMPowerDownInStopMode not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - pwrPrivilegeSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - pwrPrivilegeNSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP4 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP5 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP6 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP7 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_WKUP8 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_VDM not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_APC not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_LPM not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,145 [WARN] IP:2113 - PWR_VB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,176 [WARN] IP:2113 - rccPrivilegeSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,176 [WARN] IP:2113 - rccSecurity not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,223 [WARN] IP:2113 - rccPrivilegeSecure not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,223 [WARN] IP:2113 - rccSecurity not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - rtcSecureFull not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - rtcNonSecureFeatures not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_NONE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_INIT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRA not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_TS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_CAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_WUT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - Sec_BKP_Registers1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - backupRegisterStartZone2_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - backupRegisterStartZone3_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - rtcSecureFull not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - rtcNonSecureFeatures not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_NONE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_INIT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRA not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_TS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_CAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_WUT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - Sec_BKP_Registers1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - backupRegisterStartZone2_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - backupRegisterStartZone3_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - rtcSecureFull not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - rtcNonSecureFeatures not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_NONE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_INIT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRA not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_TS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_CAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_WUT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - Sec_BKP_Registers1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - backupRegisterStartZone2_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - backupRegisterStartZone3_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut2 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - OutPut3 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - BinMixBcdU not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - SSRU_Underflow_Interrupt not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - rtcSecureFull not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - rtcNonSecureFeatures not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_NONE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_INIT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRA not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_ALRB not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_TS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_CAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - RTC_NONSECURE_FEATURE_WUT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - Sec_BKP_Registers1 not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - backupRegisterStartZone2_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,254 [WARN] IP:2113 - backupRegisterStartZone3_gS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - ALIGN_TYPE_VAL not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_APP_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_APP_THREAD_ENTRY not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_APP_THREAD_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_APP_THREAD_PRIO not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_APP_STACK_SIZE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_APP_SEM_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_SEMAPHORE_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_SEMAPHORE_COUNT not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_APP_MUTEX_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_MUTEX_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_MUTEX_INHERITANCE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_APP_MSG_QUEUE_CREATION not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_MSG_QUEUE_NAME not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_MSG_SIZE_WORDS not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_NB_MSG not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_BASEPRI_VALUE not found: check if there is a RefParameter without a condition.
+2023-05-09 11:16:25,270 [WARN] IP:2113 - TX_PORT_BASEPRI_VALUE not found: check if there is a RefParameter without a condition.
