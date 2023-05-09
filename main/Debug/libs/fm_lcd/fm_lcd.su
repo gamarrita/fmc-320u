@@ -1,0 +1,17 @@
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:61:6:fm_lcd_acm_rate	232	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:90:6:fm_lcd_acm_temp	144	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:117:6:fm_lcd_battery_low	16	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:127:6:fm_lcd_clear	8	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:139:6:fm_lcd_date_hour	72	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:241:6:fm_lcd_format_number_in_line	24	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:263:5:fm_lcd_fp_add_dot	40	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:313:5:fm_lcd_fp_to_str	40	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:397:6:fm_lcd_init	8	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:409:6:fm_lcd_k_factor	64	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:445:6:fm_lcd_k_lin	72	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:529:6:fm_lcd_puts	24	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:564:6:fm_lcd_refresh	8	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:576:6:fm_lcd_ttl_rate	232	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:604:6:fm_lcd_units_tim	160	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:658:6:fm_lcd_units_vol	160	static
+D:/githubs/fmc-320u/libs/fm_lcd/fm_lcd.c:713:6:fm_lcd_version	32	static
