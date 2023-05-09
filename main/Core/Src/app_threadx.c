@@ -77,7 +77,7 @@ TX_SEMAPHORE debounce_semaphore_ptr;
 TX_QUEUE event_queue_ptr;
 
 #ifndef FM_THREADX_LOW_POWER
-  uint8_t tracex_buffer[TRACEX_BUFFER_SIZE] __attribute__((section (".trace")));
+//  uint8_t tracex_buffer[TRACEX_BUFFER_SIZE] __attribute__((section (".trace")));
 #endif
 
 /* USER CODE END PV */
@@ -113,11 +113,11 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
   event_queue_stack, 1024);
 
   #ifndef FM_THREADX_LOW_POWER
-      tx_trace_enable(&tracex_buffer, TRACEX_BUFFER_SIZE, 30);
+//      tx_trace_enable(&tracex_buffer, TRACEX_BUFFER_SIZE, 30);
   #endif
   /* USER CODE END App_ThreadX_Init */
 
-  return (ret);
+  return ret;
 }
 
   /**
@@ -158,7 +158,7 @@ void App_ThreadX_LowPower_Timer_Setup(ULONG count)
 
 
 #ifdef FM_DEBUG_UART_TX_TIME_ON_IDLE
-//  fm_debug_uint32_uart(count);
+  fm_debug_uint32_uart(count);
 #endif
 
   if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, ticks_to_sleep,
@@ -181,6 +181,7 @@ void App_ThreadX_LowPower_Enter(void)
   /* USER CODE BEGIN  App_ThreadX_LowPower_Enter */
 
   HAL_GPIO_WritePin(led_blue_GPIO_Port, led_blue_Pin, GPIO_PIN_RESET);
+
 
   #ifdef FM_THREADX_LOW_POWER
   HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
