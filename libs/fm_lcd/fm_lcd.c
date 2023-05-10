@@ -40,9 +40,19 @@
 // Project variables, non-static, at least used in other file.
 
 // External variables.
+
+/*
+ * Variable que indica que evento se produjo antes del que está en vigencia.
+ */
 extern fm_event_t previous_event;
+
 // Global variables, statics.
 
+const int ten_multiplier = 10;
+
+/*
+ * Variable que determina el parpadeo de los campos a modificar.
+ */
 static int blink = 1;
 
 // Private function prototypes.
@@ -133,7 +143,10 @@ void fm_lcd_clear()
  * @brief Función que setea una serie de símbolos, puntos y dígitos en la
  * pantalla LCD, permitiendo mostrar la fecha y hora actual, de forma
  * personalizada según las opciones que se elijan.
- * @param Hora y fecha a imprimir.
+ * @param Si se imprime la hora y fecha para el menú de usuario o para el de
+ * configuración según enumeración user_or_configuration_t.
+ * @param Evento actual con el que se imprime esta pantalla.
+ * @param Campo seleccionado el cual debe titilar.
  * @retval None
  */
 void fm_lcd_date_hour(user_or_configuration_t configuration,
@@ -233,7 +246,10 @@ fm_event_t event_id, sel_date_time_field_t field)
 /*
  * @brief Función que formatea información pasada como parámetro para ser
  * colocada en una de las dos filas de la pantalla LCD.
- * @param Enumeracion rows_t de lcd.h
+ * @param Enumeracion rows_t de lcd.h.
+ * @param Datos a formatear.
+ * @param String que almacena los datos formateados.
+ * @param Longitud de este String.
  * @retval arreglo con la información formateada tipo char.
  */
 void fm_lcd_format_number_in_line(rows_t line, uint32_t data, char *p_str,
@@ -326,7 +342,7 @@ int str_size)
     /*
      * Esta linea es necesaria para representa bien a num = 0
      */
-    p_str[idx_1] = fp.num % 10 + '0';
+    p_str[idx_1] = fp.num % ten_multiplier + '0';
 
     uint32_t num_aux = fp.num;
 
@@ -334,11 +350,11 @@ int str_size)
      * Almaceno el número de atrás para adelante hasta que llegar al primer
      * dígito inclusive
      */
-    while (fp.num / 10)
+    while (fp.num / ten_multiplier)
     {
         idx_1++;
-        fp.num /= 10;
-        p_str[idx_1] = fp.num % 10 + '0';
+        fp.num /= ten_multiplier;
+        p_str[idx_1] = fp.num % ten_multiplier + '0';
     }
 
     /*
@@ -350,7 +366,7 @@ int str_size)
         while (idx_1 < fp.res)
         {
             idx_1++;
-            p_str[idx_1] = fp.num % 10 + '0';
+            p_str[idx_1] = fp.num % ten_multiplier + '0';
         }
     }
 
@@ -401,7 +417,8 @@ void fm_lcd_init()
 /*
  * @brief Función que permite escribir lo necesario para la pantalla de
  * configuración del factor de calibración K.
- * @param  None
+ * @param Evento actual con el que se imprime esta pantalla.
+ * @param Dígito a modificar el cual debe titilar.
  * @retval None
  */
 void fm_lcd_k_factor(fm_event_t event_id, sel_digit_t digit_modify)
@@ -440,6 +457,13 @@ void fm_lcd_k_factor(fm_event_t event_id, sel_digit_t digit_modify)
     lcd_set_symbol(K, 0x00);
 }
 
+/*
+ * @brief Función que imprime las pantallas de los K linealizados en la primera
+ * fila y de la frecuencia a la cual se linealiza en la segunda.
+ * @param Que K linealizado quiere verse.
+ * @param Evento actual con el que se imprimió esta pantalla.
+ * @param Digito a modificar, el cual debe parpadear.
+ */
 void fm_lcd_k_lin(sel_k k_sel, fm_event_t event_id,
 sel_digit_k_lin_t digit_lin_modify)
 {
@@ -597,7 +621,7 @@ void fm_lcd_ttl_rate()
 /*
  * @brief Función que permite escribir lo necesario para la pantalla de
  * configuración de unidades tiempo y la resolución del factor RATE.
- * @param  None
+ * @param  Evento actual con el que se imprime la pantalla.
  * @retval None
  */
 void fm_lcd_units_tim(fm_event_t event_id)
@@ -618,17 +642,17 @@ void fm_lcd_units_tim(fm_event_t event_id)
 
     if (blink == 1)
     {
-        if (fm_factory_get_units_tim().res == 1)
+        if (fm_factory_get_units_tim().res == DECIMAL_1)
         {
             resolution_modify = PNT_5;
             lcd_clear_point(LOW_ROW, resolution_modify);
         }
-        else if (fm_factory_get_units_tim().res == 2)
+        else if (fm_factory_get_units_tim().res == DECIMAL_2)
         {
             resolution_modify = PNT_4;
             lcd_clear_point(LOW_ROW, resolution_modify);
         }
-        else if (fm_factory_get_units_tim().res == 3)
+        else if (fm_factory_get_units_tim().res == DECIMAL_3)
         {
             resolution_modify = PNT_3;
             lcd_clear_point(LOW_ROW, resolution_modify);
@@ -651,7 +675,7 @@ void fm_lcd_units_tim(fm_event_t event_id)
  * @brief Función que permite escribir lo necesario para la pantalla de
  * configuración de unidades de volumen y la resolución de los factores ACM y
  * TTL.
- * @param  None
+ * @param  Evento actual con el que se imprime la pantalla.
  * @retval None
  */
 void fm_lcd_units_vol(fm_event_t event_id)
@@ -672,17 +696,17 @@ void fm_lcd_units_vol(fm_event_t event_id)
 
     if (blink == 1)
     {
-        if (fm_factory_get_units_vol().res == 1)
+        if (fm_factory_get_units_vol().res == DECIMAL_1)
         {
             resolution_modify = PNT_6;
             lcd_clear_point(HIGH_ROW, resolution_modify);
         }
-        else if (fm_factory_get_units_vol().res == 2)
+        else if (fm_factory_get_units_vol().res == DECIMAL_2)
         {
             resolution_modify = PNT_5;
             lcd_clear_point(HIGH_ROW, resolution_modify);
         }
-        else if (fm_factory_get_units_vol().res == 3)
+        else if (fm_factory_get_units_vol().res == DECIMAL_3)
         {
             resolution_modify = PNT_4;
             lcd_clear_point(HIGH_ROW, resolution_modify);

@@ -578,6 +578,11 @@ ptr_ret_menu_t fm_menu_config_expansion(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime el menú del K linealizado 1.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_config_k_lin_1(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -657,6 +662,11 @@ ptr_ret_menu_t fm_menu_config_k_lin_1(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime el menú del K linealizado 2.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_config_k_lin_2(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -736,6 +746,11 @@ ptr_ret_menu_t fm_menu_config_k_lin_2(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime el menú del K linealizado 3.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_config_k_lin_3(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -815,6 +830,11 @@ ptr_ret_menu_t fm_menu_config_k_lin_3(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime el menú del K linealizado 4.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_config_k_lin_4(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -894,6 +914,11 @@ ptr_ret_menu_t fm_menu_config_k_lin_4(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime el menú del K linealizado 5.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_config_k_lin_5(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -1142,10 +1167,13 @@ ptr_ret_menu_t fm_menu_config_ko_param(fm_event_t event_id)
 }
 
 /*
- * @brief Función que imprime el menú que permite introducir la contraseña del
+ * @brief Función que imprime el menú que permite introducir una contraseña del
  * caudalímetro. Posee un algoritmo que levanta una flag si la contraseña,
  * compuesta por las 4 teclas del teclado mecánico, es la misma que la
- * almacenada en memoria (DOWN -> UP -> UP -> ENTER).
+ * de configuración (DOWN -> UP -> UP -> ENTER) o la de operario (DOWN ->
+ * DOWN -> UP -> UP). Si se introduce mal la contraseña se deja volverlo a
+ * intentar hasta dos veces. A la tercera vez de ingresada incorrectamente, se
+ * regresa al menú de inicio donde se encienden todos los leds.
  * @param  Evento de presión de botones o refresh.
  * @retval Puntero al retorno de la función.
  */
@@ -1155,6 +1183,7 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
     static uint8_t new_exit = 0;
 
     static uint8_t password_try = 0;
+    static const uint8_t password_try_max = 3;
 
     /*
      * Arreglo estático que almacena la contraseña que ingresa el usuario.
@@ -1277,8 +1306,9 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
          * Si la contraseña ingresada es correcta, se activa una flag global que
          * permite modificar los parámetros de los menús de configuración.
          */
-        if (password[0] == 2 && password[1] == 1 && password[2] == 1
-        && password[PASSWORD_LENGTH - 1] == 3)
+        if (password[0] == PASS_DOWN && password[1] == PASS_UP
+        && password[2] == PASS_UP
+        && password[PASSWORD_LENGTH - 1] == PASS_ENTER)
         {
             correct_password = 1;
 
@@ -1288,8 +1318,8 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
 
             password_try = 0;
         }
-        else if (password[0] == 2 && password[1] == 2 && password[2] == 1
-        && password[PASSWORD_LENGTH - 1] == 1)
+        else if (password[0] == PASS_DOWN && password[1] == PASS_DOWN
+        && password[2] == PASS_UP && password[PASSWORD_LENGTH - 1] == PASS_UP)
         {
             correct_password = 1;
 
@@ -1310,7 +1340,7 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
             correct_password = 0;
             password_try++;
 
-            if (password_try < 3)
+            if (password_try < password_try_max)
             {
                 ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
                 event_now = EVENT_LCD_REFRESH;
@@ -1329,11 +1359,11 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
         /*
          * Reinicio el arreglo de la contraseña ingresada.
          */
-        password_index = 0;
-        password[0] = 0;
-        password[1] = 0;
-        password[2] = 0;
-        password[PASSWORD_LENGTH - 1] = 0;
+        password_index = PASS_0;
+        password[0] = PASS_0;
+        password[1] = PASS_0;
+        password[2] = PASS_0;
+        password[PASSWORD_LENGTH - 1] = PASS_0;
         new_entry = 1;
         new_exit = 0;
     }

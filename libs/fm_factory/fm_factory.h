@@ -372,30 +372,30 @@ typedef enum
 // Function prototypes
 
 fmc_totalizer_t fm_factory_get_acm();
-fmc_totalizer_t fm_factory_get_ttl();
-fmc_totalizer_t fm_factory_get_rate();
-fmc_temp_t fm_factory_get_temp();
-fmc_fp_t fm_factory_get_units_tim();
-fmc_fp_t fm_factory_get_units_vol();
-fmc_fp_t fm_factory_get_k_factor(sel_k k_sel);
-fmc_fp_t fm_factory_get_frec_lin(sel_k k_sel);
 fmc_date_time_t fm_factory_get_date_time();
 fmc_fp_t fm_factory_get_fp_date();
-fmc_fp_t fm_factory_get_fp_time();
 fmc_fp_t fm_factory_get_fp_date_conf();
+fmc_fp_t fm_factory_get_fp_time();
 fmc_fp_t fm_factory_get_fp_time_conf();
+fmc_fp_t fm_factory_get_frec_lin(sel_k k_sel);
+fmc_fp_t fm_factory_get_k_factor(sel_k k_sel);
+fmc_totalizer_t fm_factory_get_rate();
+fmc_temp_t fm_factory_get_temp();
+fmc_totalizer_t fm_factory_get_ttl();
+fmc_fp_t fm_factory_get_units_tim();
+fmc_fp_t fm_factory_get_units_vol();
+void fm_factory_modify_date(int mod_day, int mod_month, int mod_year);
 void fm_factory_modify_fp_date(int date);
 void fm_factory_modify_fp_time(int time);
 void fm_factory_modify_k_factor_add(sel_digit_t digit_k);
 void fm_factory_modify_k_factor_subs(sel_digit_t digit_k);
 void fm_factory_modify_k_lin_add(sel_digit_k_lin_t digit_k_lin, sel_k k_sel);
 void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel);
-void fm_factory_modify_date(int mod_day, int mod_month, int mod_year);
-void fm_factory_modify_time(int mod_hour, int mod_minute, int mod_second);
 void fm_factory_modify_res_acm_ttl(sel_resolution_t units_res,
 sel_resolution_t acm_res, sel_resolution_t ttl_res);
 void fm_factory_modify_res_rate(sel_resolution_t units_res,
 sel_resolution_t rate_res);
+void fm_factory_modify_time(int mod_hour, int mod_minute, int mod_second);
 void fm_factory_modify_time_units(fmc_unit_time_t time_units);
 void fm_factory_modify_volume_units(fmc_unit_volume_t volume_units);
 void fm_factory_reset_acm();

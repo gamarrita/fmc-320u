@@ -21,7 +21,6 @@
 // includes
 #include "main.h"
 #include "../fm_lcd/fm_lcd.h"
-#include "../fm_event/fm_event.h"
 #include "../fm_menu_config/fm_menu_config.h"
 
 // Macros, defines, microcontroller pins (dhs).

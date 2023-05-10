@@ -116,7 +116,7 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
   #endif
     /* USER CODE END App_ThreadX_Init */
 
-    return ret;
+    return (ret);
 }
 
 /**
@@ -145,6 +145,10 @@ void MX_ThreadX_Init(void)
 void App_ThreadX_LowPower_Timer_Setup(ULONG count)
 {
     /* USER CODE BEGIN  App_ThreadX_LowPower_Timer_Setup */
+
+    const int rtc_clk = 32768;
+    const int rtc_prescaller = 16;
+
 #ifdef FM_THREADX_LOW_POWER
     uint32_t ticks_to_sleep;
 
@@ -152,7 +156,7 @@ void App_ThreadX_LowPower_Timer_Setup(ULONG count)
     /*
      * clock_freq/RTC_WAKEUPCLOCK_RTCCLK_DIV16
      */
-    ticks_to_sleep = (32768 / 16) * count;
+    ticks_to_sleep = (rtc_clk / rtc_prescaller) * count;
     ticks_to_sleep /= TX_TIMER_TICKS_PER_SECOND;
 
 #ifdef FM_DEBUG_UART_TX_TIME_ON_IDLE
@@ -217,6 +221,12 @@ void App_ThreadX_LowPower_Exit(void)
 ULONG App_ThreadX_LowPower_Timer_Adjust(void)
 {
     /* USER CODE BEGIN  App_ThreadX_LowPower_Timer_Adjust */
+
+    /*
+     * 2048 = lptim_clok_frq/clock_prescaler.
+     */
+    static const int lptim_clk_div_presc = 2048;
+
 #ifdef FM_THREADX_LOW_POWER
     static uint16_t cnt_drift = 0;
     ULONG cnt_ret;
@@ -224,8 +234,8 @@ ULONG App_ThreadX_LowPower_Timer_Adjust(void)
     cnt_ret = (g_lptim1_end - g_lptim1_start);
     cnt_ret *= TX_TIMER_TICKS_PER_SECOND;
     cnt_ret += cnt_drift;
-    cnt_drift = cnt_ret % 2048; // 2048 = lptim_clok_frq /  clock_prescaler
-    cnt_ret /= 2048;
+    cnt_drift = cnt_ret % lptim_clk_div_presc;
+    cnt_ret /= lptim_clk_div_presc;
     return (cnt_ret);
 #else
   return (0);
@@ -236,13 +246,16 @@ ULONG App_ThreadX_LowPower_Timer_Adjust(void)
 /* USER CODE BEGIN 1 */
 VOID menu_task_entry(ULONG initial_input)
 {
+    static const int queue_stay = 100;
+    static const int backlight_countdown = 10;
     static int backlight_cd = 0;
     ptr_fun_menu_t ptr_menu = fm_menu_show_init;
     fm_event_t event_next = EVENT_LCD_REFRESH;
     UINT ret_status;
     while (1)
     {
-        ret_status = tx_queue_receive(&event_queue_ptr, &event_next, 100);
+        ret_status = tx_queue_receive(&event_queue_ptr, &event_next,
+        queue_stay);
 
         if (ptr_menu != fm_menu_show_init && ptr_menu != fm_menu_show_version)
         {
@@ -260,7 +273,7 @@ VOID menu_task_entry(ULONG initial_input)
             {
                 HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port,
                 PCF8553_BACKLIGHT_Pin, GPIO_PIN_RESET);
-                backlight_cd = 10;
+                backlight_cd = backlight_countdown;
             }
         }
 

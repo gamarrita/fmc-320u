@@ -254,6 +254,12 @@ ptr_ret_menu_t fm_menu_show_date_hour(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime la pantalla de inicio del computador de caudales,
+ * encendiendo todos los segmentos y la backlight por 3 segundos.
+ * @param  Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_show_init(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -392,8 +398,8 @@ ptr_ret_menu_t fm_menu_show_ttl_rate(fm_event_t event_id)
 }
 
 /*
- * @brief Función que imprime el menú con la versión del caudalímetro en la
- * pantalla, con puntos específicos.
+ * @brief Función que imprime la pantalla con la versión del computador de
+ * caudales.
  * @param  Evento de presión de botones o refresh.
  * @retval Puntero al retorno de la función.
  */

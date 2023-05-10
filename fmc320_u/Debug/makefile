@@ -17,7 +17,6 @@ RM := rm -rf
 -include libs/fm_lcd/subdir.mk
 -include libs/fm_keypad/subdir.mk
 -include libs/fm_factory/subdir.mk
--include libs/fm_event/subdir.mk
 -include libs/fm_debug/subdir.mk
 -include libs/fm_calendar/subdir.mk
 -include Middlewares/ST/threadx/utility/low_power/subdir.mk

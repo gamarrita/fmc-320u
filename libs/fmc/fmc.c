@@ -94,27 +94,10 @@ fmc_totalizer_t fmc_get_acm()
 }
 
 /*
- * @brief Función que obtiene el valor de la temperatura interna y la devuelve
- * como parámetro de retorno.
- * @param  None
- * @retval temperatura interna del microcontrolador como una estructura que
- * contiene su valor, resolución y unidad.
- * global.
- */
-fmc_temp_t fmc_get_stm32_temp()
-{
-    int_temperature.temperature.num = fm_temp_stm32_format();
-    int_temperature.temperature.res = fm_factory_get_temp().temperature.res;
-    int_temperature.unit_volume_temp = fm_factory_get_temp().unit_volume_temp;
-
-    return (int_temperature);
-}
-
-/*
  * @brief Función que obtiene el valor del caudal instantaneo 'rate' y lo
  * devuelve como parámetro de retorno.
  * @param  None
- * @retval caudal instantaneo como estructura.
+ * @retval Caudal instantaneo como estructura.
  */
 fmc_totalizer_t fmc_get_rate()
 {
@@ -126,10 +109,26 @@ fmc_totalizer_t fmc_get_rate()
 }
 
 /*
+ * @brief Función que obtiene el valor de la temperatura interna y la devuelve
+ * como parámetro de retorno.
+ * @param  None
+ * @retval Temperatura interna del microcontrolador como una estructura que
+ * contiene su valor, resolución y unidad.
+ */
+fmc_temp_t fmc_get_stm32_temp()
+{
+    int_temperature.temperature.num = fm_temp_stm32_format();
+    int_temperature.temperature.res = fm_factory_get_temp().temperature.res;
+    int_temperature.unit_volume_temp = fm_factory_get_temp().unit_volume_temp;
+
+    return (int_temperature);
+}
+
+/*
  * @brief Función que obtiene el valor del caudal histórico y lo devuelve como
  * parámetro de retorno.
  * @param  None
- * @retval volumen histórico como estructura.
+ * @retval Volumen histórico como estructura.
  */
 fmc_totalizer_t fmc_get_ttl()
 {
@@ -143,7 +142,7 @@ fmc_totalizer_t fmc_get_ttl()
 /*
  * @brief Esta función limpia la cantidad de pulsos leidos por el contador de
  * pulsos.
- * @param  puntero a estructura que contiene datos como la cantidad de pulsos
+ * @param  Puntero a estructura que contiene datos como la cantidad de pulsos
  * leidos, valor y resolución del caudal/volumen, entre otros.
  * @retval None
  */
@@ -168,7 +167,7 @@ fmc_totalizer_t fmc_totalizer_init(fmc_totalizer_t totalizer)
 /*
  * @brief Esta función refresca el volumen obtenido de dividir los pulsos leidos
  * por el factor correspondiente.
- * @param  puntero a estructura que contiene datos como la cantidad de pulsos
+ * @param Puntero a estructura que contiene datos como la cantidad de pulsos
  * leidos, valor y resolución del caudal/volumen, entre otros.
  * @retval None
  */

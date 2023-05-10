@@ -30,7 +30,7 @@
 // Defines.
 #define VERSION     1
 #define REVISION    2
-#define RELEASE     5
+#define RELEASE     6
 
 //Debug.
 
@@ -56,8 +56,7 @@
 // Public function bodies.
 
 /*
- * @brief Esta función devuelve la versión actual del firmware, mantener
- * actualizado este valor.
+ * @brief Esta función devuelve la versión actual del firmware.
  * @param None
  * @retval Número de versión en formato VRR.
  */

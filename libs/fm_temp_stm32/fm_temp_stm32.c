@@ -49,16 +49,13 @@ extern ADC_HandleTypeDef hadc1;
 
 // Public function bodies.
 
-void fm_temp_stm32_get()
-{
-    const uint8_t poll_time = 100;
-
-    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
-    HAL_ADC_Start(&hadc1);
-    HAL_ADC_PollForConversion(&hadc1, poll_time);
-    HAL_ADC_Stop(&hadc1);
-}
-
+/*
+ * @brief Función que toma la lectura del ADC1, el cual está asociado a la
+ * medición de temperatura del microcontrolador, y la devuelve convertida a
+ * grados celcius.
+ * @param None
+ * @retval Temperatura interna del micro en grados celcius.
+ */
 int fm_temp_stm32_format()
 {
     uint16_t raw_value;
@@ -70,6 +67,21 @@ int fm_temp_stm32_format()
     ADC_RESOLUTION_12B);
 
     return (temp_celcius);
+}
+
+/*
+ * @brief Función que lee el ADC 1 asociado al sensor de temperatura.
+ * @param None
+ * @retval None
+ */
+void fm_temp_stm32_get()
+{
+    const uint8_t poll_time = 100;
+
+    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, poll_time);
+    HAL_ADC_Stop(&hadc1);
 }
 
 // Interrupts

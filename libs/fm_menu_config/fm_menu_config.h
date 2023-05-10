@@ -12,12 +12,16 @@
 
 #include "main.h"
 #include "../fm_lcd/fm_lcd.h"
-#include "../fm_event/fm_event.h"
 #include "../fm_menu_user/fm_menu_user.h"
 
 // Macros, defines, microcontroller pins (dhs).
 
 // Typedef.
+
+typedef enum
+{
+    PASS_0, PASS_UP, PASS_DOWN, PASS_ENTER, PASS_ESC
+} password_digit_t;
 
 typedef void* (*ptr_ret_menu_t)(fm_event_t);            // Un puntero a funcion
 typedef ptr_ret_menu_t (*ptr_fun_menu_t)(fm_event_t);

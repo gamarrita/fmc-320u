@@ -158,7 +158,8 @@ void lcd_write_line(uint8_t seg, uint8_t data);
 // Public function bodies.
 
 /*
- * @brief Función que limpia toda la pantalla.
+ * @brief Función que limpia toda la pantalla y los arreglos que contienen los
+ * bits de los segmentos a imprimir.
  * @param  None
  * @retval None
  */
@@ -183,6 +184,13 @@ void lcd_clear_all()
     pcf8553_write_all(NONE_SEGMENTS);
 }
 
+/*
+ * @brief Función que limpia de la pantalla (pero no del buffer intermedio) los
+ * dígitos de la fila que se pasa como segundo parámetro.
+ * @param Dígito a borrar de la pantalla.
+ * @param Fila de este dígito.
+ * @retval None
+ */
 void lcd_clear_digit(screen_digits_t digit, rows_t line)
 {
     if (line == HIGH_ROW)
@@ -586,6 +594,12 @@ void lcd_clear_symbol(symbols_t symbol, blink_t blink_speed)
     pcf8553_blink(blink_speed);
 }
 
+/*
+ * @brief Función que limpia de la pantalla la unidad de volumen elegida.
+ * @param Unidad a borrar.
+ * @param Velocidad de parpadeo de la pantalla.
+ * @retval None
+ */
 void lcd_clear_time_unit(fmc_unit_time_t time_unit, blink_t blink_speed)
 {
     switch (time_unit)
@@ -608,6 +622,12 @@ void lcd_clear_time_unit(fmc_unit_time_t time_unit, blink_t blink_speed)
     pcf8553_blink(blink_speed);
 }
 
+/*
+ * @brief Función que limpia de la pantalla la unidad de tiempo elegida.
+ * @param Unidad a borrar.
+ * @param Velocidad de parpadeo de la pantalla.
+ * @retval None
+ */
 void lcd_clear_vol_unit(fmc_unit_volume_t vol_unit, blink_t blink_speed)
 {
     switch (vol_unit)
@@ -717,8 +737,7 @@ void lcd_clear_vol_unit(fmc_unit_volume_t vol_unit, blink_t blink_speed)
 }
 
 /*
- * @brief Inicialización de la pantalla LCD escribiéndola por completo y luego
- * borrándola.
+ * @brief Inicialización de la pantalla LCD mediante el puerto SPI1.
  * @param  None
  * @retval None
  */
@@ -909,8 +928,8 @@ void lcd_put_char(char c, uint8_t col, uint8_t row)
 /*
  * @brief Función que envía por medio de un buffer lo escrito en la pantalla
  * anteriormente. Es un método mas eficiente primero escribir lo que se quiera
- * enviar en dicho buffer y luego escribir todo junto.
- * @param Enumeraciones rows_t y point_t de lcd.h
+ * enviar en dicho buffer y luego enviar todo junto.
+ * @param None
  * @retval None
  */
 void lcd_refresh()

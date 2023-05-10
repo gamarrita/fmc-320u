@@ -214,7 +214,6 @@
 "./Middlewares/ST/threadx/utility/low_power/tx_low_power.o"
 "./libs/fm_calendar/fm_calendar.o"
 "./libs/fm_debug/fm_debug.o"
-"./libs/fm_event/fm_event.o"
 "./libs/fm_factory/fm_factory.o"
 "./libs/fm_keypad/fm_keypad.o"
 "./libs/fm_lcd/fm_lcd.o"
