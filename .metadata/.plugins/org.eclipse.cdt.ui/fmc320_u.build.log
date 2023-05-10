@@ -1,0 +1,10 @@
+14:15:11 **** Incremental Build of configuration Debug for project fmc320_u ****
+make -j12 all 
+arm-none-eabi-size   fmc320_u.elf 
+   text	   data	    bss	    dec	    hex	filename
+  89408	    448	   8880	  98736	  181b0	fmc320_u.elf
+Finished building: default.size.stdout
+ 
+
+14:15:12 Build Finished. 0 errors, 0 warnings. (took 735ms)
+

@@ -289,27 +289,27 @@ fmc_fp_t fm_factory_get_units_vol()
 fmc_fp_t fm_factory_get_k_factor(sel_k k_sel)
 {
     static fmc_fp_t k_selected;
-    if(k_sel == K_FACTOR)
+    if (k_sel == K_FACTOR)
     {
         k_selected = k_factor_config;
     }
-    else if(k_sel == K_LIN_1)
+    else if (k_sel == K_LIN_1)
     {
         k_selected = k_lin_1_config;
     }
-    else if(k_sel == K_LIN_2)
+    else if (k_sel == K_LIN_2)
     {
         k_selected = k_lin_2_config;
     }
-    else if(k_sel == K_LIN_3)
+    else if (k_sel == K_LIN_3)
     {
         k_selected = k_lin_3_config;
     }
-    else if(k_sel == K_LIN_4)
+    else if (k_sel == K_LIN_4)
     {
         k_selected = k_lin_4_config;
     }
-    else if(k_sel == K_LIN_5)
+    else if (k_sel == K_LIN_5)
     {
         k_selected = k_lin_5_config;
     }
@@ -321,23 +321,23 @@ fmc_fp_t fm_factory_get_frec_lin(sel_k k_sel)
 {
     static fmc_fp_t frec_lin_selected;
 
-    if(k_sel == K_LIN_1)
+    if (k_sel == K_LIN_1)
     {
         frec_lin_selected = frec_lin_1;
     }
-    else if(k_sel == K_LIN_2)
+    else if (k_sel == K_LIN_2)
     {
         frec_lin_selected = frec_lin_2;
     }
-    else if(k_sel == K_LIN_3)
+    else if (k_sel == K_LIN_3)
     {
         frec_lin_selected = frec_lin_3;
     }
-    else if(k_sel == K_LIN_4)
+    else if (k_sel == K_LIN_4)
     {
         frec_lin_selected = frec_lin_4;
     }
-    else if(k_sel == K_LIN_5)
+    else if (k_sel == K_LIN_5)
     {
         frec_lin_selected = frec_lin_5;
     }
@@ -354,7 +354,7 @@ fmc_fp_t fm_factory_get_frec_lin(sel_k k_sel)
  */
 fmc_date_time_t fm_factory_get_date_time()
 {
-    return(date_time_config);
+    return (date_time_config);
 }
 
 /*
@@ -365,7 +365,7 @@ fmc_date_time_t fm_factory_get_date_time()
  */
 fmc_fp_t fm_factory_get_fp_date()
 {
-    return(date_user);
+    return (date_user);
 }
 
 /*
@@ -376,7 +376,7 @@ fmc_fp_t fm_factory_get_fp_date()
  */
 fmc_fp_t fm_factory_get_fp_time()
 {
-    return(time_user);
+    return (time_user);
 }
 
 /*
@@ -388,7 +388,7 @@ fmc_fp_t fm_factory_get_fp_time()
  */
 fmc_fp_t fm_factory_get_fp_date_conf()
 {
-    return(date_config);
+    return (date_config);
 }
 
 /*
@@ -400,7 +400,7 @@ fmc_fp_t fm_factory_get_fp_date_conf()
  */
 fmc_fp_t fm_factory_get_fp_time_conf()
 {
-    return(time_config);
+    return (time_config);
 }
 
 /*
@@ -515,9 +515,9 @@ void fm_factory_modify_k_lin_add(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
     uint32_t frec_lin_new_num = 0;
 
     fm_factory_separate_k_lin_and_frec(k_sel);
-    if(digit_k_lin <= DIG_LIN_7)
+    if (digit_k_lin <= DIG_LIN_7)
     {
-        if(k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] < VAL_9)
+        if (k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] < VAL_9)
         {
             k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin]++;
         }
@@ -526,37 +526,37 @@ void fm_factory_modify_k_lin_add(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
             k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] = VAL_0;
         }
 
-        for(int i = 0; i <= LINE_1_DIGITS - 1; i++)
+        for (int i = 0; i <= LINE_1_DIGITS - 1; i++)
         {
             k_lin_new_num = (k_lin_new_num * 10) + k_lin_array[i];
         }
 
-        if(k_sel == K_LIN_1)
+        if (k_sel == K_LIN_1)
         {
             k_lin_1_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_2)
+        else if (k_sel == K_LIN_2)
         {
             k_lin_2_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_3)
+        else if (k_sel == K_LIN_3)
         {
             k_lin_3_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_4)
+        else if (k_sel == K_LIN_4)
         {
             k_lin_4_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_5)
+        else if (k_sel == K_LIN_5)
         {
             k_lin_5_config.num = k_lin_new_num;
         }
     }
-    else if(digit_k_lin > DIG_LIN_7)
+    else if (digit_k_lin > DIG_LIN_7)
     {
-        if(LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8 != DIG_LIN_3)
+        if (LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8 != DIG_LIN_3)
         {
-            if(frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] < VAL_9)
+            if (frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] < VAL_9)
             {
                 frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8]++;
             }
@@ -567,7 +567,7 @@ void fm_factory_modify_k_lin_add(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
         }
         else
         {
-            if(frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] < VAL_1)
+            if (frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] < VAL_1)
             {
                 frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8]++;
             }
@@ -577,28 +577,28 @@ void fm_factory_modify_k_lin_add(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
             }
         }
 
-        for(int j = 0; j <= LINE_1_DIGITS - 2; j++)
+        for (int j = 0; j <= LINE_1_DIGITS - 2; j++)
         {
             frec_lin_new_num = (frec_lin_new_num * 10) + frec_array[j];
         }
 
-        if(k_sel == K_LIN_1)
+        if (k_sel == K_LIN_1)
         {
             frec_lin_1.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_2)
+        else if (k_sel == K_LIN_2)
         {
             frec_lin_2.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_3)
+        else if (k_sel == K_LIN_3)
         {
             frec_lin_3.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_4)
+        else if (k_sel == K_LIN_4)
         {
             frec_lin_4.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_5)
+        else if (k_sel == K_LIN_5)
         {
             frec_lin_5.num = frec_lin_new_num;
         }
@@ -611,9 +611,9 @@ void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
     uint32_t frec_lin_new_num = 0;
 
     fm_factory_separate_k_lin_and_frec(k_sel);
-    if(digit_k_lin <= DIG_LIN_7)
+    if (digit_k_lin <= DIG_LIN_7)
     {
-        if(k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] > VAL_0)
+        if (k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] > VAL_0)
         {
             k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin]--;
         }
@@ -622,37 +622,37 @@ void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
             k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] = VAL_9;
         }
 
-        for(int i = 0; i <= LINE_1_DIGITS - 1; i++)
+        for (int i = 0; i <= LINE_1_DIGITS - 1; i++)
         {
             k_lin_new_num = (k_lin_new_num * 10) + k_lin_array[i];
         }
 
-        if(k_sel == K_LIN_1)
+        if (k_sel == K_LIN_1)
         {
             k_lin_1_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_2)
+        else if (k_sel == K_LIN_2)
         {
             k_lin_2_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_3)
+        else if (k_sel == K_LIN_3)
         {
             k_lin_3_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_4)
+        else if (k_sel == K_LIN_4)
         {
             k_lin_4_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_5)
+        else if (k_sel == K_LIN_5)
         {
             k_lin_5_config.num = k_lin_new_num;
         }
     }
-    else if(digit_k_lin > DIG_LIN_7)
+    else if (digit_k_lin > DIG_LIN_7)
     {
-        if(LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8 != DIG_LIN_3)
+        if (LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8 != DIG_LIN_3)
         {
-            if(frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] > VAL_0)
+            if (frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] > VAL_0)
             {
                 frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8]--;
             }
@@ -663,7 +663,7 @@ void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
         }
         else
         {
-            if(frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] > VAL_0)
+            if (frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] > VAL_0)
             {
                 frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8]--;
             }
@@ -673,28 +673,28 @@ void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
             }
         }
 
-        for(int j = 0; j <= LINE_1_DIGITS - 2; j++)
+        for (int j = 0; j <= LINE_1_DIGITS - 2; j++)
         {
             frec_lin_new_num = (frec_lin_new_num * 10) + frec_array[j];
         }
 
-        if(k_sel == K_LIN_1)
+        if (k_sel == K_LIN_1)
         {
             frec_lin_1.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_2)
+        else if (k_sel == K_LIN_2)
         {
             frec_lin_2.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_3)
+        else if (k_sel == K_LIN_3)
         {
             frec_lin_3.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_4)
+        else if (k_sel == K_LIN_4)
         {
             frec_lin_4.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_5)
+        else if (k_sel == K_LIN_5)
         {
             frec_lin_5.num = frec_lin_new_num;
         }
@@ -809,9 +809,9 @@ void fm_factory_separate_k_lin_and_frec(sel_k k_sel)
         i--;
     }
 
-    while(j >= 0) //Introduzco la frecuencia de linealización en otro arreglo.
+    while (j >= 0) //Introduzco la frecuencia de linealización en otro arreglo.
     {
-        if(frec_num > 0)
+        if (frec_num > 0)
         {
             frec_array[j] = frec_num % 10;
             frec_num /= 10;

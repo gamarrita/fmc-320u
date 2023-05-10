@@ -6,7 +6,10 @@
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>
 	<section name="OptionalMessageDialog.hide.">
-		<item key="askReindex" value="false"/>
+		<item key="askReindex" value="true"/>
 		<item key="askReindex.detail" value="0"/>
+	</section>
+	<section name="CResourceRenameRefactoringInputPage">
+		<item key="updateReferences" value="true"/>
 	</section>
 </section>

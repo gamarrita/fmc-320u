@@ -10,7 +10,6 @@
  */
 
 // Includes.
-
 #include "fm_version.h"
 #include "stdio.h"
 #include "stdlib.h"
@@ -28,12 +27,10 @@
  */
 
 // Const data.
-
 // Defines.
-
 #define VERSION     1
 #define REVISION    2
-#define RELEASE     4
+#define RELEASE     5
 
 //Debug.
 

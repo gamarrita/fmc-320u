@@ -259,7 +259,7 @@ ptr_ret_menu_t fm_menu_show_init(fm_event_t event_id)
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
     static uint8_t counter = 0;
-    const  uint8_t counter_max = 30;
+    const uint8_t counter_max = 30;
 
     ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_show_init;
     fm_event_t event_now;
@@ -291,7 +291,7 @@ ptr_ret_menu_t fm_menu_show_init(fm_event_t event_id)
         case EVENT_KEY_ESC:
         break;
         case EVENT_LCD_REFRESH:
-            if(counter < counter_max)
+            if (counter < counter_max)
             {
                 HAL_Delay(100); // @suppress("Avoid magic numbers")
                 counter++;
@@ -402,7 +402,7 @@ ptr_ret_menu_t fm_menu_show_version(fm_event_t event_id)
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
     static uint8_t counter = 0;
-    const  uint8_t counter_max = 30;
+    const uint8_t counter_max = 30;
 
     ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_show_version;
     fm_event_t event_now;
@@ -432,7 +432,7 @@ ptr_ret_menu_t fm_menu_show_version(fm_event_t event_id)
         case EVENT_KEY_ESC:
         break;
         case EVENT_LCD_REFRESH:
-            if(counter < counter_max)
+            if (counter < counter_max)
             {
                 HAL_Delay(100); // @suppress("Avoid magic numbers")
                 counter++;

@@ -146,7 +146,7 @@ fm_event_t event_id, sel_date_time_field_t field)
     /*
      * Se comprueba si se está en el menú de configuración o de usuario.
      */
-    if(configuration)
+    if (configuration)
     {
         date_to_str = fm_factory_get_fp_date_conf();
         time_to_str = fm_factory_get_fp_time_conf();
@@ -160,64 +160,62 @@ fm_event_t event_id, sel_date_time_field_t field)
         time_to_str = fm_factory_get_fp_time();
     }
 
-    fm_lcd_fp_to_str(date_to_str, '0', LINE_0_DIGITS, lcd_msg,
-    sizeof(lcd_msg));
+    fm_lcd_fp_to_str(date_to_str, '0', LINE_0_DIGITS, lcd_msg, sizeof(lcd_msg));
     fm_lcd_puts(lcd_msg, HIGH_ROW);
     lcd_set_point(HIGH_ROW, PNT_1);
     lcd_set_point(HIGH_ROW, PNT_3);
 
-    fm_lcd_fp_to_str(time_to_str, '0', LINE_1_DIGITS, lcd_msg,
-    sizeof(lcd_msg));
+    fm_lcd_fp_to_str(time_to_str, '0', LINE_1_DIGITS, lcd_msg, sizeof(lcd_msg));
     fm_lcd_puts(lcd_msg, LOW_ROW);
     lcd_clear_digit(DIGIT_0, LOW_ROW);
     lcd_set_point(LOW_ROW, PNT_2);
     lcd_set_point(LOW_ROW, PNT_4);
 
-    if(configuration)
+    if (configuration)
     {
-        if(event_id == EVENT_KEY_ENTER ||
-        (previous_event == EVENT_KEY_ENTER && event_id == EVENT_LCD_REFRESH))
+        if (event_id == EVENT_KEY_ENTER
+        || (previous_event == EVENT_KEY_ENTER && event_id == EVENT_LCD_REFRESH))
         {
             blink = 1;
         }
-        else if(event_id == EVENT_KEY_DOWN ||
-        (previous_event == EVENT_KEY_DOWN && event_id == EVENT_LCD_REFRESH) ||
-        event_id == EVENT_KEY_UP ||
-        (previous_event == EVENT_KEY_UP && event_id == EVENT_LCD_REFRESH))
+        else if (event_id == EVENT_KEY_DOWN
+        || (previous_event == EVENT_KEY_DOWN && event_id == EVENT_LCD_REFRESH)
+        || event_id == EVENT_KEY_UP
+        || (previous_event == EVENT_KEY_UP && event_id == EVENT_LCD_REFRESH))
         {
             blink = 0;
         }
 
-        if(blink == 1)
+        if (blink == 1)
         {
-            if(field == DAY)
+            if (field == DAY)
             {
                 lcd_clear_digit(DIGIT_1, HIGH_ROW);
                 lcd_clear_digit(DIGIT_0, HIGH_ROW);
             }
-            else if(field == MONTH)
+            else if (field == MONTH)
             {
                 lcd_clear_digit(DIGIT_3, HIGH_ROW);
                 lcd_clear_digit(DIGIT_2, HIGH_ROW);
             }
-            else if(field == YEAR)
+            else if (field == YEAR)
             {
                 lcd_clear_digit(DIGIT_7, HIGH_ROW);
                 lcd_clear_digit(DIGIT_6, HIGH_ROW);
                 lcd_clear_digit(DIGIT_5, HIGH_ROW);
                 lcd_clear_digit(DIGIT_4, HIGH_ROW);
             }
-            else if(field == HOUR)
+            else if (field == HOUR)
             {
                 lcd_clear_digit(DIGIT_2, LOW_ROW);
                 lcd_clear_digit(DIGIT_1, LOW_ROW);
             }
-            else if(field == MINUTE)
+            else if (field == MINUTE)
             {
                 lcd_clear_digit(DIGIT_4, LOW_ROW);
                 lcd_clear_digit(DIGIT_3, LOW_ROW);
             }
-            else if(field == SECOND)
+            else if (field == SECOND)
             {
                 lcd_clear_digit(DIGIT_6, LOW_ROW);
                 lcd_clear_digit(DIGIT_5, LOW_ROW);
@@ -416,20 +414,20 @@ void fm_lcd_k_factor(fm_event_t event_id, sel_digit_t digit_modify)
     sizeof(lcd_msg));
     fm_lcd_puts(lcd_msg, HIGH_ROW);
 
-    if(event_id == EVENT_KEY_ENTER ||
-    (previous_event == EVENT_KEY_ENTER && event_id == EVENT_LCD_REFRESH))
+    if (event_id == EVENT_KEY_ENTER
+    || (previous_event == EVENT_KEY_ENTER && event_id == EVENT_LCD_REFRESH))
     {
         blink = 1;
     }
-    else if(event_id == EVENT_KEY_DOWN ||
-    (previous_event == EVENT_KEY_DOWN && event_id == EVENT_LCD_REFRESH) ||
-    event_id == EVENT_KEY_UP ||
-    (previous_event == EVENT_KEY_UP && event_id == EVENT_LCD_REFRESH))
+    else if (event_id == EVENT_KEY_DOWN
+    || (previous_event == EVENT_KEY_DOWN && event_id == EVENT_LCD_REFRESH)
+    || event_id == EVENT_KEY_UP
+    || (previous_event == EVENT_KEY_UP && event_id == EVENT_LCD_REFRESH))
     {
         blink = 0;
     }
 
-    if(blink == 1)
+    if (blink == 1)
     {
         lcd_clear_digit(DIG_7 - digit_modify, HIGH_ROW);
         blink = 0;
@@ -442,14 +440,14 @@ void fm_lcd_k_factor(fm_event_t event_id, sel_digit_t digit_modify)
     lcd_set_symbol(K, 0x00);
 }
 
-void fm_lcd_k_lin(sel_k k_sel, fm_event_t event_id, sel_digit_k_lin_t digit_lin_modify)
+void fm_lcd_k_lin(sel_k k_sel, fm_event_t event_id,
+sel_digit_k_lin_t digit_lin_modify)
 {
     char lcd_msg[PCF8553_DATA_SIZE];
 
     fm_lcd_fp_to_str(fm_factory_get_k_factor(k_sel), '0', LINE_0_DIGITS,
     lcd_msg, sizeof(lcd_msg));
-    fm_lcd_fp_add_dot(fm_factory_get_k_factor(k_sel), lcd_msg,
-    sizeof(lcd_msg));
+    fm_lcd_fp_add_dot(fm_factory_get_k_factor(k_sel), lcd_msg, sizeof(lcd_msg));
     fm_lcd_puts(lcd_msg, HIGH_ROW);
 
     fm_lcd_fp_to_str(fm_factory_get_frec_lin(k_sel), '0', LINE_1_DIGITS,
@@ -459,22 +457,22 @@ void fm_lcd_k_lin(sel_k k_sel, fm_event_t event_id, sel_digit_k_lin_t digit_lin_
     lcd_clear_digit(DIGIT_1, LOW_ROW);
     lcd_clear_digit(DIGIT_2, LOW_ROW);
 
-    if(event_id == EVENT_KEY_ENTER ||
-    (previous_event == EVENT_KEY_ENTER && event_id == EVENT_LCD_REFRESH))
+    if (event_id == EVENT_KEY_ENTER
+    || (previous_event == EVENT_KEY_ENTER && event_id == EVENT_LCD_REFRESH))
     {
         blink = 1;
     }
-    else if(event_id == EVENT_KEY_DOWN ||
-    (previous_event == EVENT_KEY_DOWN && event_id == EVENT_LCD_REFRESH) ||
-    event_id == EVENT_KEY_UP ||
-    (previous_event == EVENT_KEY_UP && event_id == EVENT_LCD_REFRESH))
+    else if (event_id == EVENT_KEY_DOWN
+    || (previous_event == EVENT_KEY_DOWN && event_id == EVENT_LCD_REFRESH)
+    || event_id == EVENT_KEY_UP
+    || (previous_event == EVENT_KEY_UP && event_id == EVENT_LCD_REFRESH))
     {
         blink = 0;
     }
 
-    if(digit_lin_modify <= DIG_LIN_7)
+    if (digit_lin_modify <= DIG_LIN_7)
     {
-        if(blink == 1)
+        if (blink == 1)
         {
             lcd_clear_digit(DIG_LIN_7 - digit_lin_modify, HIGH_ROW);
             blink = 0;
@@ -486,7 +484,7 @@ void fm_lcd_k_lin(sel_k k_sel, fm_event_t event_id, sel_digit_k_lin_t digit_lin_
     }
     else
     {
-        if(blink == 1)
+        if (blink == 1)
         {
             lcd_clear_digit(DIG_LIN_6 - digit_lin_modify + DIG_LIN_8, LOW_ROW);
             blink = 0;
@@ -498,27 +496,27 @@ void fm_lcd_k_lin(sel_k k_sel, fm_event_t event_id, sel_digit_k_lin_t digit_lin_
     }
 
     lcd_set_symbol(F, 0x00);
-    if(k_sel == K_LIN_1)
+    if (k_sel == K_LIN_1)
     {
         lcd_set_symbol(LIN_1, 0x00);
     }
-    if(k_sel == K_LIN_2)
+    if (k_sel == K_LIN_2)
     {
         lcd_set_symbol(LIN_2, 0x00);
     }
-    if(k_sel == K_LIN_3)
+    if (k_sel == K_LIN_3)
     {
         lcd_set_symbol(LIN_3, 0x00);
     }
-    if(k_sel == K_LIN_4)
+    if (k_sel == K_LIN_4)
     {
         lcd_set_symbol(LIN_4, 0x00);
     }
-    if(k_sel == K_LIN_5)
+    if (k_sel == K_LIN_5)
     {
         lcd_set_symbol(LIN_5, 0x00);
     }
-    lcd_set_symbol(HZ,0x00);
+    lcd_set_symbol(HZ, 0x00);
 }
 
 /*
@@ -612,25 +610,25 @@ void fm_lcd_units_tim(fm_event_t event_id)
     fm_lcd_fp_add_dot(fm_factory_get_units_tim(), lcd_msg, sizeof(lcd_msg));
     fm_lcd_puts(lcd_msg, LOW_ROW);
 
-    if(event_id != EVENT_LCD_REFRESH ||
-    (previous_event != EVENT_LCD_REFRESH && event_id == EVENT_LCD_REFRESH))
+    if (event_id != EVENT_LCD_REFRESH
+    || (previous_event != EVENT_LCD_REFRESH && event_id == EVENT_LCD_REFRESH))
     {
         blink = 0;
     }
 
-    if(blink == 1)
+    if (blink == 1)
     {
-        if(fm_factory_get_units_tim().res == 1)
+        if (fm_factory_get_units_tim().res == 1)
         {
             resolution_modify = PNT_5;
             lcd_clear_point(LOW_ROW, resolution_modify);
         }
-        else if(fm_factory_get_units_tim().res == 2)
+        else if (fm_factory_get_units_tim().res == 2)
         {
             resolution_modify = PNT_4;
             lcd_clear_point(LOW_ROW, resolution_modify);
         }
-        else if(fm_factory_get_units_tim().res == 3)
+        else if (fm_factory_get_units_tim().res == 3)
         {
             resolution_modify = PNT_3;
             lcd_clear_point(LOW_ROW, resolution_modify);
@@ -661,30 +659,30 @@ void fm_lcd_units_vol(fm_event_t event_id)
     char lcd_msg[PCF8553_DATA_SIZE];
     point_t resolution_modify;
 
-    fm_lcd_fp_to_str(fm_factory_get_units_vol(), '0', LINE_0_DIGITS,
-    lcd_msg, sizeof(lcd_msg));
+    fm_lcd_fp_to_str(fm_factory_get_units_vol(), '0', LINE_0_DIGITS, lcd_msg,
+    sizeof(lcd_msg));
     fm_lcd_fp_add_dot(fm_factory_get_units_vol(), lcd_msg, sizeof(lcd_msg));
     fm_lcd_puts(lcd_msg, HIGH_ROW);
 
-    if(event_id != EVENT_LCD_REFRESH ||
-    (previous_event != EVENT_LCD_REFRESH && event_id == EVENT_LCD_REFRESH))
+    if (event_id != EVENT_LCD_REFRESH
+    || (previous_event != EVENT_LCD_REFRESH && event_id == EVENT_LCD_REFRESH))
     {
         blink = 0;
     }
 
-    if(blink == 1)
+    if (blink == 1)
     {
-        if(fm_factory_get_units_vol().res == 1)
+        if (fm_factory_get_units_vol().res == 1)
         {
             resolution_modify = PNT_6;
             lcd_clear_point(HIGH_ROW, resolution_modify);
         }
-        else if(fm_factory_get_units_vol().res == 2)
+        else if (fm_factory_get_units_vol().res == 2)
         {
             resolution_modify = PNT_5;
             lcd_clear_point(HIGH_ROW, resolution_modify);
         }
-        else if(fm_factory_get_units_vol().res == 3)
+        else if (fm_factory_get_units_vol().res == 3)
         {
             resolution_modify = PNT_4;
             lcd_clear_point(HIGH_ROW, resolution_modify);

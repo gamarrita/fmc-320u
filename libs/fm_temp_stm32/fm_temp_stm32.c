@@ -53,7 +53,7 @@ void fm_temp_stm32_get()
 {
     const uint8_t poll_time = 100;
 
-    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET ,ADC_SINGLE_ENDED);
+    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
     HAL_ADC_Start(&hadc1);
     HAL_ADC_PollForConversion(&hadc1, poll_time);
     HAL_ADC_Stop(&hadc1);

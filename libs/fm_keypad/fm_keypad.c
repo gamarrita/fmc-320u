@@ -103,7 +103,7 @@ void HAL_GPIO_EXTI_Rising_Callback(uint16_t gpio_pin) // @suppress("Name convent
      * semáforo de la tarea task_debounce, para que esta se bloquee durante el
      * tiempo necesario para que no haya rebotes de los botones.
      */
-    tx_queue_send(&event_queue_ptr,&event_now,TX_NO_WAIT);
+    tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
     tx_semaphore_ceiling_put(&debounce_semaphore_ptr, 1);
 }
 

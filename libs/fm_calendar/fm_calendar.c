@@ -156,7 +156,7 @@ int fm_calendar_get_year()
  */
 void fm_calendar_format_time()
 {
-    int  time_int = 0;
+    int time_int = 0;
     char time_arr[PCF8553_DATA_SIZE];
 
     fm_calendar_get();
@@ -181,7 +181,7 @@ void fm_calendar_format_time()
  */
 void fm_calendar_format_date()
 {
-    int  date_int = 0;
+    int date_int = 0;
     char date_arr[PCF8553_DATA_SIZE];
 
     fm_calendar_get();

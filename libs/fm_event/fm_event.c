@@ -23,11 +23,8 @@
  */
 
 // Const data.
-
 // Defines.
-
 //Debug.
-
 /*
  * To temporally disable a block of code, use preprocessor's conditional
  * compilation features, eg, the following one should be used to increase the
