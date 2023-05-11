@@ -94,7 +94,7 @@ VOID debounce_task_entry(ULONG initial_input);
  * @param memory_ptr: memory pointer
  * @retval int
  */
-UINT App_ThreadX_Init(VOID *memory_ptr)
+UINT App_ThreadX_Init(VOID *memory_ptr) // @suppress("Name convention for function")
 {
     UINT ret = TX_SUCCESS;
     /* USER CODE BEGIN App_ThreadX_MEM_POOL */
@@ -124,7 +124,7 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
  * @param  None
  * @retval None
  */
-void MX_ThreadX_Init(void)
+void MX_ThreadX_Init(void) // @suppress("Name convention for function")
 {
     /* USER CODE BEGIN  Before_Kernel_Start */
 
@@ -142,7 +142,7 @@ void MX_ThreadX_Init(void)
  * @param  count : TX timer count
  * @retval None
  */
-void App_ThreadX_LowPower_Timer_Setup(ULONG count)
+void App_ThreadX_LowPower_Timer_Setup(ULONG count) // @suppress("Name convention for function")
 {
     /* USER CODE BEGIN  App_ThreadX_LowPower_Timer_Setup */
 
@@ -178,14 +178,14 @@ void App_ThreadX_LowPower_Timer_Setup(ULONG count)
  * @param  None
  * @retval None
  */
-void App_ThreadX_LowPower_Enter(void)
+void App_ThreadX_LowPower_Enter(void) // @suppress("Name convention for function")
 {
     /* USER CODE BEGIN  App_ThreadX_LowPower_Enter */
 
     HAL_GPIO_WritePin(led_blue_GPIO_Port, led_blue_Pin, GPIO_PIN_RESET);
 
 #ifdef FM_THREADX_LOW_POWER
-    HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
+    HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
 #endif
 
     /* USER CODE END  App_ThreadX_LowPower_Enter */
@@ -196,7 +196,7 @@ void App_ThreadX_LowPower_Enter(void)
  * @param  None
  * @retval None
  */
-void App_ThreadX_LowPower_Exit(void)
+void App_ThreadX_LowPower_Exit(void) // @suppress("Name convention for function")
 {
     /* USER CODE BEGIN  App_ThreadX_LowPower_Exit */
 
@@ -205,7 +205,55 @@ void App_ThreadX_LowPower_Exit(void)
      * expected time was elapsed. Debugger issues makes wake up CPU earlier
      */
 #ifdef FM_THREADX_LOW_POWER
-    SystemClock_Config();
+    RCC_OscInitTypeDef RCC_OscInitStruct =
+    {
+        0
+    };
+    RCC_ClkInitTypeDef RCC_ClkInitStruct =
+    {
+        0
+    };
+
+    /** Configure the main internal regulator output voltage
+     */
+    if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE4) != HAL_OK)
+    {
+        Error_Handler();
+    }
+
+    /** Configure LSE Drive Capability
+     */
+    HAL_PWR_EnableBkUpAccess();
+    __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
+
+    /** Initializes the CPU, AHB and APB buses clocks
+     */
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE
+    | RCC_OSCILLATORTYPE_MSI;
+    RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+    RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+    RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
+    RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_1;
+    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+    {
+        Error_Handler();
+    }
+
+    /** Initializes the CPU, AHB and APB buses clocks
+     */
+    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
+    | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2 | RCC_CLOCKTYPE_PCLK3;
+    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI;
+    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+    RCC_ClkInitStruct.APB3CLKDivider = RCC_HCLK_DIV1;
+
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+    {
+        Error_Handler();
+    }
 #endif
 
     HAL_GPIO_WritePin(led_blue_GPIO_Port, led_blue_Pin, GPIO_PIN_SET);
@@ -218,7 +266,7 @@ void App_ThreadX_LowPower_Exit(void)
  * @param  None
  * @retval Amount of time (in ticks)
  */
-ULONG App_ThreadX_LowPower_Timer_Adjust(void)
+ULONG App_ThreadX_LowPower_Timer_Adjust(void) // @suppress("Name convention for function")
 {
     /* USER CODE BEGIN  App_ThreadX_LowPower_Timer_Adjust */
 
