@@ -50,7 +50,8 @@ Core/Src/app_threadx.o: ../Core/Src/app_threadx.c \
  d:\githubs\fmc-320u\libs\fm_menu_config\fm_menu_config.h \
  d:\githubs\fmc-320u\libs\fm_lcd\fm_lcd.h \
  d:\githubs\fmc-320u\libs\fm_menu_user\fm_menu_user.h \
- d:\githubs\fmc-320u\libs\fm_menu_config\fm_menu_config.h
+ d:\githubs\fmc-320u\libs\fm_menu_config\fm_menu_config.h \
+ d:\githubs\fmc-320u\libs\fm_factory\fm_factory.h
 ../Core/Inc/app_threadx.h:
 ../Middlewares/ST/threadx/common/inc/tx_api.h:
 ../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h:
@@ -107,3 +108,4 @@ d:\githubs\fmc-320u\libs\fm_menu_config\fm_menu_config.h:
 d:\githubs\fmc-320u\libs\fm_lcd\fm_lcd.h:
 d:\githubs\fmc-320u\libs\fm_menu_user\fm_menu_user.h:
 d:\githubs\fmc-320u\libs\fm_menu_config\fm_menu_config.h:
+d:\githubs\fmc-320u\libs\fm_factory\fm_factory.h:

@@ -46,8 +46,7 @@ libs/fm_version/fm_version.o: \
  d:\githubs\fmc-320u\libs\fmc\fmc.h \
  d:\githubs\fmc-320u\libs\fm_lcd\pcf8553.h \
  d:\githubs\fmc-320u\libs\fm_factory\fm_factory.h \
- d:\githubs\fmc-320u\libs\fmc\fmc.h \
- d:\githubs\fmc-320u\libs\fm_event\fm_event.h
+ d:\githubs\fmc-320u\libs\fmc\fmc.h
 D:/githubs/fmc-320u/libs/fm_version/fm_version.h:
 d:\githubs\fmc-320u\libs\fm_lcd\fm_lcd.h:
 ../Core/Inc/main.h:
@@ -98,4 +97,3 @@ d:\githubs\fmc-320u\libs\fmc\fmc.h:
 d:\githubs\fmc-320u\libs\fm_lcd\pcf8553.h:
 d:\githubs\fmc-320u\libs\fm_factory\fm_factory.h:
 d:\githubs\fmc-320u\libs\fmc\fmc.h:
-d:\githubs\fmc-320u\libs\fm_event\fm_event.h:

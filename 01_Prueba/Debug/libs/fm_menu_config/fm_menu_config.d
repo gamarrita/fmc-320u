@@ -46,11 +46,8 @@ libs/fm_menu_config/fm_menu_config.o: \
  d:\githubs\fmc-320u\libs\fm_lcd\pcf8553.h \
  d:\githubs\fmc-320u\libs\fm_factory\fm_factory.h \
  d:\githubs\fmc-320u\libs\fmc\fmc.h \
- d:\githubs\fmc-320u\libs\fm_event\fm_event.h \
- d:\githubs\fmc-320u\libs\fm_event\fm_event.h \
  d:\githubs\fmc-320u\libs\fm_menu_user\fm_menu_user.h \
  d:\githubs\fmc-320u\libs\fm_lcd\fm_lcd.h \
- d:\githubs\fmc-320u\libs\fm_event\fm_event.h \
  d:\githubs\fmc-320u\libs\fm_menu_config\fm_menu_config.h \
  d:\githubs\fmc-320u\libs\fm_debug\fm_debug.h \
  d:\githubs\fmc-320u\libs\fm_calendar\fm_calendar.h \
@@ -105,11 +102,8 @@ d:\githubs\fmc-320u\libs\fmc\fmc.h:
 d:\githubs\fmc-320u\libs\fm_lcd\pcf8553.h:
 d:\githubs\fmc-320u\libs\fm_factory\fm_factory.h:
 d:\githubs\fmc-320u\libs\fmc\fmc.h:
-d:\githubs\fmc-320u\libs\fm_event\fm_event.h:
-d:\githubs\fmc-320u\libs\fm_event\fm_event.h:
 d:\githubs\fmc-320u\libs\fm_menu_user\fm_menu_user.h:
 d:\githubs\fmc-320u\libs\fm_lcd\fm_lcd.h:
-d:\githubs\fmc-320u\libs\fm_event\fm_event.h:
 d:\githubs\fmc-320u\libs\fm_menu_config\fm_menu_config.h:
 d:\githubs\fmc-320u\libs\fm_debug\fm_debug.h:
 d:\githubs\fmc-320u\libs\fm_calendar\fm_calendar.h:

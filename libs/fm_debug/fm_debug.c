@@ -62,7 +62,7 @@
 
 // Extern variables.
 
-extern UART_HandleTypeDef huart2;
+extern UART_HandleTypeDef huart1;
 
 // Global variables, statics.
 
@@ -121,7 +121,7 @@ void fm_debug_msg_uart(const uint8_t *p_msg, uint8_t len)
      */
     while (ret == HAL_BUSY)
     {
-        ret = HAL_UART_Transmit(&huart2, p_msg, len, DELAY_DEFAULT);
+        ret = HAL_UART_Transmit(&huart1, p_msg, len, DELAY_DEFAULT);
     }
 
 }

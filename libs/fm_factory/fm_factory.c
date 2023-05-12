@@ -210,9 +210,9 @@ sel_value_t frec_array[LINE_1_DIGITS - 1];
 
 // External variables.
 
-const int ten_multipllier = 10;
-
 // Global variables, statics.
+
+const int ten_multipllier = 10;
 
 // Private function prototypes.
 
@@ -706,6 +706,13 @@ void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
             frec_lin_5.num = frec_lin_new_num;
         }
     }
+}
+
+void fm_factory_modify_pulse_acm_ttl(int added_pulses)
+{
+    acm_config.pulse += added_pulses;
+    ttl_config.pulse += added_pulses;
+
 }
 
 /*

@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="ten_multipllier"/>
+		<item key="selection" value="STOP"/>
 		<list key="findhistory">
+			<item value="Stop"/>
 			<item value="ten_multiplier"/>
 			<item value="10"/>
 			<item value="month"/>

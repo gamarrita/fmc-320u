@@ -28,6 +28,7 @@
 #include "../../../libs/fm_keypad/fm_keypad.h"
 #include "../../../libs/fm_menu_user/fm_menu_user.h"
 #include "../../../libs/fm_menu_config/fm_menu_config.h"
+#include "../../../libs/fm_factory/fm_factory.h"
 //#include "../../../libs/fm_debug.h"
 /* USER CODE END Includes */
 
@@ -57,6 +58,8 @@
 /* USER CODE BEGIN PM */
 
 extern RTC_HandleTypeDef hrtc;
+extern LPTIM_HandleTypeDef hlptim4;
+extern UART_HandleTypeDef huart1;
 
 uint16_t g_lptim1_start;
 uint16_t g_lptim1_end;
@@ -90,16 +93,16 @@ VOID debounce_task_entry(ULONG initial_input);
 /* USER CODE END PFP */
 
 /**
- * @brief  Application ThreadX Initialization.
- * @param memory_ptr: memory pointer
- * @retval int
- */
-UINT App_ThreadX_Init(VOID *memory_ptr) // @suppress("Name convention for function")
+  * @brief  Application ThreadX Initialization.
+  * @param memory_ptr: memory pointer
+  * @retval int
+  */
+UINT App_ThreadX_Init(VOID *memory_ptr)
 {
-    UINT ret = TX_SUCCESS;
-    /* USER CODE BEGIN App_ThreadX_MEM_POOL */
-    /* USER CODE END App_ThreadX_MEM_POOL */
-    /* USER CODE BEGIN App_ThreadX_Init */
+  UINT ret = TX_SUCCESS;
+  /* USER CODE BEGIN App_ThreadX_MEM_POOL */
+  /* USER CODE END App_ThreadX_MEM_POOL */
+  /* USER CODE BEGIN App_ThreadX_Init */
     tx_thread_create(&menu_task_ptr, "menu_task", menu_task_entry, 0x1234,
     menu_task_stack, THREAD_STACK_SIZE, 15, 15, 1, TX_AUTO_START);
 
@@ -114,37 +117,37 @@ UINT App_ThreadX_Init(VOID *memory_ptr) // @suppress("Name convention for functi
 #ifndef FM_THREADX_LOW_POWER
 //      tx_trace_enable(&tracex_buffer, TRACEX_BUFFER_SIZE, 30);
   #endif
-    /* USER CODE END App_ThreadX_Init */
+  /* USER CODE END App_ThreadX_Init */
 
-    return (ret);
+  return ret;
+}
+
+  /**
+  * @brief  MX_ThreadX_Init
+  * @param  None
+  * @retval None
+  */
+void MX_ThreadX_Init(void)
+{
+  /* USER CODE BEGIN  Before_Kernel_Start */
+
+  /* USER CODE END  Before_Kernel_Start */
+
+  tx_kernel_enter();
+
+  /* USER CODE BEGIN  Kernel_Start_Error */
+
+  /* USER CODE END  Kernel_Start_Error */
 }
 
 /**
- * @brief  MX_ThreadX_Init
- * @param  None
- * @retval None
- */
-void MX_ThreadX_Init(void) // @suppress("Name convention for function")
+  * @brief  App_ThreadX_LowPower_Timer_Setup
+  * @param  count : TX timer count
+  * @retval None
+  */
+void App_ThreadX_LowPower_Timer_Setup(ULONG count)
 {
-    /* USER CODE BEGIN  Before_Kernel_Start */
-
-    /* USER CODE END  Before_Kernel_Start */
-
-    tx_kernel_enter();
-
-    /* USER CODE BEGIN  Kernel_Start_Error */
-
-    /* USER CODE END  Kernel_Start_Error */
-}
-
-/**
- * @brief  App_ThreadX_LowPower_Timer_Setup
- * @param  count : TX timer count
- * @retval None
- */
-void App_ThreadX_LowPower_Timer_Setup(ULONG count) // @suppress("Name convention for function")
-{
-    /* USER CODE BEGIN  App_ThreadX_LowPower_Timer_Setup */
+  /* USER CODE BEGIN  App_ThreadX_LowPower_Timer_Setup */
 
     const int rtc_clk = 32768;
     const int rtc_prescaller = 16;
@@ -170,17 +173,17 @@ void App_ThreadX_LowPower_Timer_Setup(ULONG count) // @suppress("Name convention
     }
 
 #endif
-    /* USER CODE END  App_ThreadX_LowPower_Timer_Setup */
+  /* USER CODE END  App_ThreadX_LowPower_Timer_Setup */
 }
 
 /**
- * @brief  App_ThreadX_LowPower_Enter
- * @param  None
- * @retval None
- */
-void App_ThreadX_LowPower_Enter(void) // @suppress("Name convention for function")
+  * @brief  App_ThreadX_LowPower_Enter
+  * @param  None
+  * @retval None
+  */
+void App_ThreadX_LowPower_Enter(void)
 {
-    /* USER CODE BEGIN  App_ThreadX_LowPower_Enter */
+  /* USER CODE BEGIN  App_ThreadX_LowPower_Enter */
 
     HAL_GPIO_WritePin(led_blue_GPIO_Port, led_blue_Pin, GPIO_PIN_RESET);
 
@@ -188,17 +191,17 @@ void App_ThreadX_LowPower_Enter(void) // @suppress("Name convention for function
     HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
 #endif
 
-    /* USER CODE END  App_ThreadX_LowPower_Enter */
+  /* USER CODE END  App_ThreadX_LowPower_Enter */
 }
 
 /**
- * @brief  App_ThreadX_LowPower_Exit
- * @param  None
- * @retval None
- */
-void App_ThreadX_LowPower_Exit(void) // @suppress("Name convention for function")
+  * @brief  App_ThreadX_LowPower_Exit
+  * @param  None
+  * @retval None
+  */
+void App_ThreadX_LowPower_Exit(void)
 {
-    /* USER CODE BEGIN  App_ThreadX_LowPower_Exit */
+  /* USER CODE BEGIN  App_ThreadX_LowPower_Exit */
 
     /*
      * If CPU wakes up other reason but timer flag we must wait until
@@ -258,17 +261,17 @@ void App_ThreadX_LowPower_Exit(void) // @suppress("Name convention for function"
 
     HAL_GPIO_WritePin(led_blue_GPIO_Port, led_blue_Pin, GPIO_PIN_SET);
 
-    /* USER CODE END  App_ThreadX_LowPower_Exit */
+  /* USER CODE END  App_ThreadX_LowPower_Exit */
 }
 
 /**
- * @brief  App_ThreadX_LowPower_Timer_Adjust
- * @param  None
- * @retval Amount of time (in ticks)
- */
-ULONG App_ThreadX_LowPower_Timer_Adjust(void) // @suppress("Name convention for function")
+  * @brief  App_ThreadX_LowPower_Timer_Adjust
+  * @param  None
+  * @retval Amount of time (in ticks)
+  */
+ULONG App_ThreadX_LowPower_Timer_Adjust(void)
 {
-    /* USER CODE BEGIN  App_ThreadX_LowPower_Timer_Adjust */
+  /* USER CODE BEGIN  App_ThreadX_LowPower_Timer_Adjust */
 
     /*
      * 2048 = lptim_clok_frq/clock_prescaler.
@@ -288,7 +291,7 @@ ULONG App_ThreadX_LowPower_Timer_Adjust(void) // @suppress("Name convention for 
 #else
   return (0);
 #endif
-    /* USER CODE END  App_ThreadX_LowPower_Timer_Adjust */
+  /* USER CODE END  App_ThreadX_LowPower_Timer_Adjust */
 }
 
 /* USER CODE BEGIN 1 */
@@ -297,16 +300,28 @@ VOID menu_task_entry(ULONG initial_input)
     static const int queue_stay = 100;
     static const int backlight_countdown = 10;
     static int backlight_cd = 0;
+    static int pulse_counter = 0;
+
+    char msg[30];
+
     ptr_fun_menu_t ptr_menu = fm_menu_show_init;
     fm_event_t event_next = EVENT_LCD_REFRESH;
     UINT ret_status;
     while (1)
     {
+        HAL_LPTIM_Counter_Start(&hlptim4);
         ret_status = tx_queue_receive(&event_queue_ptr, &event_next,
         queue_stay);
-
         if (ptr_menu != fm_menu_show_init && ptr_menu != fm_menu_show_version)
         {
+
+            pulse_counter = HAL_LPTIM_ReadCounter(&hlptim4);
+            fm_factory_modify_pulse_acm_ttl(pulse_counter);
+            sprintf(msg, "pulsos en este segundo: %d\n", pulse_counter);
+            HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), queue_stay);
+
+            HAL_LPTIM_Counter_Stop(&hlptim4);
+
             if (event_next == EVENT_LCD_REFRESH && backlight_cd > 0)
             {
                 backlight_cd--;

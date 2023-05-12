@@ -1,4 +1,4 @@
-11:19:05 **** Incremental Build of configuration Debug for project fmc320_u ****
+15:31:39 **** Incremental Build of configuration Debug for project fmc320_u ****
 make -j12 all 
 arm-none-eabi-gcc "D:/githubs/fmc-320u/libs/fm_version/fm_version.c" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32U575xx -DTX_INCLUDE_USER_DEFINE_FILE -DTX_SINGLE_MODE_NON_SECURE=1 -c -I../Core/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc -I../Drivers/STM32U5xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32U5xx/Include -I../Drivers/CMSIS/Include -I../AZURE_RTOS/App -I../Middlewares/ST/threadx/common/inc -I../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc -I../Middlewares/ST/threadx/utility/low_power -I"D:/githubs/fmc-320u/libs" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"libs/fm_version/fm_version.d" -MT"libs/fm_version/fm_version.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "libs/fm_version/fm_version.o"
 arm-none-eabi-gcc -o "fmc320_u.elf" @"objects.list"   -mcpu=cortex-m33 -T"D:\githubs\fmc-320u\fmc320_u\STM32U575ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="fmc320_u.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,11 +7,11 @@ Finished building target: fmc320_u.elf
 arm-none-eabi-size   fmc320_u.elf 
 arm-none-eabi-objdump -h -S  fmc320_u.elf  > "fmc320_u.list"
    text	   data	    bss	    dec	    hex	filename
-  89644	    448	   8880	  98972	  1829c	fmc320_u.elf
+  89180	    448	   8960	  98588	  1811c	fmc320_u.elf
 Finished building: default.size.stdout
  
 Finished building: fmc320_u.list
  
 
-11:19:07 Build Finished. 0 errors, 0 warnings. (took 1s.860ms)
+15:31:41 Build Finished. 0 errors, 0 warnings. (took 1s.902ms)
 

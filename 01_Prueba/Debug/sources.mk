@@ -31,7 +31,6 @@ Middlewares/ST/threadx/ports/cortex_m33/gnu/src \
 Middlewares/ST/threadx/utility/low_power \
 libs/fm_calendar \
 libs/fm_debug \
-libs/fm_event \
 libs/fm_factory \
 libs/fm_keypad \
 libs/fm_lcd \

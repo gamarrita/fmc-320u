@@ -44,8 +44,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/app_threadx.h \
  d:\githubs\fmc-320u\libs\fm_lcd\lcd.h d:\githubs\fmc-320u\libs\fmc\fmc.h \
  d:\githubs\fmc-320u\libs\fm_lcd\pcf8553.h \
  d:\githubs\fmc-320u\libs\fm_factory\fm_factory.h \
- d:\githubs\fmc-320u\libs\fmc\fmc.h \
- d:\githubs\fmc-320u\libs\fm_event\fm_event.h
+ d:\githubs\fmc-320u\libs\fmc\fmc.h
 ../Core/Inc/app_threadx.h:
 ../Middlewares/ST/threadx/common/inc/tx_api.h:
 ../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h:
@@ -96,4 +95,3 @@ d:\githubs\fmc-320u\libs\fmc\fmc.h:
 d:\githubs\fmc-320u\libs\fm_lcd\pcf8553.h:
 d:\githubs\fmc-320u\libs\fm_factory\fm_factory.h:
 d:\githubs\fmc-320u\libs\fmc\fmc.h:
-d:\githubs\fmc-320u\libs\fm_event\fm_event.h:
