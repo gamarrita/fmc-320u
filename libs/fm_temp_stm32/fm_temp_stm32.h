@@ -22,8 +22,8 @@
 
 // Function prototypes
 
-void fm_temp_stm32_get();
 int fm_temp_stm32_format();
+void fm_temp_stm32_get();
 
 #endif /* FM_TEMPERATURE_SENSOR_H */
 

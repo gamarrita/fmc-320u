@@ -1,0 +1,6 @@
+fm_menu_user.c:68:16:fm_menu_show_acm_rate	7
+fm_menu_user.c:134:16:fm_menu_show_acm_temp	7
+fm_menu_user.c:199:16:fm_menu_show_date_hour	7
+fm_menu_user.c:263:16:fm_menu_show_init	6
+fm_menu_user.c:341:16:fm_menu_show_ttl_rate	7
+fm_menu_user.c:406:16:fm_menu_show_version	6

@@ -50,12 +50,13 @@ typedef enum
     LIN_2,
     LIN_3,
     LIN_4,
-    LIN_5
+    LIN_5,
+    HZ
 } symbols_t;
 
 typedef enum
 {
-    LT, M3, KG, GL, BR, CELSIUS, NOTHING
+    LT, M3, MC, KG, GL, BR, CELSIUS, NOTHING
 } fmc_unit_volume_t;
 
 typedef enum
@@ -63,6 +64,10 @@ typedef enum
     H, D, S, M, UNIT_TIME_END
 } fmc_unit_time_t;
 
+typedef enum
+{
+    DECIMAL_0, DECIMAL_1, DECIMAL_2, DECIMAL_3
+} fmc_decimals_t;
 // Typedef.
 
 typedef struct
@@ -102,8 +107,8 @@ typedef struct
 
 fmc_totalizer_t fmc_get_acm();
 fmc_date_time_t fmc_get_date_time();
-fmc_temp_t fmc_get_stm32_temp();
 fmc_totalizer_t fmc_get_rate();
+fmc_temp_t fmc_get_stm32_temp();
 fmc_totalizer_t fmc_get_ttl();
 uint32_t fmc_get_version();
 void fmc_totalizer_clear_pulse(fmc_totalizer_t *p_totalizer);

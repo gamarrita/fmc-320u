@@ -102,7 +102,7 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
     switch (event_id)
     {
         case EVENT_KEY_UP:
-            if(correct_password)
+            if (correct_password)
             {
                 /*
                  * En toda esta sección se realiza el calculo para modificar la
@@ -112,35 +112,28 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                  * cada parámetro, se vuelva a iniciar desde el valor mínimo o
                  * máximo respectivamente.
                  */
-                if(field == DAY)
+                if (field == DAY)
                 {
-                    if(month_enum == JANUARY ||
-                    month_enum == MARCH      ||
-                    month_enum == MAY        ||
-                    month_enum == JULY       ||
-                    month_enum == AUGUST     ||
-                    month_enum == OCTOBER    ||
-                    month_enum == DECEMBER)
+                    if (month_enum == JANUARY || month_enum == MARCH
+                    || month_enum == MAY || month_enum == JULY
+                    || month_enum == AUGUST || month_enum == OCTOBER
+                    || month_enum == DECEMBER)
                     {
-                        if(day_enum < DAY_31)
+                        if (day_enum < DAY_31)
                         {
-                            fm_factory_modify_date(day_enum +
-                            1, month_enum,
+                            fm_factory_modify_date(day_enum + 1, month_enum,
                             year_enum);
                         }
                         else
                         {
-                            fm_factory_modify_date(DAY_1,
-                            month_enum,
+                            fm_factory_modify_date(DAY_1, month_enum,
                             year_enum);
                         }
                     }
-                    else if(month_enum == APRIL ||
-                    month_enum == JUNE          ||
-                    month_enum == SEPTEMBER     ||
-                    month_enum == NOVEMBER)
+                    else if (month_enum == APRIL || month_enum == JUNE
+                    || month_enum == SEPTEMBER || month_enum == NOVEMBER)
                     {
-                        if(day_enum < DAY_30)
+                        if (day_enum < DAY_30)
                         {
                             fm_factory_modify_date(day_enum + 1, month_enum,
                             year_enum);
@@ -153,9 +146,9 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                     }
                     else
                     {
-                        if(year_enum % YEAR_4 == 0)
+                        if (year_enum % YEAR_4 == 0)
                         {
-                            if(day_enum < DAY_29)
+                            if (day_enum < DAY_29)
                             {
                                 fm_factory_modify_date(day_enum + 1, month_enum,
                                 year_enum);
@@ -168,7 +161,7 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                         }
                         else
                         {
-                            if(day_enum < DAY_28)
+                            if (day_enum < DAY_28)
                             {
                                 fm_factory_modify_date(day_enum + 1, month_enum,
                                 year_enum);
@@ -181,27 +174,23 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                         }
                     }
                 }
-                else if(field == MONTH)
+                else if (field == MONTH)
                 {
-                    if(month_enum < DECEMBER)
+                    if (month_enum < DECEMBER)
                     {
-                        if((month_enum + 1 == APRIL ||
-                        month_enum + 1 == JUNE      ||
-                        month_enum + 1 == SEPTEMBER ||
-                        month_enum + 1 == NOVEMBER)
-                        && (day_enum > DAY_30))
+                        if ((month_enum + 1 == APRIL || month_enum + 1 == JUNE
+                        || month_enum + 1 == SEPTEMBER
+                        || month_enum + 1 == NOVEMBER) && (day_enum > DAY_30))
                         {
                             day_enum = DAY_30;
                         }
-                        else if((month_enum + 1 == FEBRUARY) &&
-                        (year_enum % YEAR_4 == 0) &&
-                        (day_enum > DAY_29))
+                        else if ((month_enum + 1 == FEBRUARY)
+                        && (year_enum % YEAR_4 == 0) && (day_enum > DAY_29))
                         {
                             day_enum = DAY_29;
                         }
-                        else if((month_enum + 1 == FEBRUARY) &&
-                        (year_enum % YEAR_4 != 0) &&
-                        (day_enum > DAY_28))
+                        else if ((month_enum + 1 == FEBRUARY)
+                        && (year_enum % YEAR_4 != 0) && (day_enum > DAY_28))
                         {
                             day_enum = DAY_28;
                         }
@@ -213,30 +202,28 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                         fm_factory_modify_date(day_enum, JANUARY, year_enum);
                     }
                 }
-                else if(field == YEAR)
+                else if (field == YEAR)
                 {
-                    if(year_enum < YEAR_99)
+                    if (year_enum < YEAR_99)
                     {
-                        if(((year_enum + 1) % YEAR_4 != YEAR_0) &&
-                        (month_enum == FEBRUARY) &&
-                        (day_enum > DAY_28))
+                        if (((year_enum + 1) % YEAR_4 != YEAR_0)
+                        && (month_enum == FEBRUARY) && (day_enum > DAY_28))
                         {
                             day_enum = DAY_28;
                         }
-                        fm_factory_modify_date(day_enum, month_enum, year_enum
-                        + 1);
+                        fm_factory_modify_date(day_enum, month_enum,
+                        year_enum + 1);
                     }
                     else
                     {
                         fm_factory_modify_date(day_enum, month_enum, YEAR_0);
                     }
                 }
-                else if(field == HOUR)
+                else if (field == HOUR)
                 {
-                    if(hour_enum < HOUR_23)
+                    if (hour_enum < HOUR_23)
                     {
-                        fm_factory_modify_time(hour_enum + 1,
-                        minute_enum,
+                        fm_factory_modify_time(hour_enum + 1, minute_enum,
                         second_enum);
                     }
                     else
@@ -245,33 +232,28 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                         second_enum);
                     }
                 }
-                else if(field == MINUTE)
+                else if (field == MINUTE)
                 {
-                    if(minute_enum < MINU_59)
+                    if (minute_enum < MINU_59)
                     {
-                        fm_factory_modify_time(hour_enum,
-                        minute_enum + 1,
+                        fm_factory_modify_time(hour_enum, minute_enum + 1,
                         second_enum);
                     }
                     else
                     {
-                        fm_factory_modify_time(hour_enum,
-                        MINU_0, second_enum);
+                        fm_factory_modify_time(hour_enum, MINU_0, second_enum);
                     }
                 }
-                else if(field == SECOND)
+                else if (field == SECOND)
                 {
-                    if(second_enum < SEC_59)
+                    if (second_enum < SEC_59)
                     {
-                        fm_factory_modify_time(hour_enum,
-                        minute_enum,
+                        fm_factory_modify_time(hour_enum, minute_enum,
                         second_enum + 1);
                     }
                     else
                     {
-                        fm_factory_modify_time(hour_enum,
-                        minute_enum,
-                        SEC_0);
+                        fm_factory_modify_time(hour_enum, minute_enum, SEC_0);
                     }
                 }
                 event_now = EVENT_LCD_REFRESH;
@@ -279,7 +261,7 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
             }
         break;
         case EVENT_KEY_DOWN:
-            if(correct_password)
+            if (correct_password)
             {
                 /*
                  * En toda esta sección se realiza el calculo para modificar la
@@ -289,14 +271,14 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                  * cada parámetro, se vuelva a iniciar desde el valor mínimo o
                  * máximo respectivamente.
                  */
-                if(field == DAY)
+                if (field == DAY)
                 {
-                    if(month_enum == JANUARY || month_enum == MARCH   ||
-                    month_enum == MAY        || month_enum == JULY    ||
-                    month_enum == AUGUST     || month_enum == OCTOBER ||
-                    month_enum == DECEMBER)
+                    if (month_enum == JANUARY || month_enum == MARCH
+                    || month_enum == MAY || month_enum == JULY
+                    || month_enum == AUGUST || month_enum == OCTOBER
+                    || month_enum == DECEMBER)
                     {
-                        if(day_enum > DAY_1)
+                        if (day_enum > DAY_1)
                         {
                             fm_factory_modify_date(day_enum - 1, month_enum,
                             year_enum);
@@ -307,10 +289,10 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                             year_enum);
                         }
                     }
-                    else if(month_enum == APRIL || month_enum == JUNE ||
-                    month_enum == SEPTEMBER     || month_enum == NOVEMBER)
+                    else if (month_enum == APRIL || month_enum == JUNE
+                    || month_enum == SEPTEMBER || month_enum == NOVEMBER)
                     {
-                        if(day_enum > DAY_1)
+                        if (day_enum > DAY_1)
                         {
                             fm_factory_modify_date(day_enum - 1, month_enum,
                             year_enum);
@@ -323,9 +305,9 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                     }
                     else
                     {
-                        if(year_enum % YEAR_4 == 0)
+                        if (year_enum % YEAR_4 == 0)
                         {
-                            if(day_enum > DAY_1)
+                            if (day_enum > DAY_1)
                             {
                                 fm_factory_modify_date(day_enum - 1, month_enum,
                                 year_enum);
@@ -338,7 +320,7 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                         }
                         else
                         {
-                            if(day_enum > DAY_1)
+                            if (day_enum > DAY_1)
                             {
                                 fm_factory_modify_date(day_enum - 1, month_enum,
                                 year_enum);
@@ -351,26 +333,23 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                         }
                     }
                 }
-                else if(field == MONTH)
+                else if (field == MONTH)
                 {
-                    if(month_enum > JANUARY)
+                    if (month_enum > JANUARY)
                     {
-                        if((month_enum - 1 == APRIL ||
-                        month_enum - 1 == JUNE      ||
-                        month_enum - 1 == SEPTEMBER ||
-                        month_enum - 1 == NOVEMBER) && (day_enum > DAY_30))
+                        if ((month_enum - 1 == APRIL || month_enum - 1 == JUNE
+                        || month_enum - 1 == SEPTEMBER
+                        || month_enum - 1 == NOVEMBER) && (day_enum > DAY_30))
                         {
                             day_enum = DAY_30;
                         }
-                        else if((month_enum - 1 == FEBRUARY) &&
-                        (year_enum % YEAR_4 == 0) &&
-                        (day_enum > DAY_29))
+                        else if ((month_enum - 1 == FEBRUARY)
+                        && (year_enum % YEAR_4 == 0) && (day_enum > DAY_29))
                         {
                             day_enum = DAY_29;
                         }
-                        else if((month_enum - 1 == FEBRUARY) &&
-                        (year_enum % YEAR_4 != 0) &&
-                        (day_enum > DAY_28))
+                        else if ((month_enum - 1 == FEBRUARY)
+                        && (year_enum % YEAR_4 != 0) && (day_enum > DAY_28))
                         {
                             day_enum = DAY_28;
                         }
@@ -382,13 +361,12 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                         fm_factory_modify_date(day_enum, DECEMBER, year_enum);
                     }
                 }
-                else if(field == YEAR)
+                else if (field == YEAR)
                 {
-                    if(year_enum > YEAR_0)
+                    if (year_enum > YEAR_0)
                     {
-                        if(((year_enum - 1) % YEAR_4 != YEAR_0) &&
-                        (month_enum == FEBRUARY) &&
-                        (day_enum > DAY_28))
+                        if (((year_enum - 1) % YEAR_4 != YEAR_0)
+                        && (month_enum == FEBRUARY) && (day_enum > DAY_28))
                         {
                             day_enum = DAY_28;
                         }
@@ -400,9 +378,9 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                         fm_factory_modify_date(day_enum, month_enum, YEAR_99);
                     }
                 }
-                else if(field == HOUR)
+                else if (field == HOUR)
                 {
-                    if(hour_enum > HOUR_0)
+                    if (hour_enum > HOUR_0)
                     {
                         fm_factory_modify_time(hour_enum - 1, minute_enum,
                         second_enum);
@@ -413,9 +391,9 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                         second_enum);
                     }
                 }
-                else if(field == MINUTE)
+                else if (field == MINUTE)
                 {
-                    if(minute_enum > MINU_0)
+                    if (minute_enum > MINU_0)
                     {
                         fm_factory_modify_time(hour_enum, minute_enum - 1,
                         second_enum);
@@ -425,9 +403,9 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
                         fm_factory_modify_time(hour_enum, MINU_59, second_enum);
                     }
                 }
-                else if(field == SECOND)
+                else if (field == SECOND)
                 {
-                    if(second_enum > SEC_0)
+                    if (second_enum > SEC_0)
                     {
                         fm_factory_modify_time(hour_enum, minute_enum,
                         second_enum - 1);
@@ -442,33 +420,33 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
             }
         break;
         case EVENT_KEY_ENTER:
-            if(correct_password)
+            if (correct_password)
             {
                 /*
                  * Se cambia qué parámetro se va a modificar según cual estaba
                  * seleccionado para modificarse actualmente.
                  */
-                if(field == DAY)
+                if (field == DAY)
                 {
                     field = MONTH;
                 }
-                else if(field == MONTH)
+                else if (field == MONTH)
                 {
                     field = YEAR;
                 }
-                else if(field == YEAR)
+                else if (field == YEAR)
                 {
                     field = HOUR;
                 }
-                else if(field == HOUR)
+                else if (field == HOUR)
                 {
                     field = MINUTE;
                 }
-                else if(field == MINUTE)
+                else if (field == MINUTE)
                 {
                     field = SECOND;
                 }
-                else if(field == SECOND)
+                else if (field == SECOND)
                 {
                     field = DAY;
                 }
@@ -489,14 +467,14 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar fecha y hora\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar fecha y hora\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
-        if(correct_password)
+        if (correct_password)
         {
             /*
              * Es totalmente necesario que cuando se complete las estructuras
@@ -586,10 +564,10 @@ ptr_ret_menu_t fm_menu_config_expansion(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar factor de expansion\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar factor de expansion\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
@@ -600,6 +578,11 @@ ptr_ret_menu_t fm_menu_config_expansion(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime el menú del K linealizado 1.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_config_k_lin_1(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -639,7 +622,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_1(fm_event_t event_id)
         case EVENT_KEY_ENTER:
             if (correct_password)
             {
-                if(digit_lin_modify < DIG_LIN_11)
+                if (digit_lin_modify < DIG_LIN_11)
                 {
                     digit_lin_modify++;
                 }
@@ -664,10 +647,10 @@ ptr_ret_menu_t fm_menu_config_k_lin_1(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar parametro K_lin_1\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar parametro K_lin_1\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
@@ -679,6 +662,11 @@ ptr_ret_menu_t fm_menu_config_k_lin_1(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime el menú del K linealizado 2.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_config_k_lin_2(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -718,7 +706,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_2(fm_event_t event_id)
         case EVENT_KEY_ENTER:
             if (correct_password)
             {
-                if(digit_lin_modify < DIG_LIN_11)
+                if (digit_lin_modify < DIG_LIN_11)
                 {
                     digit_lin_modify++;
                 }
@@ -743,10 +731,10 @@ ptr_ret_menu_t fm_menu_config_k_lin_2(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar parametro K_lin_2\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar parametro K_lin_2\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
@@ -758,6 +746,11 @@ ptr_ret_menu_t fm_menu_config_k_lin_2(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime el menú del K linealizado 3.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_config_k_lin_3(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -797,7 +790,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_3(fm_event_t event_id)
         case EVENT_KEY_ENTER:
             if (correct_password)
             {
-                if(digit_lin_modify < DIG_LIN_11)
+                if (digit_lin_modify < DIG_LIN_11)
                 {
                     digit_lin_modify++;
                 }
@@ -822,10 +815,10 @@ ptr_ret_menu_t fm_menu_config_k_lin_3(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar parametro K_lin_3\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar parametro K_lin_3\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
@@ -837,6 +830,11 @@ ptr_ret_menu_t fm_menu_config_k_lin_3(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime el menú del K linealizado 4.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_config_k_lin_4(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -876,7 +874,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_4(fm_event_t event_id)
         case EVENT_KEY_ENTER:
             if (correct_password)
             {
-                if(digit_lin_modify < DIG_LIN_11)
+                if (digit_lin_modify < DIG_LIN_11)
                 {
                     digit_lin_modify++;
                 }
@@ -901,10 +899,10 @@ ptr_ret_menu_t fm_menu_config_k_lin_4(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar parametro K_lin_4\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar parametro K_lin_4\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
@@ -916,6 +914,11 @@ ptr_ret_menu_t fm_menu_config_k_lin_4(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime el menú del K linealizado 5.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_config_k_lin_5(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
@@ -955,7 +958,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_5(fm_event_t event_id)
         case EVENT_KEY_ENTER:
             if (correct_password)
             {
-                if(digit_lin_modify < DIG_LIN_11)
+                if (digit_lin_modify < DIG_LIN_11)
                 {
                     digit_lin_modify++;
                 }
@@ -968,8 +971,9 @@ ptr_ret_menu_t fm_menu_config_k_lin_5(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ESC:
+            correct_password = 0;
             new_exit = 1;
-            ret_menu = (ptr_ret_menu_t) fm_menu_config_units_vol;
+            ret_menu = (ptr_ret_menu_t) fm_menu_show_init;
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
@@ -980,10 +984,10 @@ ptr_ret_menu_t fm_menu_config_k_lin_5(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar parametro K_lin_5\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar parametro K_lin_5\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
@@ -1089,10 +1093,10 @@ ptr_ret_menu_t fm_menu_config_k_param(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar parametro K\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar parametro K\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
@@ -1148,10 +1152,10 @@ ptr_ret_menu_t fm_menu_config_ko_param(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar parametro Ko\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar parametro Ko\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
@@ -1163,10 +1167,13 @@ ptr_ret_menu_t fm_menu_config_ko_param(fm_event_t event_id)
 }
 
 /*
- * @brief Función que imprime el menú que permite introducir la contraseña del
+ * @brief Función que imprime el menú que permite introducir una contraseña del
  * caudalímetro. Posee un algoritmo que levanta una flag si la contraseña,
  * compuesta por las 4 teclas del teclado mecánico, es la misma que la
- * almacenada en memoria (DOWN -> UP -> UP -> ENTER).
+ * de configuración (DOWN -> UP -> UP -> ENTER) o la de operario (DOWN ->
+ * DOWN -> UP -> UP). Si se introduce mal la contraseña se deja volverlo a
+ * intentar hasta dos veces. A la tercera vez de ingresada incorrectamente, se
+ * regresa al menú de inicio donde se encienden todos los leds.
  * @param  Evento de presión de botones o refresh.
  * @retval Puntero al retorno de la función.
  */
@@ -1174,6 +1181,9 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
+
+    static uint8_t password_try = 0;
+    static const uint8_t password_try_max = 3;
 
     /*
      * Arreglo estático que almacena la contraseña que ingresa el usuario.
@@ -1234,9 +1244,6 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
             else
             {
                 new_exit = 1;
-                ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
-                event_now = EVENT_LCD_REFRESH;
-                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
             }
         break;
         case EVENT_KEY_DOWN:
@@ -1251,9 +1258,6 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
             else
             {
                 new_exit = 1;
-                ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
-                event_now = EVENT_LCD_REFRESH;
-                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
             }
         break;
         case EVENT_KEY_ENTER:
@@ -1268,9 +1272,6 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
             else
             {
                 new_exit = 1;
-                ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
-                event_now = EVENT_LCD_REFRESH;
-                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
             }
         break;
         case EVENT_KEY_ESC:
@@ -1285,9 +1286,6 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
             else
             {
                 new_exit = 1;
-                ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
-                event_now = EVENT_LCD_REFRESH;
-                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
             }
         break;
         case EVENT_LCD_REFRESH:
@@ -1297,10 +1295,10 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Password\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Password\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1 && password_index >= PASSWORD_LENGTH - 1)
     {
@@ -1308,24 +1306,64 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
          * Si la contraseña ingresada es correcta, se activa una flag global que
          * permite modificar los parámetros de los menús de configuración.
          */
-        if (password[0] == 2 && password[1] == 1 && password[2] == 1
-        && password[PASSWORD_LENGTH - 1] == 3)
+        if (password[0] == PASS_DOWN && password[1] == PASS_UP
+        && password[2] == PASS_UP
+        && password[PASSWORD_LENGTH - 1] == PASS_ENTER)
         {
             correct_password = 1;
-        }
-        fm_factory_modify_date(fm_calendar_get_day(),
-        fm_calendar_get_month(), fm_calendar_get_year());
 
-        fm_factory_modify_time(fm_calendar_get_hour(),
-        fm_calendar_get_minute(), fm_calendar_get_second());
+            ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+
+            password_try = 0;
+        }
+        else if (password[0] == PASS_DOWN && password[1] == PASS_DOWN
+        && password[2] == PASS_UP && password[PASSWORD_LENGTH - 1] == PASS_UP)
+        {
+            correct_password = 1;
+
+            ret_menu = (ptr_ret_menu_t) fm_menu_config_units_vol;
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+
+            fm_factory_modify_date(fm_calendar_get_day(),
+            fm_calendar_get_month(), fm_calendar_get_year());
+
+            fm_factory_modify_time(fm_calendar_get_hour(),
+            fm_calendar_get_minute(), fm_calendar_get_second());
+
+            password_try = 0;
+        }
+        else
+        {
+            correct_password = 0;
+            password_try++;
+
+            if (password_try < password_try_max)
+            {
+                ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
+                event_now = EVENT_LCD_REFRESH;
+                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+            }
+            else
+            {
+                ret_menu = (ptr_ret_menu_t) fm_menu_show_init;
+                event_now = EVENT_LCD_REFRESH;
+                tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+
+                password_try = 0;
+            }
+        }
+
         /*
          * Reinicio el arreglo de la contraseña ingresada.
          */
-        password_index = 0;
-        password[0] = 0;
-        password[1] = 0;
-        password[2] = 0;
-        password[PASSWORD_LENGTH - 1] = 0;
+        password_index = PASS_0;
+        password[0] = PASS_0;
+        password[1] = PASS_0;
+        password[2] = PASS_0;
+        password[PASSWORD_LENGTH - 1] = PASS_0;
         new_entry = 1;
         new_exit = 0;
     }
@@ -1376,10 +1414,10 @@ ptr_ret_menu_t fm_menu_config_span(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar Span\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar Span\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
@@ -1440,6 +1478,26 @@ ptr_ret_menu_t fm_menu_config_units_tim(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_DOWN:
+            if (correct_password)
+            {
+                if (fm_factory_get_rate().unit_time == H)
+                {
+                    fm_factory_modify_time_units(M);
+                }
+                else if (fm_factory_get_rate().unit_time == M)
+                {
+                    fm_factory_modify_time_units(S);
+                }
+                else if (fm_factory_get_rate().unit_time == S)
+                {
+                    fm_factory_modify_time_units(D);
+                }
+                else if (fm_factory_get_rate().unit_time == D)
+                {
+                    fm_factory_modify_time_units(H);
+                }
+                fm_lcd_clear();
+            }
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
@@ -1479,10 +1537,10 @@ ptr_ret_menu_t fm_menu_config_units_tim(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar unidades de tiempo y resolucion\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar unidades de tiempo y resolucion\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {
@@ -1527,6 +1585,10 @@ ptr_ret_menu_t fm_menu_config_units_vol(fm_event_t event_id)
                 }
                 else if (fm_factory_get_acm().unit_volume == M3)
                 {
+                    fm_factory_modify_volume_units(MC);
+                }
+                else if (fm_factory_get_acm().unit_volume == MC)
+                {
                     fm_factory_modify_volume_units(KG);
                 }
                 else if (fm_factory_get_acm().unit_volume == KG)
@@ -1551,6 +1613,38 @@ ptr_ret_menu_t fm_menu_config_units_vol(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_DOWN:
+            if (correct_password)
+            {
+                if (fm_factory_get_acm().unit_volume == LT)
+                {
+                    fm_factory_modify_volume_units(NOTHING);
+                }
+                else if (fm_factory_get_acm().unit_volume == NOTHING)
+                {
+                    fm_factory_modify_volume_units(BR);
+                }
+                else if (fm_factory_get_acm().unit_volume == BR)
+                {
+                    fm_factory_modify_volume_units(GL);
+                }
+                else if (fm_factory_get_acm().unit_volume == GL)
+                {
+                    fm_factory_modify_volume_units(KG);
+                }
+                else if (fm_factory_get_acm().unit_volume == KG)
+                {
+                    fm_factory_modify_volume_units(MC);
+                }
+                else if (fm_factory_get_acm().unit_volume == MC)
+                {
+                    fm_factory_modify_volume_units(M3);
+                }
+                else if (fm_factory_get_acm().unit_volume == M3)
+                {
+                    fm_factory_modify_volume_units(LT);
+                }
+                fm_lcd_clear();
+            }
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
@@ -1590,10 +1684,10 @@ ptr_ret_menu_t fm_menu_config_units_vol(fm_event_t event_id)
     }
 
     previous_event = event_id;
-    #ifdef FM_DEBUG_MENU
-        char msg_buffer[] = "Configurar unidades de volumen y resolucion\n";
-        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-    #endif
+#ifdef FM_DEBUG_MENU
+    char msg_buffer[] = "Configurar unidades de volumen y resolucion\n";
+    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+#endif
 
     if (new_exit == 1)
     {

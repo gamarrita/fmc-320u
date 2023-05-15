@@ -1,0 +1,6 @@
+D:/githubs/fmc-320u/libs/fm_menu_user/fm_menu_user.c:68:16:fm_menu_show_acm_rate	32	static
+D:/githubs/fmc-320u/libs/fm_menu_user/fm_menu_user.c:134:16:fm_menu_show_acm_temp	32	static
+D:/githubs/fmc-320u/libs/fm_menu_user/fm_menu_user.c:199:16:fm_menu_show_date_hour	32	static
+D:/githubs/fmc-320u/libs/fm_menu_user/fm_menu_user.c:257:16:fm_menu_show_init	32	static
+D:/githubs/fmc-320u/libs/fm_menu_user/fm_menu_user.c:335:16:fm_menu_show_ttl_rate	32	static
+D:/githubs/fmc-320u/libs/fm_menu_user/fm_menu_user.c:400:16:fm_menu_show_version	32	static

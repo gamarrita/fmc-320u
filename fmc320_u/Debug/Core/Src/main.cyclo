@@ -1,0 +1,13 @@
+main.c:81:5:main	1
+main.c:141:6:SystemClock_Config	4
+main.c:198:13:SystemPower_Config	2
+main.c:238:13:MX_ADC1_Init	3
+main.c:302:13:MX_ICACHE_Init	3
+main.c:334:13:MX_LPTIM1_Init	2
+main.c:378:13:MX_RTC_Init	6
+main.c:470:13:MX_SPI1_Init	3
+main.c:533:13:MX_USART2_UART_Init	5
+main.c:583:13:MX_GPIO_Init	1
+main.c:671:13:HAL_RTCEx_WakeUpTimerEventCallback	1
+main.c:692:6:HAL_TIM_PeriodElapsedCallback	2
+main.c:710:6:Error_Handler	1

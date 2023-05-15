@@ -40,7 +40,6 @@
 
 #include "../fmc/fmc.h"
 #include "../fm_factory/fm_factory.h"
-#include "../fm_event/fm_event.h"
 
 // Macros, defines, microcontroller pins (dhs).
 

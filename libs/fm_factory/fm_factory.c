@@ -210,6 +210,8 @@ sel_value_t frec_array[LINE_1_DIGITS - 1];
 
 // External variables.
 
+const int ten_multipllier = 10;
+
 // Global variables, statics.
 
 // Private function prototypes.
@@ -229,13 +231,125 @@ fmc_totalizer_t fm_factory_get_acm()
 }
 
 /*
- * @brief Función que devuelve el parámetro TTL almacenado en fm_factory.
+ * @brief Función que devuelve la fecha y la hora almacenada en fm_factory, como
+ * parámetros individuales.
  * @param None
- * @retval Parámetro TTL como estructura de tipo fmc_totalizer_t.
+ * @retval Hora, minutos, segundos, día, mes y año almacenados en
+ * date_time_config.
  */
-fmc_totalizer_t fm_factory_get_ttl()
+fmc_date_time_t fm_factory_get_date_time()
 {
-    return (ttl_config);
+    return (date_time_config);
+}
+
+/*
+ * @brief Función que devuelve la fecha almacenada en fm_factory, como un
+ * parámetro de tipo punto fijo con 0 decimales.
+ * @param None
+ * @retval Punto fijo que almacena la fecha.
+ */
+fmc_fp_t fm_factory_get_fp_date()
+{
+    return (date_user);
+}
+
+/*
+ * @brief Función que devuelve la fecha congelada al entrar al menú de
+ * configuración, almacenada en fm_factory, como un parámetro de tipo punto fijo
+ * con 0 decimales.
+ * @param None
+ * @retval Punto fijo que almacena la fecha congelada.
+ */
+fmc_fp_t fm_factory_get_fp_date_conf()
+{
+    return (date_config);
+}
+
+/*
+ * @brief Función que devuelve la hora almacenada en fm_factory, como un
+ * parámetro de tipo punto fijo con 0 decimales.
+ * @param None
+ * @retval Punto fijo que almacena la hora.
+ */
+fmc_fp_t fm_factory_get_fp_time()
+{
+    return (time_user);
+}
+
+/*
+ * @brief Función que devuelve la hora congelada al entrar al menú de
+ * configuración, almacenada en fm_factory, como un parámetro de tipo punto fijo
+ * con 0 decimales.
+ * @param None
+ * @retval Punto fijo que almacena la hora congelada.
+ */
+fmc_fp_t fm_factory_get_fp_time_conf()
+{
+    return (time_config);
+}
+
+fmc_fp_t fm_factory_get_frec_lin(sel_k k_sel)
+{
+    static fmc_fp_t frec_lin_selected;
+
+    if (k_sel == K_LIN_1)
+    {
+        frec_lin_selected = frec_lin_1;
+    }
+    else if (k_sel == K_LIN_2)
+    {
+        frec_lin_selected = frec_lin_2;
+    }
+    else if (k_sel == K_LIN_3)
+    {
+        frec_lin_selected = frec_lin_3;
+    }
+    else if (k_sel == K_LIN_4)
+    {
+        frec_lin_selected = frec_lin_4;
+    }
+    else if (k_sel == K_LIN_5)
+    {
+        frec_lin_selected = frec_lin_5;
+    }
+
+    return (frec_lin_selected);
+}
+
+/*
+ * @brief Función que devuelve el factor K almacenado en fm_factory.
+ * @param None
+ * @retval Factor K.
+ */
+fmc_fp_t fm_factory_get_k_factor(sel_k k_sel)
+{
+    static fmc_fp_t k_selected;
+    if (k_sel == K_FACTOR)
+    {
+        k_selected = k_factor_config;
+    }
+    else if (k_sel == K_LIN_1)
+    {
+        k_selected = k_lin_1_config;
+    }
+    else if (k_sel == K_LIN_2)
+    {
+        k_selected = k_lin_2_config;
+    }
+    else if (k_sel == K_LIN_3)
+    {
+        k_selected = k_lin_3_config;
+    }
+    else if (k_sel == K_LIN_4)
+    {
+        k_selected = k_lin_4_config;
+    }
+    else if (k_sel == K_LIN_5)
+    {
+        k_selected = k_lin_5_config;
+    }
+
+    return (k_selected);
 }
 
 /*
@@ -257,6 +371,16 @@ fmc_totalizer_t fm_factory_get_rate()
 fmc_temp_t fm_factory_get_temp()
 {
     return (temperature_config);
+}
+
+/*
+ * @brief Función que devuelve el parámetro TTL almacenado en fm_factory.
+ * @param None
+ * @retval Parámetro TTL como estructura de tipo fmc_totalizer_t.
+ */
+fmc_totalizer_t fm_factory_get_ttl()
+{
+    return (ttl_config);
 }
 
 /*
@@ -282,125 +406,24 @@ fmc_fp_t fm_factory_get_units_vol()
 }
 
 /*
- * @brief Función que devuelve el factor K almacenado en fm_factory.
- * @param None
- * @retval Factor K.
+ * @brief Función que permite modificar la fecha como parámetros individuales y
+ * concatenarlos para que sean introducidos en la fecha congelada de tipo punto
+ * fijo.
+ * @param día, mes y año leídos del calendario.
+ * @retval None
  */
-fmc_fp_t fm_factory_get_k_factor(sel_k k_sel)
+void fm_factory_modify_date(int mod_day, int mod_month, int mod_year)
 {
-    static fmc_fp_t k_selected;
-    if(k_sel == K_FACTOR)
-    {
-        k_selected = k_factor_config;
-    }
-    else if(k_sel == K_LIN_1)
-    {
-        k_selected = k_lin_1_config;
-    }
-    else if(k_sel == K_LIN_2)
-    {
-        k_selected = k_lin_2_config;
-    }
-    else if(k_sel == K_LIN_3)
-    {
-        k_selected = k_lin_3_config;
-    }
-    else if(k_sel == K_LIN_4)
-    {
-        k_selected = k_lin_4_config;
-    }
-    else if(k_sel == K_LIN_5)
-    {
-        k_selected = k_lin_5_config;
-    }
+    static const int century = 2000;
+    static const int day_mult = 1000000;
+    static const int month_mult = 10000;
 
-    return (k_selected);
-}
+    date_time_config.day = mod_day;
+    date_time_config.month = mod_month;
+    date_time_config.year = mod_year;
 
-fmc_fp_t fm_factory_get_frec_lin(sel_k k_sel)
-{
-    static fmc_fp_t frec_lin_selected;
-
-    if(k_sel == K_LIN_1)
-    {
-        frec_lin_selected = frec_lin_1;
-    }
-    else if(k_sel == K_LIN_2)
-    {
-        frec_lin_selected = frec_lin_2;
-    }
-    else if(k_sel == K_LIN_3)
-    {
-        frec_lin_selected = frec_lin_3;
-    }
-    else if(k_sel == K_LIN_4)
-    {
-        frec_lin_selected = frec_lin_4;
-    }
-    else if(k_sel == K_LIN_5)
-    {
-        frec_lin_selected = frec_lin_5;
-    }
-
-    return (frec_lin_selected);
-}
-
-/*
- * @brief Función que devuelve la fecha y la hora almacenada en fm_factory, como
- * parámetros individuales.
- * @param None
- * @retval Hora, minutos, segundos, día, mes y año almacenados en
- * date_time_config.
- */
-fmc_date_time_t fm_factory_get_date_time()
-{
-    return(date_time_config);
-}
-
-/*
- * @brief Función que devuelve la fecha almacenada en fm_factory, como un
- * parámetro de tipo punto fijo con 0 decimales.
- * @param None
- * @retval Punto fijo que almacena la fecha.
- */
-fmc_fp_t fm_factory_get_fp_date()
-{
-    return(date_user);
-}
-
-/*
- * @brief Función que devuelve la hora almacenada en fm_factory, como un
- * parámetro de tipo punto fijo con 0 decimales.
- * @param None
- * @retval Punto fijo que almacena la hora.
- */
-fmc_fp_t fm_factory_get_fp_time()
-{
-    return(time_user);
-}
-
-/*
- * @brief Función que devuelve la fecha congelada al entrar al menú de
- * configuración, almacenada en fm_factory, como un parámetro de tipo punto fijo
- * con 0 decimales.
- * @param None
- * @retval Punto fijo que almacena la fecha congelada.
- */
-fmc_fp_t fm_factory_get_fp_date_conf()
-{
-    return(date_config);
-}
-
-/*
- * @brief Función que devuelve la hora congelada al entrar al menú de
- * configuración, almacenada en fm_factory, como un parámetro de tipo punto fijo
- * con 0 decimales.
- * @param None
- * @retval Punto fijo que almacena la hora congelada.
- */
-fmc_fp_t fm_factory_get_fp_time_conf()
-{
-    return(time_config);
+    date_config.num = mod_day * day_mult + mod_month * month_mult + century
+    + mod_year;
 }
 
 /*
@@ -426,38 +449,6 @@ void fm_factory_modify_fp_time(int time)
 }
 
 /*
- * @brief Función que permite modificar la fecha como parámetros individuales y
- * concatenarlos para que sean introducidos en la fecha congelada de tipo punto
- * fijo.
- * @param día, mes y año leídos del calendario.
- * @retval None
- */
-void fm_factory_modify_date(int mod_day, int mod_month, int mod_year)
-{
-    date_time_config.day = mod_day;
-    date_time_config.month = mod_month;
-    date_time_config.year = mod_year;
-
-    date_config.num = mod_day * 1000000 + mod_month * 10000 + 2000 + mod_year;
-}
-
-/*
- * @brief Función que permite modificar la hora como parámetros individuales y
- * concatenarlos para que sean introducidos en la hora congelada de tipo punto
- * fijo.
- * @param Hora, minutos y segundos leídos del calendario.
- * @retval None
- */
-void fm_factory_modify_time(int mod_hour, int mod_minute, int mod_second)
-{
-    date_time_config.hour = mod_hour;
-    date_time_config.minute = mod_minute;
-    date_time_config.second = mod_second;
-
-    time_config.num = mod_hour * 10000 + mod_minute * 100 + mod_second;
-}
-
-/*
  * @brief Función que suma uno al dígito pasado como parámetro del factor K.
  * @param Digito a modificar del factor K de la enumeración sel_digit_t.
  * @retval None
@@ -477,7 +468,7 @@ void fm_factory_modify_k_factor_add(sel_digit_t digit_k)
 
     for (int i = 0; i <= LINE_1_DIGITS - 1; i++)
     {
-        k_new_num = (k_new_num * 10) + k_array[i];
+        k_new_num = (k_new_num * ten_multipllier) + k_array[i];
     }
 
     k_factor_config.num = k_new_num;
@@ -503,21 +494,28 @@ void fm_factory_modify_k_factor_subs(sel_digit_t digit_k)
 
     for (int i = 0; i <= LINE_1_DIGITS - 1; i++)
     {
-        k_new_num = (k_new_num * 10) + k_array[i];
+        k_new_num = (k_new_num * ten_multipllier) + k_array[i];
     }
 
     k_factor_config.num = k_new_num;
 }
 
+/*
+ * @brief Función que suma uno al dígito pasado como primer parámetro del factor
+ * K linealizado seleccionado como segundo parámetro.
+ * @param Digito a modificar del factor K de la enumeración sel_digit_k_lin_t y
+ * factor k linealizado seleccionado.
+ * @retval None
+ */
 void fm_factory_modify_k_lin_add(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
 {
     uint32_t k_lin_new_num = 0;
     uint32_t frec_lin_new_num = 0;
 
     fm_factory_separate_k_lin_and_frec(k_sel);
-    if(digit_k_lin <= DIG_LIN_7)
+    if (digit_k_lin <= DIG_LIN_7)
     {
-        if(k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] < VAL_9)
+        if (k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] < VAL_9)
         {
             k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin]++;
         }
@@ -526,37 +524,37 @@ void fm_factory_modify_k_lin_add(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
             k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] = VAL_0;
         }
 
-        for(int i = 0; i <= LINE_1_DIGITS - 1; i++)
+        for (int i = 0; i <= LINE_1_DIGITS - 1; i++)
         {
-            k_lin_new_num = (k_lin_new_num * 10) + k_lin_array[i];
+            k_lin_new_num = (k_lin_new_num * ten_multipllier) + k_lin_array[i];
         }
 
-        if(k_sel == K_LIN_1)
+        if (k_sel == K_LIN_1)
         {
             k_lin_1_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_2)
+        else if (k_sel == K_LIN_2)
         {
             k_lin_2_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_3)
+        else if (k_sel == K_LIN_3)
         {
             k_lin_3_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_4)
+        else if (k_sel == K_LIN_4)
         {
             k_lin_4_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_5)
+        else if (k_sel == K_LIN_5)
         {
             k_lin_5_config.num = k_lin_new_num;
         }
     }
-    else if(digit_k_lin > DIG_LIN_7)
+    else if (digit_k_lin > DIG_LIN_7)
     {
-        if(LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8 != DIG_LIN_3)
+        if (LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8 != DIG_LIN_3)
         {
-            if(frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] < VAL_9)
+            if (frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] < VAL_9)
             {
                 frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8]++;
             }
@@ -567,7 +565,7 @@ void fm_factory_modify_k_lin_add(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
         }
         else
         {
-            if(frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] < VAL_1)
+            if (frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] < VAL_1)
             {
                 frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8]++;
             }
@@ -577,43 +575,51 @@ void fm_factory_modify_k_lin_add(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
             }
         }
 
-        for(int j = 0; j <= LINE_1_DIGITS - 2; j++)
+        for (int j = 0; j <= LINE_1_DIGITS - 2; j++)
         {
-            frec_lin_new_num = (frec_lin_new_num * 10) + frec_array[j];
+            frec_lin_new_num = (frec_lin_new_num * ten_multipllier)
+            + frec_array[j];
         }
 
-        if(k_sel == K_LIN_1)
+        if (k_sel == K_LIN_1)
         {
             frec_lin_1.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_2)
+        else if (k_sel == K_LIN_2)
         {
             frec_lin_2.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_3)
+        else if (k_sel == K_LIN_3)
         {
             frec_lin_3.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_4)
+        else if (k_sel == K_LIN_4)
         {
             frec_lin_4.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_5)
+        else if (k_sel == K_LIN_5)
         {
             frec_lin_5.num = frec_lin_new_num;
         }
     }
 }
 
+/*
+ * @brief Función que resta uno al dígito pasado como primer parámetro del
+ * factor K linealizado seleccionado como segundo parámetro.
+ * @param Digito a modificar del factor K de la enumeración sel_digit_k_lin_t y
+ * factor k linealizado seleccionado.
+ * @retval None
+ */
 void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
 {
     uint32_t k_lin_new_num = 0;
     uint32_t frec_lin_new_num = 0;
 
     fm_factory_separate_k_lin_and_frec(k_sel);
-    if(digit_k_lin <= DIG_LIN_7)
+    if (digit_k_lin <= DIG_LIN_7)
     {
-        if(k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] > VAL_0)
+        if (k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] > VAL_0)
         {
             k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin]--;
         }
@@ -622,37 +628,37 @@ void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
             k_lin_array[LINE_1_DIGITS - 1 - digit_k_lin] = VAL_9;
         }
 
-        for(int i = 0; i <= LINE_1_DIGITS - 1; i++)
+        for (int i = 0; i <= LINE_1_DIGITS - 1; i++)
         {
-            k_lin_new_num = (k_lin_new_num * 10) + k_lin_array[i];
+            k_lin_new_num = (k_lin_new_num * ten_multipllier) + k_lin_array[i];
         }
 
-        if(k_sel == K_LIN_1)
+        if (k_sel == K_LIN_1)
         {
             k_lin_1_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_2)
+        else if (k_sel == K_LIN_2)
         {
             k_lin_2_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_3)
+        else if (k_sel == K_LIN_3)
         {
             k_lin_3_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_4)
+        else if (k_sel == K_LIN_4)
         {
             k_lin_4_config.num = k_lin_new_num;
         }
-        else if(k_sel == K_LIN_5)
+        else if (k_sel == K_LIN_5)
         {
             k_lin_5_config.num = k_lin_new_num;
         }
     }
-    else if(digit_k_lin > DIG_LIN_7)
+    else if (digit_k_lin > DIG_LIN_7)
     {
-        if(LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8 != DIG_LIN_3)
+        if (LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8 != DIG_LIN_3)
         {
-            if(frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] > VAL_0)
+            if (frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] > VAL_0)
             {
                 frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8]--;
             }
@@ -663,7 +669,7 @@ void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
         }
         else
         {
-            if(frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] > VAL_0)
+            if (frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8] > VAL_0)
             {
                 frec_array[LINE_1_DIGITS - 2 - digit_k_lin + DIG_LIN_8]--;
             }
@@ -673,28 +679,29 @@ void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
             }
         }
 
-        for(int j = 0; j <= LINE_1_DIGITS - 2; j++)
+        for (int j = 0; j <= LINE_1_DIGITS - 2; j++)
         {
-            frec_lin_new_num = (frec_lin_new_num * 10) + frec_array[j];
+            frec_lin_new_num = (frec_lin_new_num * ten_multipllier)
+            + frec_array[j];
         }
 
-        if(k_sel == K_LIN_1)
+        if (k_sel == K_LIN_1)
         {
             frec_lin_1.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_2)
+        else if (k_sel == K_LIN_2)
         {
             frec_lin_2.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_3)
+        else if (k_sel == K_LIN_3)
         {
             frec_lin_3.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_4)
+        else if (k_sel == K_LIN_4)
         {
             frec_lin_4.num = frec_lin_new_num;
         }
-        else if(k_sel == K_LIN_5)
+        else if (k_sel == K_LIN_5)
         {
             frec_lin_5.num = frec_lin_new_num;
         }
@@ -702,7 +709,7 @@ void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
 }
 
 /*
- * @brief modifica la resolución de los factores acm y ttl.
+ * @brief Modifica la resolución de los factores acm y ttl.
  * @param Resoluciones de fabrica, y de los parámetros ACM y TTL.
  * @retval None
  */
@@ -715,7 +722,7 @@ sel_resolution_t acm_res, sel_resolution_t ttl_res)
 }
 
 /*
- * @brief modifica la resolución del factor rate.
+ * @brief Modifica la resolución del factor rate.
  * @param Resolución de fabrica, y del parámetro rate.
  * @retval None
  */
@@ -724,6 +731,25 @@ sel_resolution_t rate_res)
 {
     units_digits_tim.res = units_res;
     rate_config.volume.res = rate_res;
+}
+
+/*
+ * @brief Función que permite modificar la hora como parámetros individuales y
+ * concatenarlos para que sean introducidos en la hora congelada de tipo punto
+ * fijo.
+ * @param Hora, minutos y segundos leídos del calendario.
+ * @retval None
+ */
+void fm_factory_modify_time(int mod_hour, int mod_minute, int mod_second)
+{
+    static const int hour_mult = 10000;
+    static const int min_mult = 100;
+
+    date_time_config.hour = mod_hour;
+    date_time_config.minute = mod_minute;
+    date_time_config.second = mod_second;
+
+    time_config.num = mod_hour * hour_mult + mod_minute * min_mult + mod_second;
 }
 
 /*
@@ -753,6 +779,18 @@ void fm_factory_modify_volume_units(fmc_unit_volume_t volume_units)
 }
 
 /*
+ * @brief Función que resetea a 0 el valor del ACM. Es necesaria para la
+ * funcionalidad del botón ENTER en el menú de usuario ACM-RATE.
+ * @param None
+ * @retval None
+ */
+void fm_factory_reset_acm()
+{
+    acm_config.pulse = 0;
+    acm_config.volume.num = 0;
+}
+
+/*
  * @brief Función que separa en dígitos el factor K y los guarda en un arreglo
  * global.
  * @param None
@@ -768,8 +806,8 @@ void fm_factory_separate_k_factor()
     {
         if (k_num > 0)
         {
-            k_array[i] = k_num % 10;
-            k_num /= 10;
+            k_array[i] = k_num % ten_multipllier;
+            k_num /= ten_multipllier;
         }
         else
         {
@@ -779,6 +817,12 @@ void fm_factory_separate_k_factor()
     }
 }
 
+/*
+ * @brief Función que separa en dígitos el factor K seleccionado como parámetro
+ * y los guarda en un arreglo global.
+ * @param None
+ * @retval None
+ */
 void fm_factory_separate_k_lin_and_frec(sel_k k_sel)
 {
     uint32_t k_lin_num;
@@ -793,8 +837,8 @@ void fm_factory_separate_k_lin_and_frec(sel_k k_sel)
     {
         if (k_lin_num > 0)
         {
-            k_lin_array[i] = k_lin_num % 10;
-            k_lin_num /= 10;
+            k_lin_array[i] = k_lin_num % ten_multipllier;
+            k_lin_num /= ten_multipllier;
         }
         else
         {
@@ -803,12 +847,12 @@ void fm_factory_separate_k_lin_and_frec(sel_k k_sel)
         i--;
     }
 
-    while(j >= 0) //Introduzco la frecuencia de linealización en otro arreglo.
+    while (j >= 0) //Introduzco la frecuencia de linealización en otro arreglo.
     {
-        if(frec_num > 0)
+        if (frec_num > 0)
         {
-            frec_array[j] = frec_num % 10;
-            frec_num /= 10;
+            frec_array[j] = frec_num % ten_multipllier;
+            frec_num /= ten_multipllier;
         }
         else
         {

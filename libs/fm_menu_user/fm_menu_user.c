@@ -97,10 +97,11 @@ ptr_ret_menu_t fm_menu_show_acm_rate(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ENTER:
+            fm_factory_reset_acm();
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ESC:
-            new_exit = 1;
-            ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
@@ -162,10 +163,10 @@ ptr_ret_menu_t fm_menu_show_acm_temp(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ENTER:
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ESC:
-            new_exit = 1;
-            ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
@@ -222,12 +223,14 @@ ptr_ret_menu_t fm_menu_show_date_hour(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_DOWN:
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ENTER:
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ESC:
-            new_exit = 1;
-            ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
@@ -251,18 +254,26 @@ ptr_ret_menu_t fm_menu_show_date_hour(fm_event_t event_id)
     return (ret_menu);
 }
 
+/*
+ * @brief Función que imprime la pantalla de inicio del computador de caudales,
+ * encendiendo todos los segmentos y la backlight por 3 segundos.
+ * @param  Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
 ptr_ret_menu_t fm_menu_show_init(fm_event_t event_id)
 {
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
     static uint8_t counter = 0;
-    const  uint8_t counter_max = 30;
+    const uint8_t counter_max = 30;
 
     ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_show_init;
     fm_event_t event_now;
 
     if (new_entry == 1)
     {
+        HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port,
+        PCF8553_BACKLIGHT_Pin, GPIO_PIN_RESET);
         fm_lcd_init();
         fm_lcd_clear();
         new_entry = 0;
@@ -286,7 +297,7 @@ ptr_ret_menu_t fm_menu_show_init(fm_event_t event_id)
         case EVENT_KEY_ESC:
         break;
         case EVENT_LCD_REFRESH:
-            if(counter < counter_max)
+            if (counter < counter_max)
             {
                 HAL_Delay(100); // @suppress("Avoid magic numbers")
                 counter++;
@@ -347,6 +358,8 @@ ptr_ret_menu_t fm_menu_show_ttl_rate(fm_event_t event_id)
     switch (event_id)
     {
         case EVENT_KEY_UP:
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_DOWN:
             new_exit = 1;
@@ -355,6 +368,8 @@ ptr_ret_menu_t fm_menu_show_ttl_rate(fm_event_t event_id)
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ENTER:
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;
         case EVENT_KEY_ESC:
             new_exit = 1;
@@ -383,8 +398,8 @@ ptr_ret_menu_t fm_menu_show_ttl_rate(fm_event_t event_id)
 }
 
 /*
- * @brief Función que imprime el menú con la versión del caudalímetro en la
- * pantalla, con puntos específicos.
+ * @brief Función que imprime la pantalla con la versión del computador de
+ * caudales.
  * @param  Evento de presión de botones o refresh.
  * @retval Puntero al retorno de la función.
  */
@@ -393,7 +408,7 @@ ptr_ret_menu_t fm_menu_show_version(fm_event_t event_id)
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
     static uint8_t counter = 0;
-    const  uint8_t counter_max = 30;
+    const uint8_t counter_max = 30;
 
     ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_show_version;
     fm_event_t event_now;
@@ -423,7 +438,7 @@ ptr_ret_menu_t fm_menu_show_version(fm_event_t event_id)
         case EVENT_KEY_ESC:
         break;
         case EVENT_LCD_REFRESH:
-            if(counter < counter_max)
+            if (counter < counter_max)
             {
                 HAL_Delay(100); // @suppress("Avoid magic numbers")
                 counter++;
@@ -450,6 +465,8 @@ ptr_ret_menu_t fm_menu_show_version(fm_event_t event_id)
 
     if (new_exit == 1)
     {
+        HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port,
+        PCF8553_BACKLIGHT_Pin, GPIO_PIN_SET);
         counter = 0;
         new_entry = 1;
         new_exit = 0;
