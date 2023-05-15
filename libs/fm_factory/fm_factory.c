@@ -708,7 +708,12 @@ void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel)
     }
 }
 
-void fm_factory_modify_pulse_acm_ttl(int added_pulses)
+/*
+ * @brief Actualizo el valor de los pulsos de volumen.
+ * @param Pulsos a añadir a los ya existentes.
+ * @retval None
+ */
+void fm_factory_modify_pulse_acm_ttl(uint16_t added_pulses)
 {
     acm_config.pulse += added_pulses;
     ttl_config.pulse += added_pulses;
