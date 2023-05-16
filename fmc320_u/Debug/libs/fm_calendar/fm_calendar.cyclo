@@ -1,9 +1,0 @@
-fm_calendar.c:66:6:fm_calendar_format_date	1
-fm_calendar.c:89:6:fm_calendar_format_time	1
-fm_calendar.c:114:6:fm_calendar_get	1
-fm_calendar.c:136:5:fm_calendar_get_day	1
-fm_calendar.c:147:5:fm_calendar_get_hour	1
-fm_calendar.c:159:5:fm_calendar_get_minute	1
-fm_calendar.c:170:5:fm_calendar_get_month	1
-fm_calendar.c:182:5:fm_calendar_get_second	1
-fm_calendar.c:193:5:fm_calendar_get_year	1

@@ -95,6 +95,7 @@ void HAL_GPIO_EXTI_Rising_Callback(uint16_t gpio_pin) // @suppress("Name convent
             event_now = EVENT_KEY_ESC;
         break;
         default:
+            return;
         break;
     }
 

@@ -44,6 +44,7 @@
 ADC_HandleTypeDef hadc1;
 
 LPTIM_HandleTypeDef hlptim1;
+LPTIM_HandleTypeDef hlptim3;
 LPTIM_HandleTypeDef hlptim4;
 
 RTC_HandleTypeDef hrtc;
@@ -67,6 +68,7 @@ static void MX_RTC_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_LPTIM4_Init(void);
+static void MX_LPTIM3_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -114,6 +116,7 @@ int main(void)
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   MX_LPTIM4_Init();
+  MX_LPTIM3_Init();
   /* USER CODE BEGIN 2 */
 
     fm_lcd_clear();
@@ -360,6 +363,41 @@ static void MX_LPTIM1_Init(void)
     __HAL_RCC_SRAM4_CLKAM_ENABLE();
 
   /* USER CODE END LPTIM1_Init 2 */
+
+}
+
+/**
+  * @brief LPTIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_LPTIM3_Init(void)
+{
+
+  /* USER CODE BEGIN LPTIM3_Init 0 */
+
+  /* USER CODE END LPTIM3_Init 0 */
+
+  /* USER CODE BEGIN LPTIM3_Init 1 */
+
+  /* USER CODE END LPTIM3_Init 1 */
+  hlptim3.Instance = LPTIM3;
+  hlptim3.Init.Clock.Source = LPTIM_CLOCKSOURCE_APBCLOCK_LPOSC;
+  hlptim3.Init.Clock.Prescaler = LPTIM_PRESCALER_DIV1;
+  hlptim3.Init.Trigger.Source = LPTIM_TRIGSOURCE_SOFTWARE;
+  hlptim3.Init.Period = 65535;
+  hlptim3.Init.UpdateMode = LPTIM_UPDATE_IMMEDIATE;
+  hlptim3.Init.CounterSource = LPTIM_COUNTERSOURCE_INTERNAL;
+  hlptim3.Init.Input1Source = LPTIM_INPUT1SOURCE_GPIO;
+  hlptim3.Init.Input2Source = LPTIM_INPUT2SOURCE_GPIO;
+  hlptim3.Init.RepetitionCounter = 0;
+  if (HAL_LPTIM_Init(&hlptim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN LPTIM3_Init 2 */
+  __HAL_RCC_LPTIM3_CLKAM_ENABLE();
+  /* USER CODE END LPTIM3_Init 2 */
 
 }
 
@@ -629,6 +667,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PULSE_IT_Pin */
+  GPIO_InitStruct.Pin = PULSE_IT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(PULSE_IT_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PB13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
@@ -674,6 +718,9 @@ static void MX_GPIO_Init(void)
 
   HAL_NVIC_SetPriority(EXTI13_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(EXTI13_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI14_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI14_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

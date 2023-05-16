@@ -1,5 +1,0 @@
-core_cm33.h:2845:26:ITM_SendChar	4
-fm_debug.c:91:6:fm_debug_msg_itm	3
-fm_debug.c:111:6:fm_debug_msg_uart	2
-fm_debug.c:134:6:fm_debug_uint8_uart	1
-fm_debug.c:146:6:fm_debug_uint32_uart	1

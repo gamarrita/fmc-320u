@@ -65,6 +65,9 @@ void Error_Handler(void);
 #define PCF8553_RESET_GPIO_Port GPIOA
 #define PCF8553_SDIO_Pin GPIO_PIN_7
 #define PCF8553_SDIO_GPIO_Port GPIOA
+#define PULSE_IT_Pin GPIO_PIN_14
+#define PULSE_IT_GPIO_Port GPIOF
+#define PULSE_IT_EXTI_IRQn EXTI14_IRQn
 #define led_red_Pin GPIO_PIN_2
 #define led_red_GPIO_Port GPIOG
 #define PCF8553_BACKLIGHT_Pin GPIO_PIN_8

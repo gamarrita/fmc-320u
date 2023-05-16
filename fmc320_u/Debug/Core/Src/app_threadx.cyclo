@@ -1,8 +1,0 @@
-app_threadx.c:100:6:App_ThreadX_Init	1
-app_threadx.c:130:6:MX_ThreadX_Init	1
-app_threadx.c:148:6:App_ThreadX_LowPower_Timer_Setup	2
-app_threadx.c:184:6:App_ThreadX_LowPower_Enter	1
-app_threadx.c:202:6:App_ThreadX_LowPower_Exit	4
-app_threadx.c:272:7:App_ThreadX_LowPower_Timer_Adjust	1
-app_threadx.c:298:6:menu_task_entry	9
-app_threadx.c:359:6:debounce_task_entry	1
