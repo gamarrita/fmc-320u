@@ -773,6 +773,8 @@ void Error_Handler(void)
     __disable_irq();
     while (1)
     {
+        HAL_GPIO_TogglePin(led_red_GPIO_Port, led_red_Pin);
+        HAL_Delay(300);
     }
   /* USER CODE END Error_Handler_Debug */
 }

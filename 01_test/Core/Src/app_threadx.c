@@ -240,13 +240,13 @@ ULONG App_ThreadX_LowPower_Timer_Adjust(void)
 VOID menu_task_entry(ULONG initial_input)
 {
     static int backlight_cd = 0;
-    static int pulse_counter = 0;
+//    static int pulse_counter = 0;
     ptr_fun_menu_t ptr_menu = fm_menu_show_init;
     fm_event_t event_next = EVENT_LCD_REFRESH;
     UINT ret_status;
     while(1)
     {
-        HAL_LPTIM_Counter_Start(&hlptim4);
+//        HAL_LPTIM_Counter_Start(&hlptim4);
         ret_status = tx_queue_receive(&event_queue_ptr,&event_next,100);
 
         if(ptr_menu != fm_menu_show_init && ptr_menu != fm_menu_show_version)
@@ -278,9 +278,9 @@ VOID menu_task_entry(ULONG initial_input)
             ptr_menu = (ptr_fun_menu_t)(*ptr_menu)(EVENT_LCD_REFRESH);
         }
 
-        HAL_LPTIM_Counter_Stop(&hlptim4);
+//        HAL_LPTIM_Counter_Stop(&hlptim4);
 
-        pulse_counter = HAL_LPTIM_ReadCounter(&hlptim4);
+//        pulse_counter = HAL_LPTIM_ReadCounter(&hlptim4);
     }
 }
 
