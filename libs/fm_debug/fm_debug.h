@@ -20,6 +20,29 @@
 
 // Macros, defines, microcontroller pins (dhs).
 
+/*
+ * La siguiente macro controla los mensajes de debug a nivel global, comentar
+ * la macro para deshabilitar todo mensaje de macro.
+ */
+
+#define FM_DEBUG
+
+/*
+ * Si FM_DEBUG esta definida controlo individualmente cada mensaje de debug
+ * el siguiente condicional. Típicamente solo uno, o unos pocos, estarán
+ * habilitados.
+ */
+
+#ifdef FM_DEBUG
+
+#define FM_DEBUG_UART_TX_TIME_ON_IDLE
+//#define FM_DEBUG_UART_TX_MENU_ENTER
+//#define FM_DEBUG_UART_TX_CALENDAR
+//#define FM_DEBUG_UART_TX_TEMP_SENSOR
+//#define FM_DEBUG_UART_TX_PRESS_KEYPAD
+
+#endif
+
 // Typedef.
 
 // Defines.

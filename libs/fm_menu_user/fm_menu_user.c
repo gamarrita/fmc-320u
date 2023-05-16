@@ -36,14 +36,6 @@
 // Const data.
 // Defines.
 // Debug.
-/*
- * To temporally disable a block of code, use preprocessor's conditional
- * compilation features, eg, the following one should be used to increase the
- * the debug output information.
- *
- */
-#ifndef NDEBUG
-#endif
 
 // Project variables, non-static, at least used in other file.
 
@@ -111,7 +103,7 @@ ptr_ret_menu_t fm_menu_show_acm_rate(fm_event_t event_id)
         break;
     }
 
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "acm_rate\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -176,7 +168,7 @@ ptr_ret_menu_t fm_menu_show_acm_temp(fm_event_t event_id)
         break;
     }
 
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "acm_temp\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -240,7 +232,7 @@ ptr_ret_menu_t fm_menu_show_date_hour(fm_event_t event_id)
         break;
     }
 
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer3[] = "date_hour\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer3, sizeof(msg_buffer3));
 #endif
@@ -317,7 +309,7 @@ ptr_ret_menu_t fm_menu_show_init(fm_event_t event_id)
         break;
     }
 
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "INIT\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -383,7 +375,7 @@ ptr_ret_menu_t fm_menu_show_ttl_rate(fm_event_t event_id)
         break;
     }
 
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "ttl_rate\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -458,7 +450,7 @@ ptr_ret_menu_t fm_menu_show_version(fm_event_t event_id)
         break;
     }
 
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "version\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif

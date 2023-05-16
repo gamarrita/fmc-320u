@@ -427,7 +427,7 @@ static void MX_LPTIM4_Init(void)
   hlptim4.Init.CounterSource = LPTIM_COUNTERSOURCE_EXTERNAL;
   hlptim4.Init.Input1Source = LPTIM_INPUT1SOURCE_GPIO;
   hlptim4.Init.Input2Source = LPTIM_INPUT2SOURCE_GPIO;
-  hlptim4.Init.RepetitionCounter = 1;
+  hlptim4.Init.RepetitionCounter = 0;
   if (HAL_LPTIM_Init(&hlptim4) != HAL_OK)
   {
     Error_Handler();
@@ -555,7 +555,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   hspi1.Init.CRCPolynomial = 0x7;
-  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
   hspi1.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
   hspi1.Init.FifoThreshold = SPI_FIFO_THRESHOLD_01DATA;
   hspi1.Init.MasterSSIdleness = SPI_MASTER_SS_IDLENESS_00CYCLE;
@@ -673,11 +673,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(PULSE_IT_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PB13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  /*Configure GPIO pin : KEY_ESC_Pin */
+  GPIO_InitStruct.Pin = KEY_ESC_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(KEY_ESC_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : led_red_Pin */
   GPIO_InitStruct.Pin = led_red_Pin;
@@ -693,8 +693,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(PCF8553_BACKLIGHT_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PC10 PC11 PC12 */
-  GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12;
+  /*Configure GPIO pins : KEY_UP_Pin KEY_DOWN_Pin KEY_ENTER_Pin */
+  GPIO_InitStruct.Pin = KEY_UP_Pin|KEY_DOWN_Pin|KEY_ENTER_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);

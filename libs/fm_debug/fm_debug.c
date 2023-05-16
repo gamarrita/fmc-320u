@@ -49,15 +49,6 @@
 
 //Debug.
 
-/*
- * To temporally disable a block of code, use preprocessor's conditional
- * compilation features, eg, the following one should be used to increase the
- * the debug output information.
- *
- */
-#ifndef NDEBUG
-#endif
-
 // Project variables, non-static, at least used in other file.
 
 // Extern variables.

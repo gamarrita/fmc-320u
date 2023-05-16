@@ -467,7 +467,7 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar fecha y hora\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -564,7 +564,7 @@ ptr_ret_menu_t fm_menu_config_expansion(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar factor de expansion\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -647,7 +647,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_1(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar parametro K_lin_1\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -731,7 +731,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_2(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar parametro K_lin_2\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -815,7 +815,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_3(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar parametro K_lin_3\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -899,7 +899,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_4(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar parametro K_lin_4\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -984,7 +984,7 @@ ptr_ret_menu_t fm_menu_config_k_lin_5(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar parametro K_lin_5\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -1093,7 +1093,7 @@ ptr_ret_menu_t fm_menu_config_k_param(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar parametro K\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -1152,7 +1152,7 @@ ptr_ret_menu_t fm_menu_config_ko_param(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar parametro Ko\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -1295,7 +1295,7 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Password\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -1414,7 +1414,7 @@ ptr_ret_menu_t fm_menu_config_span(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar Span\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -1537,7 +1537,7 @@ ptr_ret_menu_t fm_menu_config_units_tim(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar unidades de tiempo y resolucion\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif
@@ -1684,7 +1684,7 @@ ptr_ret_menu_t fm_menu_config_units_vol(fm_event_t event_id)
     }
 
     previous_event = event_id;
-#ifdef FM_DEBUG_MENU
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
     char msg_buffer[] = "Configurar unidades de volumen y resolucion\n";
     fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
 #endif

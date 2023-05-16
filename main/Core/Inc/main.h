@@ -68,10 +68,22 @@ void Error_Handler(void);
 #define PULSE_IT_Pin GPIO_PIN_14
 #define PULSE_IT_GPIO_Port GPIOF
 #define PULSE_IT_EXTI_IRQn EXTI14_IRQn
+#define KEY_ESC_Pin GPIO_PIN_13
+#define KEY_ESC_GPIO_Port GPIOB
+#define KEY_ESC_EXTI_IRQn EXTI13_IRQn
 #define led_red_Pin GPIO_PIN_2
 #define led_red_GPIO_Port GPIOG
 #define PCF8553_BACKLIGHT_Pin GPIO_PIN_8
 #define PCF8553_BACKLIGHT_GPIO_Port GPIOC
+#define KEY_UP_Pin GPIO_PIN_10
+#define KEY_UP_GPIO_Port GPIOC
+#define KEY_UP_EXTI_IRQn EXTI10_IRQn
+#define KEY_DOWN_Pin GPIO_PIN_11
+#define KEY_DOWN_GPIO_Port GPIOC
+#define KEY_DOWN_EXTI_IRQn EXTI11_IRQn
+#define KEY_ENTER_Pin GPIO_PIN_12
+#define KEY_ENTER_GPIO_Port GPIOC
+#define KEY_ENTER_EXTI_IRQn EXTI12_IRQn
 #define led_blue_Pin GPIO_PIN_7
 #define led_blue_GPIO_Port GPIOB
 
