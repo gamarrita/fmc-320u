@@ -68,6 +68,7 @@ void Error_Handler(void);
 #define led_blue_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
+void call_system_clk_config();
 
 /* USER CODE END Private defines */
 

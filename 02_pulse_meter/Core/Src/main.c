@@ -111,7 +111,6 @@ int main(void)
   MX_LPTIM4_Init();
   MX_LPTIM3_Init();
   /* USER CODE BEGIN 2 */
-
   /* Enable the Autonomous Mode for the RTC Stop0/1/2 */
   __HAL_RCC_RTCAPB_CLKAM_ENABLE();
   HAL_LPTIM_Counter_Start(&hlptim1);
@@ -203,6 +202,11 @@ static void SystemPower_Config(void)
   {
     Error_Handler();
   }
+
+  /*
+   * SRAM4 Fast In Run Mode Config
+   */
+  HAL_PWREx_EnableSRAM4FastWakeUp();
 /* USER CODE BEGIN PWR */
 /* USER CODE END PWR */
 }
@@ -320,6 +324,8 @@ static void MX_LPTIM3_Init(void)
    *
    */
   __HAL_RCC_LPTIM3_CLKAM_ENABLE();
+  __HAL_RCC_LPDMA1_CLKAM_ENABLE();
+  __HAL_RCC_SRAM4_CLKAM_ENABLE();
 
   /* USER CODE END LPTIM3_Init 2 */
 
@@ -359,6 +365,8 @@ static void MX_LPTIM4_Init(void)
   /* USER CODE BEGIN LPTIM4_Init 2 */
 
   __HAL_RCC_LPTIM4_CLKAM_ENABLE();
+  __HAL_RCC_LPDMA1_CLKAM_ENABLE();
+  __HAL_RCC_SRAM4_CLKAM_ENABLE();
 
   /* USER CODE END LPTIM4_Init 2 */
 
@@ -493,7 +501,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : PULSE_IT_Pin */
   GPIO_InitStruct.Pin = PULSE_IT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(PULSE_IT_GPIO_Port, &GPIO_InitStruct);
 
@@ -512,7 +520,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(led_blue_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI14_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(EXTI14_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI14_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
@@ -520,6 +528,11 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void call_system_clk_config()
+{
+    SystemClock_Config();
+}
 
 void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
 {

@@ -37,12 +37,12 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-//#define FM_THREADX_LOW_POWER
+#define FM_THREADX_LOW_POWER
 #define THREAD_STACK_SIZE 1024
 
 /*
- * Tamaño de memoria para ser usado por Tracex. no cualquier tamaño fuciona
- * creo tiene que ser multiplo de 10.
+ * Tamaño de memoria para ser usado por TraceX. no cualquier tamaño funciona
+ * creo que tiene que ser multiplo de 10.
  */
 #define TRACEX_BUFFER_SIZE 16000
 
@@ -184,7 +184,7 @@ void app_threadx_lowpower_exit(void)
      * expected time was elapsed. Debugger issues makes wake up CPU earlier
      */
      #ifdef FM_THREADX_LOW_POWER
-         SystemClock_Config();
+         call_system_clk_config();
      #endif
 
      HAL_GPIO_WritePin(led_blue_GPIO_Port, led_blue_Pin, GPIO_PIN_SET);
@@ -224,7 +224,7 @@ VOID pulse_meter_thread_entry(ULONG initial_input)
     static uint16_t pulse_counter_end = 0;
     static uint16_t pulse_counter_diff = 0;
 
-//    static char pulse_counter_diff_msg[40];
+    static char pulse_counter_diff_msg[40];
 
     HAL_LPTIM_Counter_Start(&hlptim4);
     HAL_LPTIM_Counter_Start(&hlptim3);
@@ -235,6 +235,7 @@ VOID pulse_meter_thread_entry(ULONG initial_input)
 
         tx_thread_sleep(100);
 
+        __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_14);
         HAL_NVIC_EnableIRQ(EXTI14_IRQn);
 
         pulse_counter_end = HAL_LPTIM_ReadCounter(&hlptim4);
