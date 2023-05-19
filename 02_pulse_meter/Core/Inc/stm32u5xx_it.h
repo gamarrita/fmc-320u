@@ -55,7 +55,6 @@ void DebugMon_Handler(void);
 void RTC_IRQHandler(void);
 void EXTI14_IRQHandler(void);
 void TIM6_IRQHandler(void);
-void LPTIM1_IRQHandler(void);
 void ICACHE_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 

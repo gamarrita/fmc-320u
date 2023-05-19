@@ -11,6 +11,7 @@
 #include "frecuency_meter.h"
 #include "stdio.h"
 #include "string.h"
+#include "../../fm_debug/fm_debug.h"
 
 // Typedef.
 
@@ -32,6 +33,7 @@
 // Project variables, non-static, at least used in other file.
 
 double frecuency = 0;
+uint8_t no_pulse_cnt = 0;
 
 // External variables.
 
@@ -56,14 +58,11 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin)
     static uint16_t pulses_1 = 0;
     static uint16_t pulses_2 = 0;
     static uint16_t delta_pulses = 0;
+    static GPIO_InitTypeDef GPIO_InitStruct = {0};
 
     static const double lse_frecuency = 32768;
 
-    static char frecuency_msg[30];
-    static char ticks[50];
-    static char pulses[50];
-    static char d_ticks[50];
-    static char d_pulses[50];
+    no_pulse_cnt = 1;
 
     if(new_entry)
     {
@@ -82,31 +81,36 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin)
 
         frecuency = (double)(delta_pulses * lse_frecuency) / delta_ticks;
 
-        sprintf(ticks, "t_1: %u, t_2: %u \n", ticks_1, ticks_2);
-        HAL_UART_Transmit(&huart1, (uint8_t*)ticks, strlen(frecuency_msg),
-        HAL_MAX_DELAY);
+        #ifdef FM_DEBUG_UART_TX_PULSE_DIFF
 
-        sprintf(d_ticks, "delta_t: %u \n", delta_ticks);
-        HAL_UART_Transmit(&huart1, (uint8_t*)d_ticks, strlen(frecuency_msg),
-        HAL_MAX_DELAY);
+              static char d_pulses[50];
 
-        sprintf(pulses, "p_1: %u, p_2: %u \n", pulses_1, pulses_2);
-        HAL_UART_Transmit(&huart1, (uint8_t*)pulses, strlen(frecuency_msg),
-        HAL_MAX_DELAY);
+              sprintf(d_pulses, "delta_p: %u \n", delta_pulses);
+              HAL_UART_Transmit(&huart1, (uint8_t*)d_pulses,
+              strlen(d_pulses), HAL_MAX_DELAY);
+        #endif
 
-        sprintf(d_pulses, "delta_p: %u \n", delta_pulses);
-        HAL_UART_Transmit(&huart1, (uint8_t*)d_pulses, strlen(frecuency_msg),
-        HAL_MAX_DELAY);
+        #ifdef FM_DEBUG_UART_TX_TICKS_DIFF
+
+              static char d_ticks[50];
+
+              sprintf(d_ticks, "delta_t: %u \n", delta_ticks);
+              HAL_UART_Transmit(&huart1, (uint8_t*)d_ticks,
+              strlen(d_ticks), HAL_MAX_DELAY);
+        #endif
 
         ticks_1 = ticks_2;
         pulses_1 = pulses_2;
     }
 
-    sprintf(frecuency_msg, "Frecuencia: %0.2lf Hz\n\n",frecuency);
-    HAL_UART_Transmit(&huart1, (uint8_t*)frecuency_msg,
-    strlen(frecuency_msg), HAL_MAX_DELAY);
 
-    HAL_NVIC_DisableIRQ(EXTI14_IRQn);
+    GPIO_InitStruct.Pin = PULSE_IT_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(PULSE_IT_GPIO_Port, &GPIO_InitStruct);
+
+    NVIC_DisableIRQ(EXTI14_IRQn);
 }
 
 // Interrupts

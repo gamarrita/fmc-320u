@@ -578,9 +578,9 @@ void Error_Handler(void)
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
+  HAL_GPIO_TogglePin(led_red_GPIO_Port, led_red_Pin);
   while (1)
   {
-      HAL_GPIO_TogglePin(led_red_GPIO_Port, led_red_Pin);
   }
   /* USER CODE END Error_Handler_Debug */
 }

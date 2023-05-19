@@ -27,6 +27,7 @@
 #include "stdio.h"
 #include "string.h"
 #include "../../frecuency_meter/frecuency_meter.h"
+#include "../../fm_debug/fm_debug.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,6 +68,9 @@ uint8_t tracex_buffer[TRACEX_BUFFER_SIZE] __attribute__((section (".trace")));
 extern LPTIM_HandleTypeDef hlptim3;
 extern LPTIM_HandleTypeDef hlptim4;
 extern RTC_HandleTypeDef hrtc;
+extern UART_HandleTypeDef huart1;
+extern double frecuency;
+extern uint8_t no_pulse_cnt;
 
 TX_THREAD thread_ptr;
 uint16_t g_lptim1_start;
@@ -164,6 +168,7 @@ void app_threadx_lowpower_enter(void)
     HAL_GPIO_WritePin(led_blue_GPIO_Port, led_blue_Pin, GPIO_PIN_RESET);
 
     #ifdef FM_THREADX_LOW_POWER
+    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_14);
     HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
     #endif
 
@@ -223,8 +228,7 @@ VOID pulse_meter_thread_entry(ULONG initial_input)
     static uint16_t pulse_counter_begin = 0;
     static uint16_t pulse_counter_end = 0;
     static uint16_t pulse_counter_diff = 0;
-
-    static char pulse_counter_diff_msg[40];
+    static GPIO_InitTypeDef GPIO_InitStruct = {0};
 
     HAL_LPTIM_Counter_Start(&hlptim4);
     HAL_LPTIM_Counter_Start(&hlptim3);
@@ -235,11 +239,34 @@ VOID pulse_meter_thread_entry(ULONG initial_input)
 
         tx_thread_sleep(100);
 
-        __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_14);
-        HAL_NVIC_EnableIRQ(EXTI14_IRQn);
+        if(no_pulse_cnt > 0)
+        {
+            GPIO_InitStruct.Pin = PULSE_IT_Pin;
+            GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+            GPIO_InitStruct.Pull = GPIO_NOPULL;
+            HAL_GPIO_Init(PULSE_IT_GPIO_Port, &GPIO_InitStruct);
+
+            __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_14);
+            HAL_NVIC_EnableIRQ(EXTI14_IRQn);
+
+            no_pulse_cnt--;
+        }
+        else
+        {
+            frecuency = 0;
+        }
 
         pulse_counter_end = HAL_LPTIM_ReadCounter(&hlptim4);
         pulse_counter_diff = pulse_counter_end - pulse_counter_begin;
+
+        #ifdef FM_DEBUG_UART_TX_PULSE_FRECUENCY
+
+            static char frecuency_msg[30];
+
+            sprintf(frecuency_msg, "Frecuencia: %0.2lf Hz\n",frecuency);
+            HAL_UART_Transmit(&huart1, (uint8_t*)frecuency_msg,
+            strlen(frecuency_msg), HAL_MAX_DELAY);
+        #endif
     }
 }
 
