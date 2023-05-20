@@ -391,6 +391,7 @@ void fm_factory_modify_k_factor_add(sel_digit_t digit_k);
 void fm_factory_modify_k_factor_subs(sel_digit_t digit_k);
 void fm_factory_modify_k_lin_add(sel_digit_k_lin_t digit_k_lin, sel_k k_sel);
 void fm_factory_modify_k_lin_subs(sel_digit_k_lin_t digit_k_lin, sel_k k_sel);
+void fm_factory_modify_pulse_acm_ttl(uint16_t added_pulses);
 void fm_factory_modify_res_acm_ttl(sel_resolution_t units_res,
 sel_resolution_t acm_res, sel_resolution_t ttl_res);
 void fm_factory_modify_res_rate(sel_resolution_t units_res,

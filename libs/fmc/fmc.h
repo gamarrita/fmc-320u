@@ -66,7 +66,7 @@ typedef enum
 
 typedef enum
 {
-    DECIMAL_0, DECIMAL_1, DECIMAL_2, DECIMAL_3
+    DECIMAL_0, DECIMAL_1, DECIMAL_2, DECIMAL_3, DECIMAL_OOR
 } fmc_decimals_t;
 // Typedef.
 
@@ -108,6 +108,7 @@ typedef struct
 fmc_totalizer_t fmc_get_acm();
 fmc_date_time_t fmc_get_date_time();
 fmc_totalizer_t fmc_get_rate();
+fmc_decimals_t fmc_get_resolution(double dec_number);
 fmc_temp_t fmc_get_stm32_temp();
 fmc_totalizer_t fmc_get_ttl();
 uint32_t fmc_get_version();

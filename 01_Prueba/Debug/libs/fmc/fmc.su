@@ -1,7 +1,0 @@
-D:/githubs/fmc-320u/libs/fmc/fmc.c:87:17:fmc_get_acm	96	static
-D:/githubs/fmc-320u/libs/fmc/fmc.c:104:12:fmc_get_stm32_temp	40	static
-D:/githubs/fmc-320u/libs/fmc/fmc.c:119:17:fmc_get_rate	96	static
-D:/githubs/fmc-320u/libs/fmc/fmc.c:134:17:fmc_get_ttl	96	static
-D:/githubs/fmc-320u/libs/fmc/fmc.c:150:6:fmc_totalizer_clear_pulse	16	static
-D:/githubs/fmc-320u/libs/fmc/fmc.c:161:17:fmc_totalizer_init	24	static
-D:/githubs/fmc-320u/libs/fmc/fmc.c:175:6:fmc_totalizer_refresh	40	static

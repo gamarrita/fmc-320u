@@ -109,6 +109,41 @@ fmc_totalizer_t fmc_get_rate()
 }
 
 /*
+ * @brief Función que toma un número con coma y devuelve su resolución.
+ * @param  Número con coma.
+ * @retval Cantidad de decimales que tiene el número pasado como argumento.
+ */
+fmc_decimals_t fmc_get_resolution(double dec_number)
+{
+    int contador = 0;
+    while((int)dec_number != dec_number) // @suppress("Direct float comparison")
+    {
+        dec_number*=g_scalar[1];
+        contador++;
+    }
+
+    if(contador == DECIMAL_0)
+    {
+        return (DECIMAL_0);
+    }
+    else if(contador == DECIMAL_1)
+    {
+        return (DECIMAL_1);
+    }
+    else if(contador == DECIMAL_2)
+    {
+        return (DECIMAL_2);
+    }
+    else if(contador == DECIMAL_3)
+    {
+        return (DECIMAL_3);
+    }
+
+    return (DECIMAL_OOR);
+
+}
+
+/*
  * @brief Función que obtiene el valor de la temperatura interna y la devuelve
  * como parámetro de retorno.
  * @param  None

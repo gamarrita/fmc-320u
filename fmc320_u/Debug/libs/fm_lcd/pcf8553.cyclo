@@ -1,9 +1,0 @@
-pcf8553.c:161:13:prepare_to_send	1
-pcf8553.c:175:13:spi1_init	2
-pcf8553.c:218:6:pcf8553_blink	1
-pcf8553.c:227:6:pcf8553_clear_buff	2
-pcf8553.c:258:6:pcf8553_dump	2
-pcf8553.c:274:6:pcf8553_init	1
-pcf8553.c:313:6:pcf8553_reset	1
-pcf8553.c:332:6:pcf8553_write_all	2
-pcf8553.c:349:6:pcf8553_write_byte	1

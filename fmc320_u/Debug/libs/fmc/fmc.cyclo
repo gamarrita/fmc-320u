@@ -1,7 +1,0 @@
-fmc.c:87:17:fmc_get_acm	1
-fmc.c:102:17:fmc_get_rate	1
-fmc.c:118:12:fmc_get_stm32_temp	1
-fmc.c:133:17:fmc_get_ttl	1
-fmc.c:149:6:fmc_totalizer_clear_pulse	1
-fmc.c:160:17:fmc_totalizer_init	1
-fmc.c:174:6:fmc_totalizer_refresh	1
