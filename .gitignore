@@ -11,5 +11,3 @@ Release
 
 .metadata/.plugins/org.eclipse.core.runtime/*
 !.metadata/.plugins/org.eclipse.core.runtime/.settings/
-
-#except preference files
