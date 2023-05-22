@@ -28,6 +28,7 @@
 #include "string.h"
 #include "../../frecuency_meter/frecuency_meter.h"
 #include "../../fm_debug/fm_debug.h"
+#include "../../lcd/lcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -104,7 +105,7 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
 
   /* USER CODE END App_ThreadX_Init */
 
-  return ret;
+  return (ret);
 }
 
   /**
@@ -238,6 +239,9 @@ VOID pulse_meter_thread_entry(ULONG initial_input)
         pulse_counter_begin = pulse_counter_end;
 
         tx_thread_sleep(100);
+
+        lcd_puts_2("(]");
+        lcd_refresh();
 
         if(no_pulse_cnt > 0)
         {

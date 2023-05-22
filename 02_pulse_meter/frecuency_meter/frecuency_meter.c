@@ -110,7 +110,7 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin)
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(PULSE_IT_GPIO_Port, &GPIO_InitStruct);
 
-    NVIC_DisableIRQ(EXTI14_IRQn);
+    HAL_NVIC_DisableIRQ(EXTI14_IRQn);
 }
 
 // Interrupts
