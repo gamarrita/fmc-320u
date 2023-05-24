@@ -9,9 +9,6 @@
 // Includes.
 
 #include "frecuency_meter.h"
-#include "stdio.h"
-#include "string.h"
-#include "../../fm_debug/fm_debug.h"
 
 // Typedef.
 
@@ -37,11 +34,11 @@ uint8_t no_pulse_cnt = 0;
 
 // External variables.
 
-extern LPTIM_HandleTypeDef hlptim3;
-extern LPTIM_HandleTypeDef hlptim4;
 extern UART_HandleTypeDef huart1;
 
 // Global variables, statics.
+
+static const uint32_t g_scalar_frec_meter[] = {0, 10, 100, 1000};
 
 // Private function prototypes.
 
@@ -49,7 +46,41 @@ extern UART_HandleTypeDef huart1;
 
 // Public function bodies.
 
-void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin)
+uint8_t frecuency_meter_get_resolution()
+{
+    if(frecuency >= g_scalar_frec_meter[FREC_RES_0] &&
+    frecuency < g_scalar_frec_meter[FREC_RES_1])
+    {
+        return(FREC_RES_3);
+    }
+    else if(frecuency >= g_scalar_frec_meter[FREC_RES_1] &&
+    frecuency < g_scalar_frec_meter[FREC_RES_2])
+    {
+        return(FREC_RES_2);
+    }
+    else if(frecuency >= g_scalar_frec_meter[FREC_RES_2] &&
+    frecuency < g_scalar_frec_meter[FREC_RES_3])
+    {
+        return(FREC_RES_1);
+    }
+    else
+    {
+        return(FREC_RES_0);
+    }
+}
+
+uint64_t frecuency_meter_get_frec_u64()
+{
+    static uint64_t frec_u64 = 0;
+
+    frec_u64 = frecuency * g_scalar_frec_meter[frecuency_meter_get_resolution()];
+
+    return (frec_u64);
+}
+
+// Interrupts
+
+void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin) // @suppress("Name convention for function")
 {
     static uint8_t new_entry = 1;
     static uint16_t ticks_1 = 0;
@@ -103,6 +134,7 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin)
         pulses_1 = pulses_2;
     }
 
+    fm_factory_modify_pulse_rate(frecuency_meter_get_frec_u64());
 
     GPIO_InitStruct.Pin = PULSE_IT_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -112,7 +144,5 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin)
 
     HAL_NVIC_DisableIRQ(EXTI14_IRQn);
 }
-
-// Interrupts
 
 /*** end of file ***/
