@@ -23,8 +23,10 @@
 /* USER CODE BEGIN Includes */
 #include "string.h"
 #include "stdio.h"
-/* USER CODE END Includes */
 #include "../../lcd_libs/fm_lcd/fm_lcd.h"
+#include "../../fm_calendar/fm_calendar.h"
+/* USER CODE END Includes */
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -46,6 +48,8 @@ RTC_HandleTypeDef hrtc;
 
 SPI_HandleTypeDef hspi1;
 
+UART_HandleTypeDef huart1;
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -57,6 +61,7 @@ static void MX_GPIO_Init(void);
 static void MX_ICACHE_Init(void);
 static void MX_RTC_Init(void);
 static void MX_SPI1_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -100,20 +105,19 @@ int main(void)
   MX_ICACHE_Init();
   MX_RTC_Init();
   MX_SPI1_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
-  RTC_TimeTypeDef sTime;
-  RTC_DateTypeDef sDate;
 
   char date_string[20]; // @suppress("Avoid magic numbers")
   char time_string[20]; // @suppress("Avoid magic numbers")
 
-  static date_rtc_t date_config;
-
-  static time_rtc_t time_config;
-
   fm_lcd_init();
   fm_lcd_clear();
+
+  RTC_TimeTypeDef stime_config;
+  RTC_DateTypeDef sdate_config;
+
+  int first_time = 1;
 
   /* USER CODE END 2 */
 
@@ -121,22 +125,31 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-      HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
-      HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
+      if(first_time == 1)
+      {
+          sdate_config.Date = 29;
+          sdate_config.Month = 5;
+          sdate_config.Year = 23;
+          sdate_config.WeekDay = RTC_WEEKDAY_FRIDAY;
 
-      date_config.dia = sDate.Date;
-      date_config.mes = sDate.Month;
-      date_config.año = sDate.Year;
+          fm_calendar_modify_date(sdate_config);
 
-      time_config.hora = sTime.Hours;
-      time_config.minutos = sTime.Minutes;
-      time_config.segundos = sTime.Seconds;
+          stime_config.Hours = 12;
+          stime_config.Minutes = 36;
+          stime_config.Seconds = 1;
+          stime_config.SecondFraction = 0;
+          stime_config.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+          stime_config.StoreOperation = RTC_STOREOPERATION_RESET;
+          stime_config.SubSeconds = 0;
+          stime_config.TimeFormat = RTC_HOURFORMAT12_AM;
 
-      sprintf(time_string, "%02d%02d%02d", time_config.hora,
-      time_config.minutos, time_config.segundos);
+          fm_calendar_modify_time(stime_config);
 
-      sprintf(date_string, "%02d%02d20%02d", date_config.dia,
-      date_config.mes, date_config.año);
+          first_time = 0;
+      }
+
+      fm_calendar_format_time(time_string, strlen(time_string));
+      fm_calendar_format_date(date_string, strlen(date_string));
 
       fm_lcd_puts_rows(date_string, HIGH_ROW);
       fm_lcd_puts_rows(time_string, LOW_ROW);
@@ -389,6 +402,54 @@ static void MX_SPI1_Init(void)
   /* USER CODE BEGIN SPI1_Init 2 */
 
   /* USER CODE END SPI1_Init 2 */
+
+}
+
+/**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart1, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
 
 }
 

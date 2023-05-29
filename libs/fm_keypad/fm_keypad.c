@@ -9,9 +9,8 @@
  */
 
 // Includes.
-#include "stdio.h"
+
 #include "fm_keypad.h"
-#include "../fm_debug/fm_debug.h"
 
 // Typedef.
 

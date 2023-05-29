@@ -100,7 +100,6 @@ void fm_calendar_format_time()
      * entero en un arreglo, pero por ahora se va a quedar así hasta que se
      * elimine el formatter de la libreria fm_lcd.h
      */
-
     time_int = atoi(time_arr);
     fm_factory_modify_fp_time(time_int);
 }

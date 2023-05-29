@@ -18,6 +18,7 @@
 #include "main.h"
 #include "stdio.h"
 #include "string.h"
+#include "../../fm_debug/fm_debug.h"
 
 // Macros for microcontroller taken pins (dhs).
 
