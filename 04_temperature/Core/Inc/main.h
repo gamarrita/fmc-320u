@@ -57,6 +57,18 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define PCF8553_SCL_Pin GPIO_PIN_1
+#define PCF8553_SCL_GPIO_Port GPIOA
+#define PCF8553_CE_Pin GPIO_PIN_4
+#define PCF8553_CE_GPIO_Port GPIOA
+#define PCF8553_RESET_Pin GPIO_PIN_6
+#define PCF8553_RESET_GPIO_Port GPIOA
+#define PCF8553_SDIO_Pin GPIO_PIN_7
+#define PCF8553_SDIO_GPIO_Port GPIOA
+#define led_red_Pin GPIO_PIN_2
+#define led_red_GPIO_Port GPIOG
+#define led_blue_Pin GPIO_PIN_7
+#define led_blue_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

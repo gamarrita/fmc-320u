@@ -31,4 +31,11 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>lcd_libs</name>
+			<type>2</type>
+			<location>D:/githubs/fmc-320u/04_temperature/lcd_libs</location>
+		</link>
+	</linkedResources>
 </projectDescription>
