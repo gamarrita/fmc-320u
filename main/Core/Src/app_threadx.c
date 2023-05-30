@@ -303,10 +303,10 @@ VOID menu_thread_entry(ULONG initial_input)
     static const int queue_stay = 100;
     static const int backlight_countdown = 10;
     static int backlight_cd = 0;
-    static uint16_t pulse_counter_begin = 0;
-    static uint16_t pulse_counter_end = 0;
-    static uint16_t delta_pulse_counter = 0;
-    char msg[34];
+//    static uint16_t pulse_counter_begin = 0;
+//    static uint16_t pulse_counter_end = 0;
+//    static uint16_t delta_pulse_counter = 0;
+//    char msg[34];
 
     ptr_fun_menu_t ptr_menu = fm_menu_show_init;
     fm_event_t event_next = EVENT_LCD_REFRESH;
@@ -316,7 +316,7 @@ VOID menu_thread_entry(ULONG initial_input)
 
     while (1)
     {
-        pulse_counter_begin = pulse_counter_end;
+//        pulse_counter_begin = pulse_counter_end;
 
         ret_status = tx_queue_receive(&event_queue_ptr, &event_next,
         queue_stay);
@@ -350,12 +350,12 @@ VOID menu_thread_entry(ULONG initial_input)
             ptr_menu = (ptr_fun_menu_t) (*ptr_menu)(EVENT_LCD_REFRESH);
         }
 
-        pulse_counter_end = HAL_LPTIM_ReadCounter(&hlptim4);
-        delta_pulse_counter = pulse_counter_end - pulse_counter_begin;
-        fm_factory_modify_pulse_acm_ttl(delta_pulse_counter);
-
-        sprintf(msg, "pulsos en este segundo y pico: %u\n", delta_pulse_counter);
-        HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), queue_stay);
+//        pulse_counter_end = HAL_LPTIM_ReadCounter(&hlptim4);
+//        delta_pulse_counter = pulse_counter_end - pulse_counter_begin;
+//        fm_factory_modify_pulse_acm_ttl(delta_pulse_counter);
+//
+//        sprintf(msg, "pulsos en este segundo y pico: %u\n", delta_pulse_counter);
+//        HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), queue_stay);
     }
 }
 
