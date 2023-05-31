@@ -8,7 +8,6 @@
  */
 
 // Includes.
-
 #include "fmc.h"
 
 // Typedef.
@@ -23,13 +22,9 @@
  */
 
 // Const data.
-
 // Defines.
-
 // Debug.
-
 // Project variables, non-static, at least used in other file.
-
 extern totalizer_t acm;
 extern totalizer_t rate;
 extern totalizer_t ttl;
@@ -38,8 +33,16 @@ extern totalizer_t ttl;
 
 // Global variables, statics.
 
-static const uint32_t g_scalar_fmc[] = {1, 10, 100, 1000, 10000, 100000,
-                                        1000000};
+static const uint32_t g_scalar_fmc[] =
+{
+    1,
+    10,
+    100,
+    1000,
+    10000,
+    100000,
+    1000000
+};
 
 // Private function prototypes.
 

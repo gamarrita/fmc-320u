@@ -66,7 +66,7 @@ int fm_temp_stm32_format_int()
     temp_celcius = __HAL_ADC_CALC_TEMPERATURE(&hadc1, 3285, raw_value,
     ADC_RESOLUTION_12B);
 
-    #ifdef FM_DEBUG_UART_TX_TEMP_SENSOR
+#ifdef FM_DEBUG_UART_TX_TEMP_SENSOR
       fm_debug_uint8_uart((uint8_t)temp_celcius);
     #endif
 
@@ -81,7 +81,7 @@ int fm_temp_stm32_format_int()
  */
 void fm_temp_stm32_format_str(char *ptr_str, int str_lgth)
 {
-    if(str_lgth == 0)
+    if (str_lgth == 0)
     {
         return;
     }

@@ -17,7 +17,6 @@
  */
 
 // Includes.
-
 #include "fm_menu_user.h"
 
 // Typedef.
@@ -354,7 +353,7 @@ ptr_ret_menu_t fm_menu_show_ttl_rate(fm_event_t event_id)
         break;
         case EVENT_KEY_ESC:
             new_exit = 1;
-//            ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
+            ret_menu = (ptr_ret_menu_t) fm_menu_config_pass;
             event_now = EVENT_LCD_REFRESH;
             tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
         break;

@@ -128,11 +128,11 @@ void fm_lcd_puts_rows(const char *c, const rows_t row)
 
     while ((*c) && (col < col_limit))
     {
-        if (((*c >= '0') && (*c <= '9')) || (*c == ' ') || (*c == '.') ||
-        (*c == 'A') || (*c == 'a') || (*c == 'B') || (*c == 'b') ||
-        (*c == 'C') || (*c == 'c') || (*c == 'D') || (*c == 'd') ||
-        (*c == 'E') || (*c == 'e') || (*c == 'F') || (*c == 'f') ||
-        (*c == 'P') || (*c == 'p') || (*c == 'S') || (*c == 's'))
+        if (((*c >= '0') && (*c <= '9')) || (*c == ' ') || (*c == '.')
+        || (*c == 'A') || (*c == 'a') || (*c == 'B') || (*c == 'b')
+        || (*c == 'C') || (*c == 'c') || (*c == 'D') || (*c == 'd')
+        || (*c == 'E') || (*c == 'e') || (*c == 'F') || (*c == 'f')
+        || (*c == 'P') || (*c == 'p') || (*c == 'S') || (*c == 's'))
         {
             lcd_put_8_seg_char(*c, col, row);
         }
@@ -153,39 +153,39 @@ void fm_lcd_puts_rows(const char *c, const rows_t row)
  */
 void fm_lcd_puts_symbol(char *p_str)
 {
-    if(strcmp(p_str,"ACM") == 0)
+    if (strcmp(p_str, "ACM") == 0)
     {
         lcd_set_symbol(ACM);
     }
-    else if(strcmp(p_str,"TTL") == 0)
+    else if (strcmp(p_str, "TTL") == 0)
     {
         lcd_set_symbol(TTL);
     }
-    else if(strcmp(p_str,"RATE") == 0)
+    else if (strcmp(p_str, "RATE") == 0)
     {
         lcd_set_symbol(RATE);
     }
-    else if(strcmp(p_str,"BATTERY") == 0)
+    else if (strcmp(p_str, "BATTERY") == 0)
     {
         lcd_set_symbol(BATTERY);
     }
-    else if(strcmp(p_str,"POWER") == 0)
+    else if (strcmp(p_str, "POWER") == 0)
     {
         lcd_set_symbol(POWER);
     }
-    else if(strcmp(p_str,"E") == 0)
+    else if (strcmp(p_str, "E") == 0)
     {
         lcd_set_symbol(E);
     }
-    else if(strcmp(p_str,"BATCH") == 0)
+    else if (strcmp(p_str, "BATCH") == 0)
     {
         lcd_set_symbol(BATCH);
     }
-    else if(strcmp(p_str,"BACKSLASH") == 0)
+    else if (strcmp(p_str, "BACKSLASH") == 0)
     {
         lcd_set_symbol(BACKSLASH);
     }
-    else if(strcmp(p_str,"PULSE_POINT") == 0)
+    else if (strcmp(p_str, "PULSE_POINT") == 0)
     {
         lcd_set_symbol(PULSE_POINT);
     }
@@ -203,26 +203,30 @@ void fm_lcd_puts_symbol(char *p_str)
  */
 void fm_lcd_puts_unit_time(char *p_str)
 {
-    if(strlen(p_str) == 0)
+    if (strlen(p_str) == 0)
     {
         return;
     }
 
-    if(strcmp(p_str,"M") == 0)
+    if (strcmp(p_str, "M") == 0)
     {
         lcd_set_symbol_unit_time(M);
     }
-    else if(strcmp(p_str,"S") == 0)
+    else if (strcmp(p_str, "S") == 0)
     {
         lcd_set_symbol_unit_time(S);
     }
-    else if(strcmp(p_str,"D") == 0)
+    else if (strcmp(p_str, "D") == 0)
     {
         lcd_set_symbol_unit_time(D);
     }
-    else if(strcmp(p_str,"H") == 0)
+    else if (strcmp(p_str, "H") == 0)
     {
         lcd_set_symbol_unit_time(H);
+    }
+    else if (strcmp(p_str, " ") == 0)
+    {
+        lcd_set_symbol_unit_time(NO_UNIT_TIME);
     }
     else
     {
@@ -238,7 +242,7 @@ void fm_lcd_puts_unit_time(char *p_str)
  */
 void fm_lcd_puts_unit_volume(char *p_str)
 {
-    if(strlen(p_str) != 2)
+    if (strlen(p_str) != 2)
     {
         return;
     }

@@ -9,7 +9,6 @@
  */
 
 // Includes.
-
 #include "fm_keypad.h"
 
 // Typedef.
@@ -62,7 +61,7 @@ extern TX_SEMAPHORE debounce_semaphore_ptr;
 
 void HAL_GPIO_EXTI_Rising_Callback(uint16_t gpio_pin) // @suppress("Name convention for function")
 {
-    if(gpio_pin != GPIO_PIN_14)
+    if (gpio_pin != GPIO_PIN_14)
     {
         /*
          * Deshabilito interrupciones para evitar rebotes de los botones, hasta

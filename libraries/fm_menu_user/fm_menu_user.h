@@ -21,7 +21,7 @@
 // includes
 #include "main.h"
 #include "../fm_lcd_flowmeter/fm_lcd_flowmeter.h"
-//#include "../fm_menu_config/fm_menu_config.h"
+#include "../fm_menu_config/fm_menu_config.h"
 
 // Macros, defines, microcontroller pins (dhs).
 

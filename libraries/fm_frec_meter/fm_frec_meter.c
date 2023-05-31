@@ -7,7 +7,6 @@
  */
 
 // Includes.
-
 #include "fm_frec_meter.h"
 
 // Typedef.
@@ -22,13 +21,9 @@
  */
 
 // Const data.
-
 // Defines.
-
 // Debug.
-
 // Project variables, non-static, at least used in other file.
-
 double frecuency = 0;
 uint8_t no_pulse_cnt = 0;
 
@@ -38,7 +33,13 @@ extern UART_HandleTypeDef huart1;
 
 // Global variables, statics.
 
-static const uint32_t g_scalar_frec_meter[] = {0, 10, 100, 1000};
+static const uint32_t g_scalar_frec_meter[] =
+{
+    0,
+    10,
+    100,
+    1000
+};
 
 // Private function prototypes.
 
@@ -54,24 +55,24 @@ static const uint32_t g_scalar_frec_meter[] = {0, 10, 100, 1000};
  */
 uint8_t frecuency_meter_get_resolution()
 {
-    if(frecuency >= g_scalar_frec_meter[FREC_RES_0] &&
-    frecuency < g_scalar_frec_meter[FREC_RES_1])
+    if (frecuency >= g_scalar_frec_meter[FREC_RES_0]
+    && frecuency < g_scalar_frec_meter[FREC_RES_1])
     {
-        return(FREC_RES_3);
+        return (FREC_RES_3);
     }
-    else if(frecuency >= g_scalar_frec_meter[FREC_RES_1] &&
-    frecuency < g_scalar_frec_meter[FREC_RES_2])
+    else if (frecuency >= g_scalar_frec_meter[FREC_RES_1]
+    && frecuency < g_scalar_frec_meter[FREC_RES_2])
     {
-        return(FREC_RES_2);
+        return (FREC_RES_2);
     }
-    else if(frecuency >= g_scalar_frec_meter[FREC_RES_2] &&
-    frecuency < g_scalar_frec_meter[FREC_RES_3])
+    else if (frecuency >= g_scalar_frec_meter[FREC_RES_2]
+    && frecuency < g_scalar_frec_meter[FREC_RES_3])
     {
-        return(FREC_RES_1);
+        return (FREC_RES_1);
     }
     else
     {
-        return(FREC_RES_0);
+        return (FREC_RES_0);
     }
 }
 
@@ -84,7 +85,8 @@ uint64_t frecuency_meter_get_frec_u64()
 {
     static uint64_t frec_u64 = 0;
 
-    frec_u64 = frecuency * g_scalar_frec_meter[frecuency_meter_get_resolution()];
+    frec_u64 = frecuency
+    * g_scalar_frec_meter[frecuency_meter_get_resolution()];
 
     return (frec_u64);
 }
@@ -93,7 +95,7 @@ uint64_t frecuency_meter_get_frec_u64()
 
 void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin) // @suppress("Name convention for function")
 {
-    if(GPIO_Pin == GPIO_PIN_14)
+    if (GPIO_Pin == GPIO_PIN_14)
     {
         static uint8_t new_entry = 1;
         static uint16_t ticks_1 = 0;
@@ -102,30 +104,33 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin) // @suppress("Name conven
         static uint16_t pulses_1 = 0;
         static uint16_t pulses_2 = 0;
         static uint16_t delta_pulses = 0;
-        static GPIO_InitTypeDef GPIO_InitStruct = {0};
+        static GPIO_InitTypeDef GPIO_InitStruct =
+        {
+            0
+        };
 
         static const double lse_frecuency = 32768;
 
         no_pulse_cnt = 1;
 
-        if(new_entry)
+        if (new_entry)
         {
-            ticks_1 = LPTIM3 -> CNT;
-            pulses_1 = LPTIM4 -> CNT;
+            ticks_1 = LPTIM3->CNT;
+            pulses_1 = LPTIM4->CNT;
 
             new_entry = 0;
         }
         else
         {
-            ticks_2 = LPTIM3 -> CNT;
-            pulses_2 = LPTIM4 -> CNT;
+            ticks_2 = LPTIM3->CNT;
+            pulses_2 = LPTIM4->CNT;
 
             delta_ticks = ticks_2 - ticks_1;
             delta_pulses = pulses_2 - pulses_1;
 
-            frecuency = (double)(delta_pulses * lse_frecuency) / delta_ticks;
+            frecuency = (double) (delta_pulses * lse_frecuency) / delta_ticks;
 
-            #ifdef FM_DEBUG_UART_TX_PULSE_DIFF
+#ifdef FM_DEBUG_UART_TX_PULSE_DIFF
 
                   static char d_pulses[50];
 
@@ -134,7 +139,7 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin) // @suppress("Name conven
                   strlen(d_pulses), HAL_MAX_DELAY);
             #endif
 
-            #ifdef FM_DEBUG_UART_TX_TICKS_DIFF
+#ifdef FM_DEBUG_UART_TX_TICKS_DIFF
 
                   static char d_ticks[50];
 

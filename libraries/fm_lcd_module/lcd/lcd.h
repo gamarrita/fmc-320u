@@ -115,20 +115,7 @@ typedef enum
     S,
     D,
     H,
-    VE,
-    PASS,
-    K,
-    KO,
-    PASS1,
-    PASS2,
-    PASS3,
-    F,
-    LIN_1,
-    LIN_2,
-    LIN_3,
-    LIN_4,
-    LIN_5,
-    HZ,
+    NO_UNIT_TIME
 } symbols_t;
 
 // Defines.

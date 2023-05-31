@@ -26,12 +26,12 @@
 void fm_calendar_format_date(char *p_str, int p_str_lgth);
 void fm_calendar_format_time(char *p_str, int p_str_lgth);
 void fm_calendar_get();
-int fm_calendar_get_day();
-int fm_calendar_get_hour();
-int fm_calendar_get_minute();
-int fm_calendar_get_month();
-int fm_calendar_get_second();
-int fm_calendar_get_year();
+uint8_t fm_calendar_get_day();
+uint8_t fm_calendar_get_hour();
+uint8_t fm_calendar_get_minute();
+uint8_t fm_calendar_get_month();
+uint8_t fm_calendar_get_second();
+uint8_t fm_calendar_get_year();
 void fm_calendar_modify_date(RTC_DateTypeDef sdate_conf);
 void fm_calendar_modify_time(RTC_TimeTypeDef stime_conf);
 

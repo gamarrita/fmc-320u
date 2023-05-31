@@ -25,6 +25,33 @@
 
 // Typedef.
 
+typedef enum
+{
+    LCD_FLOWMETER_RES_0,
+    LCD_FLOWMETER_RES_1,
+    LCD_FLOWMETER_RES_2,
+    LCD_FLOWMETER_RES_3
+} lcd_flometer_res_t;
+
+typedef struct
+{
+    uint8_t dd;
+    uint8_t mm;
+    uint8_t aaaa;
+} date_freeze_t;
+
+typedef struct
+{
+    uint8_t hh;
+    uint8_t mm;
+    uint8_t ss;
+} time_freeze_t;
+
+typedef enum
+{
+    FIELD_DAY, FIELD_MONTH, FIELD_YEAR, FIELD_HOUR, FIELD_MINUTE, FIELD_SECOND
+} sel_date_time_field_t;
+
 // Defines.
 
 // Function prototypes
@@ -32,7 +59,11 @@
 void fm_lcd_flowmeter_acm_rate();
 void fm_lcd_flowmeter_acm_temp();
 void fm_lcd_flowmeter_date_hour();
+void fm_lcd_flowmeter_freeze_date_hour(sel_date_time_field_t date_time_field);
+void fm_lcd_flowmeter_password(uint8_t password_index);
 void fm_lcd_flowmeter_ttl_rate();
+void fm_lcd_flowmeter_units_tim();
+void fm_lcd_flowmeter_units_vol();
 void fm_lcd_flowmeter_version();
 
 #endif /* FM_LCD_FLOWMETER_H */

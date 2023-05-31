@@ -16,16 +16,8 @@
 
 // Typedef.
 
-/*
- * The names of all new data types, including structures, unions, and
- * enumerations, shall consist only of lowercase characters and internal
- * underscores and end with ‘_t’.
- *
- * All new structures, unions, and enumerations shall be named via a typedef.
- *
- */
-
 // Const data.
+
 // Defines.
 #define PASSWORD_LENGTH 4
 // Debug.

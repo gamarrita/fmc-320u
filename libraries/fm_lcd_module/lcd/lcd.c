@@ -551,7 +551,7 @@ void lcd_clear_point(rows_t line, point_t point)
  */
 void lcd_clear_symbol(symbols_t symbol)
 {
-    switch(symbol)
+    switch (symbol)
     {
         case ACM:
             g_lcd_map[REG_12] &= ~(1 << BIT_4);
@@ -563,13 +563,13 @@ void lcd_clear_symbol(symbols_t symbol)
             g_lcd_map[REG_17] &= ~(1 << BIT_5);
         break;
         case BATTERY:
-            g_lcd_map[REG_7]  &= ~(1 << BIT_5);
+            g_lcd_map[REG_7] &= ~(1 << BIT_5);
         break;
         case POWER:
-            g_lcd_map[REG_2]  &= ~(1 << BIT_5);
+            g_lcd_map[REG_2] &= ~(1 << BIT_5);
         break;
         case E:
-            g_lcd_map[REG_2]  &= ~(1 << BIT_4);
+            g_lcd_map[REG_2] &= ~(1 << BIT_4);
         break;
         case BATCH:
             g_lcd_map[REG_12] &= ~(1 << BIT_5);
@@ -578,7 +578,7 @@ void lcd_clear_symbol(symbols_t symbol)
             g_lcd_map[REG_10] &= ~(1 << BIT_1);
         break;
         case PULSE_POINT:
-            g_lcd_map[REG_7]  &= ~(1 << BIT_4);
+            g_lcd_map[REG_7] &= ~(1 << BIT_4);
         break;
         default:
         break;
@@ -623,7 +623,6 @@ void lcd_put_8_seg_char(char c, uint8_t col, uint8_t row)
 //            return;
 //        }
 //    }
-
     g_buf[row][col] = c;
 
     switch (row)
@@ -864,9 +863,9 @@ void lcd_puts_14_seg_str_2(char *p_str)
 {
     static uint8_t sel_col_puts_2 = 0;
 
-    while(sel_col_puts_2 <= 1)
+    while (sel_col_puts_2 <= 1)
     {
-        switch(p_str[sel_col_puts_2])
+        switch (p_str[sel_col_puts_2])
         {
             case '0':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
@@ -883,7 +882,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '1':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -899,7 +898,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '2':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -915,7 +914,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '3':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -931,7 +930,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '4':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -947,7 +946,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '5':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -963,7 +962,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '6':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -979,7 +978,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '7':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -995,7 +994,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '8':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1011,7 +1010,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '9':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1027,7 +1026,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'A':
             case 'a':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
@@ -1044,7 +1043,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'B':
             case 'b':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
@@ -1061,7 +1060,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'C':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1077,7 +1076,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'c':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1093,7 +1092,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'D':
             case 'd':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
@@ -1110,7 +1109,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'E':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1126,7 +1125,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'e':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1142,7 +1141,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'F':
             case 'f':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
@@ -1159,7 +1158,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'G':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1175,7 +1174,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'g':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1191,7 +1190,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'H':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1207,7 +1206,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'h':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1223,7 +1222,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'I':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1239,7 +1238,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'i':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1255,7 +1254,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'J':
             case 'j':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
@@ -1272,7 +1271,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'K':
             case 'k':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
@@ -1289,7 +1288,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 1, sel_col_puts_2);
-                break;
+            break;
             case 'L':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1305,7 +1304,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'l':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1321,7 +1320,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'M':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1337,7 +1336,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 1, sel_col_puts_2);
-                break;
+            break;
             case 'm':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1353,7 +1352,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'N':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1369,7 +1368,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'n':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1385,7 +1384,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'O':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1401,7 +1400,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'o':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1417,7 +1416,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'P':
             case 'p':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
@@ -1434,7 +1433,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'Q':
             case 'q':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
@@ -1451,7 +1450,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'R':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1467,7 +1466,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'r':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1483,7 +1482,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'S':
             case 's':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
@@ -1500,7 +1499,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'T':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1516,7 +1515,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 't':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1532,7 +1531,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'U':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1548,7 +1547,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'u':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1564,7 +1563,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'V':
             case 'v':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
@@ -1581,7 +1580,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 1, sel_col_puts_2);
-                break;
+            break;
             case 'W':
             case 'w':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
@@ -1598,7 +1597,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case 'X':
             case 'x':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
@@ -1615,7 +1614,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 1, sel_col_puts_2);
-                break;
+            break;
             case 'Y':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1631,7 +1630,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 1, sel_col_puts_2);
-                break;
+            break;
             case 'y':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1647,7 +1646,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 1, sel_col_puts_2);
-                break;
+            break;
             case 'Z':
             case 'z':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
@@ -1664,7 +1663,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 1, sel_col_puts_2);
-                break;
+            break;
             case ' ':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1680,7 +1679,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '-':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1696,7 +1695,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '+':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1712,7 +1711,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '*':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1728,7 +1727,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 1, sel_col_puts_2);
-                break;
+            break;
             case '/':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1744,7 +1743,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 1, sel_col_puts_2);
-                break;
+            break;
             case '_':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1760,7 +1759,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '=':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1776,7 +1775,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '(':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1792,7 +1791,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '[':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 1, sel_col_puts_2);
@@ -1808,7 +1807,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case ')':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1824,7 +1823,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case ']':
                 lcd_write_14_line(SEG_A, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1840,7 +1839,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case ',':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1856,7 +1855,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '`':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1872,7 +1871,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             case '"':
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1888,7 +1887,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 0, sel_col_puts_2);
-                break;
+            break;
             default:
                 lcd_write_14_line(SEG_A, 0, sel_col_puts_2);
                 lcd_write_14_line(SEG_B, 0, sel_col_puts_2);
@@ -1904,7 +1903,7 @@ void lcd_puts_14_seg_str_2(char *p_str)
                 lcd_write_14_line(SEG_L, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_M, 1, sel_col_puts_2);
                 lcd_write_14_line(SEG_N, 1, sel_col_puts_2);
-                break;
+            break;
         }
 
         sel_col_puts_2++;
@@ -1997,38 +1996,38 @@ void lcd_set_point(rows_t line, point_t point)
  */
 void lcd_set_symbol(symbols_t symbol)
 {
-    switch(symbol)
-     {
-         case ACM:
-             g_lcd_map[REG_12] |= (1 << BIT_4);
-         break;
-         case TTL:
-             g_lcd_map[REG_17] |= (1 << BIT_4);
-         break;
-         case RATE:
-             g_lcd_map[REG_17] |= (1 << BIT_5);
-         break;
-         case BATTERY:
-             g_lcd_map[REG_7]  |= (1 << BIT_5);
-         break;
-         case POWER:
-             g_lcd_map[REG_2]  |= (1 << BIT_5);
-         break;
-         case E:
-             g_lcd_map[REG_2]  |= (1 << BIT_4);
-         break;
-         case BATCH:
-             g_lcd_map[REG_12] |= (1 << BIT_5);
-         break;
-         case BACKSLASH:
-             g_lcd_map[REG_10] |= (1 << BIT_1);
-         break;
-         case PULSE_POINT:
-             g_lcd_map[REG_7]  |= (1 << BIT_4);
-         break;
-         default:
-         break;
-     }
+    switch (symbol)
+    {
+        case ACM:
+            g_lcd_map[REG_12] |= (1 << BIT_4);
+        break;
+        case TTL:
+            g_lcd_map[REG_17] |= (1 << BIT_4);
+        break;
+        case RATE:
+            g_lcd_map[REG_17] |= (1 << BIT_5);
+        break;
+        case BATTERY:
+            g_lcd_map[REG_7] |= (1 << BIT_5);
+        break;
+        case POWER:
+            g_lcd_map[REG_2] |= (1 << BIT_5);
+        break;
+        case E:
+            g_lcd_map[REG_2] |= (1 << BIT_4);
+        break;
+        case BATCH:
+            g_lcd_map[REG_12] |= (1 << BIT_5);
+        break;
+        case BACKSLASH:
+            g_lcd_map[REG_10] |= (1 << BIT_1);
+        break;
+        case PULSE_POINT:
+            g_lcd_map[REG_7] |= (1 << BIT_4);
+        break;
+        default:
+        break;
+    }
 }
 
 /*
@@ -2039,19 +2038,25 @@ void lcd_set_symbol(symbols_t symbol)
  */
 void lcd_set_symbol_unit_time(symbols_t symbol)
 {
-    switch(symbol)
+    switch (symbol)
     {
         case H:
-            g_lcd_map[REG_5]  |= (1 << BIT_6);
+            g_lcd_map[REG_5] |= (1 << BIT_6);
         break;
         case D:
-            g_lcd_map[REG_9]  |= (1 << BIT_5);
+            g_lcd_map[REG_9] |= (1 << BIT_5);
         break;
         case S:
             g_lcd_map[REG_10] |= (1 << BIT_5);
         break;
         case M:
-            g_lcd_map[REG_9]  |= (1 << BIT_7);
+            g_lcd_map[REG_9] |= (1 << BIT_7);
+        break;
+        case NO_UNIT_TIME:
+            g_lcd_map[REG_9] &= ~(1 << BIT_7);
+            g_lcd_map[REG_10] &= ~(1 << BIT_5);
+            g_lcd_map[REG_9] &= ~(1 << BIT_5);
+            g_lcd_map[REG_5] &= ~(1 << BIT_6);
         break;
         default:
         break;
@@ -2129,26 +2134,30 @@ void lcd_write_line(uint8_t seg, uint8_t data)
  */
 void lcd_write_14_line(uint8_t seg, uint8_t data, uint8_t col)
 {
-    if(col == 0)
+    if (col == 0)
     {
         if (data)
         {
-            g_lcd_map[left_14_segments[seg].reg] |= (1 << left_14_segments[seg].pos);
+            g_lcd_map[left_14_segments[seg].reg] |= (1
+            << left_14_segments[seg].pos);
         }
         else
         {
-            g_lcd_map[left_14_segments[seg].reg] &= ~(1 << left_14_segments[seg].pos);
+            g_lcd_map[left_14_segments[seg].reg] &= ~(1
+            << left_14_segments[seg].pos);
         }
     }
     else
     {
         if (data)
         {
-            g_lcd_map[right_14_segments[seg].reg] |= (1 << right_14_segments[seg].pos);
+            g_lcd_map[right_14_segments[seg].reg] |= (1
+            << right_14_segments[seg].pos);
         }
         else
         {
-            g_lcd_map[right_14_segments[seg].reg] &= ~(1 << right_14_segments[seg].pos);
+            g_lcd_map[right_14_segments[seg].reg] &= ~(1
+            << right_14_segments[seg].pos);
         }
     }
 }

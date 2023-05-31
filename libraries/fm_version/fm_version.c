@@ -10,7 +10,6 @@
  */
 
 // Includes.
-
 #include "fm_version.h"
 
 // Typedef.
@@ -25,7 +24,6 @@
  */
 
 // Const data.
-
 const int version_lgth = 20;
 
 const int version = 1;
@@ -57,7 +55,7 @@ version_t ve;
  */
 void fm_version_get(char *ptr_str, int str_lgth)
 {
-    if(str_lgth <= 0)
+    if (str_lgth <= 0)
     {
         return;
     }

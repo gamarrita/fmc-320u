@@ -19,8 +19,8 @@
 
 typedef enum
 {
- FREC_RES_0, FREC_RES_1, FREC_RES_2, FREC_RES_3, FREC_RES_MAX
-}frecuency_meter_res_t;
+    FREC_RES_0, FREC_RES_1, FREC_RES_2, FREC_RES_3, FREC_RES_MAX
+} frecuency_meter_res_t;
 
 // Defines.
 

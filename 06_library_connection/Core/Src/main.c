@@ -17,6 +17,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include "app_threadx.h"
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -646,7 +647,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : PULSE_IT_Pin */
   GPIO_InitStruct.Pin = PULSE_IT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(PULSE_IT_GPIO_Port, &GPIO_InitStruct);
 

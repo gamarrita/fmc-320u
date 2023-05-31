@@ -11,7 +11,6 @@
  */
 
 // Includes.
-
 #include "fm_factory.h"
 
 // Typedef.
@@ -26,13 +25,9 @@
  */
 
 // Const data.
-
 // Defines.
-
 // Debug.
-
 // Project variables, non-static, at least used in other file.
-
 totalizer_t acm;
 totalizer_t rate;
 totalizer_t ttl;
@@ -112,7 +107,7 @@ totalizer_t fm_factory_get_ttl()
 
 void fm_factory_get_units_time(char *p_str_time_units, int length)
 {
-    if(length == 0)
+    if (length == 0)
     {
         return;
     }
@@ -122,12 +117,22 @@ void fm_factory_get_units_time(char *p_str_time_units, int length)
 
 void fm_factory_get_units_volume(char *p_str_volume_units, int length)
 {
-    if(length == 0)
+    if (length == 0)
     {
         return;
     }
 
     strcpy(p_str_volume_units, acm_config.unit_volume);
+}
+
+uint8_t fm_factory_get_res_acm_ttl()
+{
+    return (acm_config.volume.res);
+}
+
+uint8_t fm_factory_get_res_rate()
+{
+    return (rate_config.volume.res);
 }
 
 /*
@@ -152,6 +157,12 @@ void fm_factory_modify_pulse_rate(uint64_t added_pulses)
     rate_config.pulse = added_pulses;
 }
 
+void fm_factory_modify_res_acm_ttl(uint8_t resolution_acm_ttl)
+{
+    acm_config.volume.res = resolution_acm_ttl;
+    ttl_config.volume.res = resolution_acm_ttl;
+}
+
 void fm_factory_modify_res_rate(uint8_t resolution_rate)
 {
     rate_config.volume.res = resolution_rate;
@@ -159,12 +170,16 @@ void fm_factory_modify_res_rate(uint8_t resolution_rate)
 
 void fm_factory_modify_units_time(char *p_str_time_units)
 {
+    strcpy(acm_config.unit_time, p_str_time_units);
     strcpy(rate_config.unit_time, p_str_time_units);
+    strcpy(ttl_config.unit_time, p_str_time_units);
 }
 
 void fm_factory_modify_units_volume(char *p_str_volume_units)
 {
     strcpy(acm_config.unit_volume, p_str_volume_units);
+    strcpy(rate_config.unit_volume, p_str_volume_units);
+    strcpy(ttl_config.unit_volume, p_str_volume_units);
 }
 
 /*

@@ -66,8 +66,7 @@ extern RTC_HandleTypeDef hrtc;
 void fm_calendar_format_date(char *p_str, int p_str_lgth)
 {
     fm_calendar_get();
-    sprintf(p_str, "%02d%02d20%02d", sDate.Date, sDate.Month,
-    sDate.Year);
+    sprintf(p_str, "%02d%02d20%02d", sDate.Date, sDate.Month, sDate.Year);
 }
 
 /*
@@ -79,8 +78,7 @@ void fm_calendar_format_date(char *p_str, int p_str_lgth)
 void fm_calendar_format_time(char *p_str, int p_str_lgth)
 {
     fm_calendar_get();
-    sprintf(p_str, "%02d%02d%02d", sTime.Hours, sTime.Minutes,
-    sTime.Seconds);
+    sprintf(p_str, "%02d%02d%02d", sTime.Hours, sTime.Minutes, sTime.Seconds);
 }
 
 /*
@@ -100,7 +98,7 @@ void fm_calendar_get()
  * @param None
  * @retval Día leido del calendario.
  */
-int fm_calendar_get_day()
+uint8_t fm_calendar_get_day()
 {
     fm_calendar_get();
     return (sDate.Date);
@@ -111,7 +109,7 @@ int fm_calendar_get_day()
  * @param None
  * @retval Hora leida del calendario.
  */
-int fm_calendar_get_hour()
+uint8_t fm_calendar_get_hour()
 {
     fm_calendar_get();
     return (sTime.Hours);
@@ -123,7 +121,7 @@ int fm_calendar_get_hour()
  * @param None
  * @retval Minutos leidos del calendario.
  */
-int fm_calendar_get_minute()
+uint8_t fm_calendar_get_minute()
 {
     fm_calendar_get();
     return (sTime.Minutes);
@@ -134,7 +132,7 @@ int fm_calendar_get_minute()
  * @param None
  * @retval Mes leido del calendario.
  */
-int fm_calendar_get_month()
+uint8_t fm_calendar_get_month()
 {
     fm_calendar_get();
     return (sDate.Month);
@@ -146,7 +144,7 @@ int fm_calendar_get_month()
  * @param None
  * @retval Segundos leidos del calendario.
  */
-int fm_calendar_get_second()
+uint8_t fm_calendar_get_second()
 {
     fm_calendar_get();
     return (sTime.Seconds);
@@ -157,7 +155,7 @@ int fm_calendar_get_second()
  * @param None
  * @retval Año leido del calendario.
  */
-int fm_calendar_get_year()
+uint8_t fm_calendar_get_year()
 {
     fm_calendar_get();
     return (sDate.Year);

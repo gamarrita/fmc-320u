@@ -23,9 +23,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-/* USER CODE END Includes */
-#include "../libraries/fm_menu_user/fm_menu_user.h"
+
 #include "../libraries/fm_frec_meter/fm_frec_meter.h"
+#include "../libraries/fm_menu_user/fm_menu_user.h"
+#include "../libraries/fm_menu_config/fm_menu_config.h"
+
+/* USER CODE END Includes */
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -116,7 +120,7 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
 
   /* USER CODE END App_ThreadX_Init */
 
-  return (ret);
+  return ret;
 }
 
   /**
