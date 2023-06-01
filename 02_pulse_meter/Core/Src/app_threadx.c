@@ -27,7 +27,7 @@
 #include "stdio.h"
 #include "string.h"
 #include "../../frecuency_meter/frecuency_meter.h"
-#include "../../fm_debug/fm_debug.h"
+#include "../../fm_lcd_flowmeter/fm_lcd_flowmeter.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -104,7 +104,7 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
 
   /* USER CODE END App_ThreadX_Init */
 
-  return ret;
+  return (ret);
 }
 
   /**
@@ -238,6 +238,8 @@ VOID pulse_meter_thread_entry(ULONG initial_input)
         pulse_counter_begin = pulse_counter_end;
 
         tx_thread_sleep(100);
+        fm_lcd_flowmeter_acm_rate();
+        lcd_refresh();
 
         if(no_pulse_cnt > 0)
         {
@@ -258,6 +260,7 @@ VOID pulse_meter_thread_entry(ULONG initial_input)
 
         pulse_counter_end = HAL_LPTIM_ReadCounter(&hlptim4);
         pulse_counter_diff = pulse_counter_end - pulse_counter_begin;
+        fm_factory_modify_pulse_acm_ttl(pulse_counter_diff);
 
         #ifdef FM_DEBUG_UART_TX_PULSE_FRECUENCY
 

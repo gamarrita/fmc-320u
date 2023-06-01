@@ -565,7 +565,10 @@ void fm_lcd_puts(const char *c, const rows_t row)
 
     while ((*c) && (col < col_limit))
     {
-        if (((*c >= '0') && (*c <= '9')) || (*c == ' ') || (*c == '.'))
+        if (((*c >= '0') && (*c <= '9')) || (*c == ' ') || (*c == '.') ||
+        (*c == 'A') || (*c == 'b') || (*c == 'C') || (*c == 'c') ||
+        (*c == 'd') || (*c == 'E') || (*c == 'e') || (*c == 'F') ||
+        (*c == 'f'))
         {
             lcd_put_char(*c, col, row);
         }
