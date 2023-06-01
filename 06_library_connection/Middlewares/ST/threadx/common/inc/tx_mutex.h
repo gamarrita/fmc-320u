@@ -9,7 +9,6 @@
 /*                                                                        */
 /**************************************************************************/
 
-
 /**************************************************************************/
 /**************************************************************************/
 /**                                                                       */
@@ -19,7 +18,6 @@
 /**                                                                       */
 /**************************************************************************/
 /**************************************************************************/
-
 
 /**************************************************************************/
 /*                                                                        */
@@ -50,14 +48,12 @@
 #ifndef TX_MUTEX_H
 #define TX_MUTEX_H
 
-
 /* Define mutex control specific data definitions.  */
 
 #define TX_MUTEX_ID                             ((ULONG) 0x4D555445)
 
-
 /* Determine if in-line component initialization is supported by the
-   caller.  */
+ caller.  */
 
 #ifdef TX_INVOKE_INLINE_INITIALIZATION
 
@@ -83,22 +79,20 @@
 #else
 
 /* No in-line initialization is supported, use standard function call.  */
-VOID        _tx_mutex_initialize(VOID);
+VOID _tx_mutex_initialize( VOID);
 #endif
-
 
 /* Define internal mutex management function prototypes.  */
 
-VOID        _tx_mutex_cleanup(TX_THREAD *thread_ptr, ULONG suspension_sequence);
-VOID        _tx_mutex_thread_release(TX_THREAD *thread_ptr);
-VOID        _tx_mutex_priority_change(TX_THREAD *thread_ptr, UINT new_priority);
-
+VOID _tx_mutex_cleanup(TX_THREAD *thread_ptr, ULONG suspension_sequence);
+VOID _tx_mutex_thread_release(TX_THREAD *thread_ptr);
+VOID _tx_mutex_priority_change(TX_THREAD *thread_ptr, UINT new_priority);
 
 /* Mutex management component data declarations follow.  */
 
 /* Determine if the initialization function of this component is including
-   this file.  If so, make the data definitions really happen.  Otherwise,
-   make them extern so other functions in the component can access them.  */
+ this file.  If so, make the data definitions really happen.  Otherwise,
+ make them extern so other functions in the component can access them.  */
 
 #ifdef TX_MUTEX_INIT
 #define MUTEX_DECLARE
@@ -106,16 +100,13 @@ VOID        _tx_mutex_priority_change(TX_THREAD *thread_ptr, UINT new_priority);
 #define MUTEX_DECLARE extern
 #endif
 
-
 /* Define the head pointer of the created mutex list.  */
 
-MUTEX_DECLARE  TX_MUTEX *   _tx_mutex_created_ptr;
-
+MUTEX_DECLARE TX_MUTEX *_tx_mutex_created_ptr;
 
 /* Define the variable that holds the number of created mutexes. */
 
-MUTEX_DECLARE  ULONG        _tx_mutex_created_count;
-
+MUTEX_DECLARE ULONG _tx_mutex_created_count;
 
 #ifdef TX_MUTEX_ENABLE_PERFORMANCE_INFO
 
@@ -151,12 +142,10 @@ MUTEX_DECLARE  ULONG        _tx_mutex_performance__priority_inheritance_count;
 
 #endif
 
-
 /* Define default post mutex delete macro to whitespace, if it hasn't been defined previously (typically in tx_port.h).  */
 
 #ifndef TX_MUTEX_DELETE_PORT_COMPLETION
 #define TX_MUTEX_DELETE_PORT_COMPLETION(m)
 #endif
-
 
 #endif

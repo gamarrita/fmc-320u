@@ -127,12 +127,12 @@ void fm_lcd_flowmeter_freeze_date_hour(sel_date_time_field_t date_time_field)
     static char date_string[PCF8553_DATA_SIZE];
     static char time_string[PCF8553_DATA_SIZE];
 
-    snprintf(date_string, strlen(date_string), "%02u%02u20%02u", date_freeze.dd,
-    date_freeze.mm, date_freeze.aaaa);
+    sprintf(date_string, "%02u%02u20%02u", date_freeze.dd, date_freeze.mm,
+    date_freeze.aaaa);
     fm_lcd_puts_rows(date_string, HIGH_ROW);
 
-    snprintf(time_string, strlen(time_string), "%02u%02u%02u", time_freeze.hh,
-    time_freeze.mm, time_freeze.ss);
+    sprintf(time_string, "%02u%02u%02u", time_freeze.hh, time_freeze.mm,
+    time_freeze.ss);
     fm_lcd_puts_rows(time_string, LOW_ROW);
 
     lcd_set_point(HIGH_ROW, PNT_3);

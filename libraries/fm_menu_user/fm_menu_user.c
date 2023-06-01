@@ -48,21 +48,34 @@ extern TX_QUEUE event_queue_ptr;
  */
 ptr_ret_menu_t fm_menu_show_acm_rate(fm_event_t event_id)
 {
+    /*Inicio de sección de variables locales estáticas*/
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
+    /*Fin de sección de variables locales estáticas*/
 
+    /*Inicio de sección de otras variables no estáticas*/
+
+    /*Fin de sección de otras variables no estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
     ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_show_acm_rate;
     fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
 
+    /*Inicio de sección de primer entrada al menú*/
     if (new_entry == 1)
     {
         fm_lcd_clear();
         new_entry = 0;
     }
+    /*Fin de sección de primer entrada al menú*/
 
+    /*Inicio de sección de pantalla lcd*/
     fm_lcd_flowmeter_acm_rate();
     fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
 
+    /*Inicio de sección de máquina de estados de eventos*/
     switch (event_id)
     {
         case EVENT_KEY_UP:
@@ -91,17 +104,22 @@ ptr_ret_menu_t fm_menu_show_acm_rate(fm_event_t event_id)
         default:
         break;
     }
+    /*Fin de sección de máquina de estados de eventos*/
 
+    /*Inicio de sección de debugging por UART*/
 #ifdef FM_DEBUG_UART_TX_MENU_ENTER
-    char msg_buffer[] = "acm_rate\n";
-    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-#endif
+        char msg_buffer[] = "acm_rate\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
 
+    /*Inicio de salida del menú actual*/
     if (new_exit == 1)
     {
         new_entry = 1;
         new_exit = 0;
     }
+    /*Fin de salida del menú actual*/
 
     return (ret_menu);
 }
@@ -114,21 +132,34 @@ ptr_ret_menu_t fm_menu_show_acm_rate(fm_event_t event_id)
  */
 ptr_ret_menu_t fm_menu_show_acm_temp(fm_event_t event_id)
 {
+    /*Inicio de sección de variables locales estáticas*/
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
+    /*Fin de sección de variables locales estáticas*/
 
+    /*Inicio de sección de otras variables no estáticas*/
+
+    /*Fin de sección de otras variables no estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
     ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_show_acm_temp;
     fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
 
+    /*Inicio de sección de primer entrada al menú*/
     if (new_entry == 1)
     {
         fm_lcd_clear();
         new_entry = 0;
     }
+    /*Fin de sección de primer entrada al menú*/
 
+    /*Inicio de sección de pantalla lcd*/
     fm_lcd_flowmeter_acm_temp();
     fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
 
+    /*Inicio de sección de máquina de estados de eventos*/
     switch (event_id)
     {
         case EVENT_KEY_UP:
@@ -156,17 +187,22 @@ ptr_ret_menu_t fm_menu_show_acm_temp(fm_event_t event_id)
         default:
         break;
     }
+    /*Fin de sección de máquina de estados de eventos*/
 
+    /*Inicio de sección de debugging por UART*/
 #ifdef FM_DEBUG_UART_TX_MENU_ENTER
-    char msg_buffer[] = "acm_temp\n";
-    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-#endif
+        char msg_buffer[] = "acm_temp\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
 
+    /*Inicio de salida del menú actual*/
     if (new_exit == 1)
     {
         new_entry = 1;
         new_exit = 0;
     }
+    /*Fin de salida del menú actual*/
 
     return (ret_menu);
 }
@@ -178,23 +214,30 @@ ptr_ret_menu_t fm_menu_show_acm_temp(fm_event_t event_id)
  */
 ptr_ret_menu_t fm_menu_show_date_hour(fm_event_t event_id)
 {
+    /*Inicio de sección de variables locales estáticas*/
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
+    /*Fin de sección de variables locales estáticas*/
 
+    /*Inicio de sección de otras variables no estáticas*/
     ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_show_date_hour;
     fm_event_t event_now;
+    /*Fin de sección de otras variables no estáticas*/
 
+    /*Inicio de sección de primer entrada al menú*/
     if (new_entry == 1)
     {
         fm_lcd_clear();
         new_entry = 0;
     }
+    /*Fin de sección de primer entrada al menú*/
 
-//    fm_lcd_date_hour(USER, event_id, DAY);
+    /*Inicio de sección de pantalla lcd*/
     fm_lcd_flowmeter_date_hour();
-
     fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
 
+    /*Inicio de sección de máquina de estados de eventos*/
     switch (event_id)
     {
         case EVENT_KEY_UP:
@@ -220,17 +263,22 @@ ptr_ret_menu_t fm_menu_show_date_hour(fm_event_t event_id)
         default:
         break;
     }
+    /*Fin de sección de máquina de estados de eventos*/
 
+    /*Inicio de sección de debugging por UART*/
 #ifdef FM_DEBUG_UART_TX_MENU_ENTER
-    char msg_buffer3[] = "date_hour\n";
-    fm_debug_msg_uart((uint8_t*) msg_buffer3, sizeof(msg_buffer3));
-#endif
+        char msg_buffer3[] = "date_hour\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer3, sizeof(msg_buffer3));
+    #endif
+    /*Fin de sección de debugging por UART*/
 
+    /*Inicio de salida del menú actual*/
     if (new_exit == 1)
     {
         new_entry = 1;
         new_exit = 0;
     }
+    /*Fin de salida del menú actual*/
 
     return (ret_menu);
 }
@@ -243,14 +291,23 @@ ptr_ret_menu_t fm_menu_show_date_hour(fm_event_t event_id)
  */
 ptr_ret_menu_t fm_menu_show_init(fm_event_t event_id)
 {
+    /*Inicio de sección de variables locales estáticas*/
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
     static uint8_t counter = 0;
-    const uint8_t counter_max = 30;
+    static const uint8_t counter_max = 30;
+    /*Fin de sección de variables locales estáticas*/
 
+    /*Inicio de sección de otras variables no estáticas*/
+
+    /*Fin de sección de otras variables no estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
     ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_show_init;
     fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
 
+    /*Inicio de sección de primer entrada al menú*/
     if (new_entry == 1)
     {
         HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port,
@@ -259,9 +316,13 @@ ptr_ret_menu_t fm_menu_show_init(fm_event_t event_id)
         fm_lcd_clear();
         new_entry = 0;
     }
+    /*Fin de sección de primer entrada al menú*/
 
+    /*Inicio de sección de pantalla lcd*/
     fm_lcd_write_all(0xFF); // @suppress("Avoid magic numbers")
+    /*Fin de sección de pantalla lcd*/
 
+    /*Inicio de sección de máquina de estados de eventos*/
     switch (event_id)
     {
         case EVENT_KEY_UP:
@@ -297,18 +358,23 @@ ptr_ret_menu_t fm_menu_show_init(fm_event_t event_id)
         default:
         break;
     }
+    /*Fin de sección de máquina de estados de eventos*/
 
+    /*Inicio de sección de debugging por UART*/
 #ifdef FM_DEBUG_UART_TX_MENU_ENTER
-    char msg_buffer[] = "INIT\n";
-    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-#endif
+        char msg_buffer[] = "INIT\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
 
+    /*Inicio de salida del menú actual*/
     if (new_exit == 1)
     {
         counter = 0;
         new_entry = 1;
         new_exit = 0;
     }
+    /*Fin de salida del menú actual*/
 
     return (ret_menu);
 }
@@ -320,21 +386,34 @@ ptr_ret_menu_t fm_menu_show_init(fm_event_t event_id)
  */
 ptr_ret_menu_t fm_menu_show_ttl_rate(fm_event_t event_id)
 {
+    /*Inicio de sección de variables locales estáticas*/
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
+    /*Fin de sección de variables locales estáticas*/
 
+    /*Inicio de sección de otras variables no estáticas*/
+
+    /*Fin de sección de otras variables no estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
     ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_show_ttl_rate;
     fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
 
+    /*Inicio de sección de primer entrada al menú*/
     if (new_entry == 1)
     {
         fm_lcd_clear();
         new_entry = 0;
     }
+    /*Fin de sección de primer entrada al menú*/
 
+    /*Inicio de sección de pantalla lcd*/
     fm_lcd_flowmeter_ttl_rate();
     fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
 
+    /*Inicio de sección de máquina de estados de eventos*/
     switch (event_id)
     {
         case EVENT_KEY_UP:
@@ -362,17 +441,22 @@ ptr_ret_menu_t fm_menu_show_ttl_rate(fm_event_t event_id)
         default:
         break;
     }
+    /*Fin de sección de máquina de estados de eventos*/
 
+    /*Inicio de sección de debugging por UART*/
 #ifdef FM_DEBUG_UART_TX_MENU_ENTER
-    char msg_buffer[] = "ttl_rate\n";
-    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-#endif
+        char msg_buffer[] = "ttl_rate\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
 
+    /*Inicio de salida del menú actual*/
     if (new_exit == 1)
     {
         new_entry = 1;
         new_exit = 0;
     }
+    /*Fin de salida del menú actual*/
 
     return (ret_menu);
 }
@@ -385,23 +469,36 @@ ptr_ret_menu_t fm_menu_show_ttl_rate(fm_event_t event_id)
  */
 ptr_ret_menu_t fm_menu_show_version(fm_event_t event_id)
 {
+    /*Inicio de sección de variables locales estáticas*/
     static uint8_t new_entry = 1;
     static uint8_t new_exit = 0;
     static uint8_t counter = 0;
-    const uint8_t counter_max = 30;
+    static const uint8_t counter_max = 30;
+    /*Fin de sección de variables locales estáticas*/
 
+    /*Inicio de sección de otras variables no estáticas*/
+
+    /*Fin de sección de otras variables no estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
     ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_show_version;
     fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
 
+    /*Inicio de sección de primer entrada al menú*/
     if (new_entry == 1)
     {
         fm_lcd_clear();
         new_entry = 0;
     }
+    /*Fin de sección de primer entrada al menú*/
 
+    /*Inicio de sección de pantalla lcd*/
     fm_lcd_flowmeter_version();
     fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
 
+    /*Inicio de sección de máquina de estados de eventos*/
     switch (event_id)
     {
         case EVENT_KEY_UP:
@@ -437,20 +534,25 @@ ptr_ret_menu_t fm_menu_show_version(fm_event_t event_id)
         default:
         break;
     }
+    /*Fin de sección de máquina de estados de eventos*/
 
+    /*Inicio de sección de debugging por UART*/
 #ifdef FM_DEBUG_UART_TX_MENU_ENTER
-    char msg_buffer[] = "version\n";
-    fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
-#endif
+        char msg_buffer[] = "version\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
 
+    /*Inicio de salida del menú actual*/
     if (new_exit == 1)
     {
-        HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port,
-        PCF8553_BACKLIGHT_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(PCF8553_BACKLIGHT_GPIO_Port, PCF8553_BACKLIGHT_Pin,
+        GPIO_PIN_SET);
         counter = 0;
         new_entry = 1;
         new_exit = 0;
     }
+    /*Fin de salida del menú actual*/
 
     return (ret_menu);
 }

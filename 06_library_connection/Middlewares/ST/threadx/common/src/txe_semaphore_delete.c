@@ -9,7 +9,6 @@
 /*                                                                        */
 /**************************************************************************/
 
-
 /**************************************************************************/
 /**************************************************************************/
 /**                                                                       */
@@ -22,14 +21,12 @@
 
 #define TX_SOURCE_CODE
 
-
 /* Include necessary system files.  */
 
 #include "tx_api.h"
 #include "tx_thread.h"
 #include "tx_timer.h"
 #include "tx_semaphore.h"
-
 
 /**************************************************************************/
 /*                                                                        */
@@ -73,32 +70,31 @@
 /*                                            resulting in version 6.1    */
 /*                                                                        */
 /**************************************************************************/
-UINT  _txe_semaphore_delete(TX_SEMAPHORE *semaphore_ptr)
+UINT _txe_semaphore_delete(TX_SEMAPHORE *semaphore_ptr)
 {
 
-UINT            status;
+    UINT status;
 #ifndef TX_TIMER_PROCESS_IN_ISR
-TX_THREAD       *thread_ptr;
+    TX_THREAD *thread_ptr;
 #endif
 
-
     /* Default status to success.  */
-    status =  TX_SUCCESS;
+    status = TX_SUCCESS;
 
     /* Check for an invalid semaphore pointer.  */
     if (semaphore_ptr == TX_NULL)
     {
 
         /* Semaphore pointer is invalid, return appropriate error code.  */
-        status =  TX_SEMAPHORE_ERROR;
+        status = TX_SEMAPHORE_ERROR;
     }
 
     /* Now check for invalid semaphore ID.  */
-    else if (semaphore_ptr -> tx_semaphore_id != TX_SEMAPHORE_ID)
+    else if (semaphore_ptr->tx_semaphore_id != TX_SEMAPHORE_ID)
     {
 
         /* Semaphore pointer is invalid, return appropriate error code.  */
-        status =  TX_SEMAPHORE_ERROR;
+        status = TX_SEMAPHORE_ERROR;
     }
     else
     {
@@ -110,7 +106,7 @@ TX_THREAD       *thread_ptr;
         {
 
             /* Invalid caller of this function, return appropriate error code.  */
-            status =  TX_CALLER_ERROR;
+            status = TX_CALLER_ERROR;
         }
 
 #ifndef TX_TIMER_PROCESS_IN_ISR
@@ -125,7 +121,7 @@ TX_THREAD       *thread_ptr;
             {
 
                 /* Invalid caller of this function, return appropriate error code.  */
-                status =  TX_CALLER_ERROR;
+                status = TX_CALLER_ERROR;
             }
         }
 #endif
@@ -136,10 +132,10 @@ TX_THREAD       *thread_ptr;
     {
 
         /* Call actual semaphore delete function.  */
-        status =  _tx_semaphore_delete(semaphore_ptr);
+        status = _tx_semaphore_delete(semaphore_ptr);
     }
 
     /* Return completion status.  */
-    return(status);
+    return (status);
 }
 

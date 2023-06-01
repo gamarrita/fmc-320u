@@ -9,7 +9,6 @@
 /*                                                                        */
 /**************************************************************************/
 
-
 /**************************************************************************/
 /**************************************************************************/
 /**                                                                       */
@@ -22,12 +21,10 @@
 
 #define TX_SOURCE_CODE
 
-
 /* Include necessary system files.  */
 
 #include "tx_api.h"
 #include "tx_thread.h"
-
 
 /**************************************************************************/
 /*                                                                        */
@@ -74,26 +71,26 @@
 /*                                            resulting in version 6.1    */
 /*                                                                        */
 /**************************************************************************/
-UINT  _txe_thread_time_slice_change(TX_THREAD *thread_ptr, ULONG new_time_slice, ULONG *old_time_slice)
+UINT _txe_thread_time_slice_change(TX_THREAD *thread_ptr, ULONG new_time_slice,
+ULONG *old_time_slice)
 {
 
-UINT        status;
-
+    UINT status;
 
     /* Check for an invalid thread pointer.  */
     if (thread_ptr == TX_NULL)
     {
 
         /* Thread pointer is invalid, return appropriate error code.  */
-        status =  TX_THREAD_ERROR;
+        status = TX_THREAD_ERROR;
     }
 
     /* Now check for invalid thread ID.  */
-    else if (thread_ptr -> tx_thread_id != TX_THREAD_ID)
+    else if (thread_ptr->tx_thread_id != TX_THREAD_ID)
     {
 
         /* Thread pointer is invalid, return appropriate error code.  */
-        status =  TX_THREAD_ERROR;
+        status = TX_THREAD_ERROR;
     }
 
     /* Check for a valid old time-slice pointer.  */
@@ -101,7 +98,7 @@ UINT        status;
     {
 
         /* Invalid destination pointer, return appropriate error code.  */
-        status =  TX_PTR_ERROR;
+        status = TX_PTR_ERROR;
     }
 
     /* Check for invalid caller of this function.  */
@@ -109,16 +106,17 @@ UINT        status;
     {
 
         /* Invalid caller of this function, return appropriate error code.  */
-        status =  TX_CALLER_ERROR;
+        status = TX_CALLER_ERROR;
     }
     else
     {
 
         /* Call actual change time slice function.  */
-        status =  _tx_thread_time_slice_change(thread_ptr, new_time_slice, old_time_slice);
+        status = _tx_thread_time_slice_change(thread_ptr, new_time_slice,
+        old_time_slice);
     }
 
     /* Return completion status.  */
-    return(status);
+    return (status);
 }
 

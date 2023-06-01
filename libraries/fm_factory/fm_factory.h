@@ -15,8 +15,6 @@
 // includes
 
 #include "main.h"
-#include "stdio.h"
-#include "string.h"
 #include "../fm_math_fp/fm_math_fp.h"
 
 // Macros, defines, microcontroller pins (dhs).
@@ -28,8 +26,8 @@ typedef struct
     uint64_t pulse;
     fp_t volume;
     fp_t factor; // Factor en pulsos / unidad de volumen
-    char *unit_volume;
-    char *unit_time;
+    char unit_volume[2];
+    char unit_time[1];
 } totalizer_t;
 
 // Defines.

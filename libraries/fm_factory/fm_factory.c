@@ -112,7 +112,7 @@ void fm_factory_get_units_time(char *p_str_time_units, int length)
         return;
     }
 
-    strcpy(p_str_time_units, rate_config.unit_time);
+    strncpy(p_str_time_units, rate_config.unit_time, 1);
 }
 
 void fm_factory_get_units_volume(char *p_str_volume_units, int length)
@@ -122,7 +122,7 @@ void fm_factory_get_units_volume(char *p_str_volume_units, int length)
         return;
     }
 
-    strcpy(p_str_volume_units, acm_config.unit_volume);
+    strncpy(p_str_volume_units, acm_config.unit_volume, 2);
 }
 
 uint8_t fm_factory_get_res_acm_ttl()
@@ -170,16 +170,16 @@ void fm_factory_modify_res_rate(uint8_t resolution_rate)
 
 void fm_factory_modify_units_time(char *p_str_time_units)
 {
-    strcpy(acm_config.unit_time, p_str_time_units);
-    strcpy(rate_config.unit_time, p_str_time_units);
-    strcpy(ttl_config.unit_time, p_str_time_units);
+    strncpy(acm_config.unit_time, p_str_time_units, 1);
+    strncpy(rate_config.unit_time, p_str_time_units, 1);
+    strncpy(ttl_config.unit_time, p_str_time_units, 1);
 }
 
 void fm_factory_modify_units_volume(char *p_str_volume_units)
 {
-    strcpy(acm_config.unit_volume, p_str_volume_units);
-    strcpy(rate_config.unit_volume, p_str_volume_units);
-    strcpy(ttl_config.unit_volume, p_str_volume_units);
+    strncpy(acm_config.unit_volume, p_str_volume_units, 2);
+    strncpy(rate_config.unit_volume, p_str_volume_units, 2);
+    strncpy(ttl_config.unit_volume, p_str_volume_units, 2);
 }
 
 /*
