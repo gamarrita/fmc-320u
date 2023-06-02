@@ -27,14 +27,7 @@
  */
 
 // Const data.
-// Defines.
-//Debug.
-// Project variables, non-static, at least used in other file.
-// External variables.
-// Global variables, statics.
-static const int fp_str_max = 20;
-
-static const uint32_t g_scalar[] =
+const uint32_t g_scalar[] =
 {
     1,
     10,
@@ -44,6 +37,13 @@ static const uint32_t g_scalar[] =
     100000,
     1000000
 };
+
+// Defines.
+//Debug.
+// Project variables, non-static, at least used in other file.
+// External variables.
+// Global variables, statics.
+static const int fp_str_max = 20;
 
 // Private function prototypes.
 

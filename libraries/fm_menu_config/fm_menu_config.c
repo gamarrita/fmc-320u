@@ -43,8 +43,8 @@ extern date_freeze_t date_freeze;
 // Public function bodies.
 
 /*
- * @brief
- * @param  Evento de presión de botones o refresh.
+ * @brief Función que imprime el menú de configuración de fecha y hora.
+ * @param Evento de presión de botones o refresh.
  * @retval Puntero al retorno de la función.
  */
 ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
@@ -76,6 +76,7 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
     /*Fin de sección de primer entrada al menú*/
 
     /*Inicio de sección de pantalla lcd*/
+    actual_event = event_id;
     fm_lcd_flowmeter_freeze_date_hour(field);
     fm_lcd_refresh();
     /*Fin de sección de pantalla lcd*/
@@ -481,6 +482,631 @@ ptr_ret_menu_t fm_menu_config_date_hour(fm_event_t event_id)
 }
 
 /*
+ * @brief Función que imprime el menú del K linealizado 1.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
+ptr_ret_menu_t fm_menu_config_k_lin_1(fm_event_t event_id)
+{
+    /*Inicio de sección de variables locales estáticas*/
+    static uint8_t new_entry = 1;
+    static uint8_t new_exit = 0;
+    static sel_lin_digit_t digit_lin_modify = LIN_DIG_0;
+    /*Fin de sección de variables locales estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
+    ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_config_k_lin_1;
+    fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
+
+    /*Inicio de sección de primer entrada al menú*/
+    if (new_entry == 1)
+    {
+        fm_lcd_clear();
+        new_entry = 0;
+    }
+    /*Fin de sección de primer entrada al menú*/
+
+    /*Inicio de sección de pantalla lcd*/
+    actual_event = event_id;
+    fm_lcd_flowmeter_k_lin(digit_lin_modify, LIN_FACTOR_1);
+    fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
+
+    /*Inicio de sección de máquina de estados de eventos*/
+    switch (event_id)
+    {
+        case EVENT_KEY_UP:
+            if (correct_password)
+            {
+                fm_factory_modify_k_lin_add(digit_lin_modify, LIN_FACTOR_1);
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_DOWN:
+            if (correct_password)
+            {
+                fm_factory_modify_k_lin_subs(digit_lin_modify, LIN_FACTOR_1);
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ENTER:
+            if (correct_password)
+            {
+                if (digit_lin_modify < LIN_DIG_11)
+                {
+                    digit_lin_modify++;
+                }
+                else
+                {
+                    digit_lin_modify = LIN_DIG_0;
+                }
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ESC:
+            new_exit = 1;
+            ret_menu = (ptr_ret_menu_t) fm_menu_config_k_lin_2;
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_LCD_REFRESH:
+        break;
+        default:
+        break;
+    }
+
+    previous_event = event_id;
+    /*Fin de sección de máquina de estados de eventos*/
+
+    /*Inicio de sección de debugging por UART*/
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
+        char msg_buffer[] = "Configurar parametro K_lin_1\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
+
+    /*Inicio de salida del menú actual*/
+    if (new_exit == 1)
+    {
+        digit_lin_modify = LIN_DIG_0;
+        new_entry = 1;
+        new_exit = 0;
+    }
+    /*Fin de salida del menú actual*/
+
+    return (ret_menu);
+}
+
+/*
+ * @brief Función que imprime el menú del K linealizado 2.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
+ptr_ret_menu_t fm_menu_config_k_lin_2(fm_event_t event_id)
+{
+    /*Inicio de sección de variables locales estáticas*/
+    static uint8_t new_entry = 1;
+    static uint8_t new_exit = 0;
+    static sel_lin_digit_t digit_lin_modify = LIN_DIG_0;
+    /*Fin de sección de variables locales estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
+    ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_config_k_lin_2;
+    fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
+
+    /*Inicio de sección de primer entrada al menú*/
+    if (new_entry == 1)
+    {
+        fm_lcd_clear();
+        new_entry = 0;
+    }
+    /*Fin de sección de primer entrada al menú*/
+
+    /*Inicio de sección de pantalla lcd*/
+    actual_event = event_id;
+    fm_lcd_flowmeter_k_lin(digit_lin_modify, LIN_FACTOR_2);
+    fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
+
+    /*Inicio de sección de máquina de estados de eventos*/
+    switch (event_id)
+    {
+        case EVENT_KEY_UP:
+            if (correct_password)
+            {
+                fm_factory_modify_k_lin_add(digit_lin_modify, LIN_FACTOR_2);
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_DOWN:
+            if (correct_password)
+            {
+                fm_factory_modify_k_lin_subs(digit_lin_modify, LIN_FACTOR_2);
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ENTER:
+            if (correct_password)
+            {
+                if (digit_lin_modify < LIN_DIG_11)
+                {
+                    digit_lin_modify++;
+                }
+                else
+                {
+                    digit_lin_modify = LIN_DIG_0;
+                }
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ESC:
+            new_exit = 1;
+            ret_menu = (ptr_ret_menu_t) fm_menu_config_k_lin_3;
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_LCD_REFRESH:
+        break;
+        default:
+        break;
+    }
+
+    previous_event = event_id;
+    /*Fin de sección de máquina de estados de eventos*/
+
+    /*Inicio de sección de debugging por UART*/
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
+        char msg_buffer[] = "Configurar parametro K_lin_2\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
+
+    /*Inicio de salida del menú actual*/
+    if (new_exit == 1)
+    {
+        digit_lin_modify = LIN_DIG_0;
+        new_entry = 1;
+        new_exit = 0;
+    }
+    /*Fin de salida del menú actual*/
+
+    return (ret_menu);
+}
+
+/*
+ * @brief Función que imprime el menú del K linealizado 3.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
+ptr_ret_menu_t fm_menu_config_k_lin_3(fm_event_t event_id)
+{
+    /*Inicio de sección de variables locales estáticas*/
+    static uint8_t new_entry = 1;
+    static uint8_t new_exit = 0;
+    static sel_lin_digit_t digit_lin_modify = LIN_DIG_0;
+    /*Fin de sección de variables locales estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
+    ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_config_k_lin_3;
+    fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
+
+    /*Inicio de sección de primer entrada al menú*/
+    if (new_entry == 1)
+    {
+        fm_lcd_clear();
+        new_entry = 0;
+    }
+    /*Fin de sección de primer entrada al menú*/
+
+    /*Inicio de sección de pantalla lcd*/
+    actual_event = event_id;
+    fm_lcd_flowmeter_k_lin(digit_lin_modify, LIN_FACTOR_3);
+    fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
+
+    /*Inicio de sección de máquina de estados de eventos*/
+    switch (event_id)
+    {
+        case EVENT_KEY_UP:
+            if (correct_password)
+            {
+                fm_factory_modify_k_lin_add(digit_lin_modify, LIN_FACTOR_3);
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_DOWN:
+            if (correct_password)
+            {
+                fm_factory_modify_k_lin_subs(digit_lin_modify, LIN_FACTOR_3);
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ENTER:
+            if (correct_password)
+            {
+                if (digit_lin_modify < LIN_DIG_11)
+                {
+                    digit_lin_modify++;
+                }
+                else
+                {
+                    digit_lin_modify = LIN_DIG_0;
+                }
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ESC:
+            new_exit = 1;
+            ret_menu = (ptr_ret_menu_t) fm_menu_config_k_lin_4;
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_LCD_REFRESH:
+        break;
+        default:
+        break;
+    }
+
+    previous_event = event_id;
+    /*Fin de sección de máquina de estados de eventos*/
+
+    /*Inicio de sección de debugging por UART*/
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
+        char msg_buffer[] = "Configurar parametro K_lin_3\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
+
+    /*Inicio de salida del menú actual*/
+    if (new_exit == 1)
+    {
+        digit_lin_modify = LIN_DIG_0;
+        new_entry = 1;
+        new_exit = 0;
+    }
+    /*Fin de salida del menú actual*/
+
+    return (ret_menu);
+}
+
+/*
+ * @brief Función que imprime el menú del K linealizado 4.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
+ptr_ret_menu_t fm_menu_config_k_lin_4(fm_event_t event_id)
+{
+    /*Inicio de sección de variables locales estáticas*/
+    static uint8_t new_entry = 1;
+    static uint8_t new_exit = 0;
+    static sel_lin_digit_t digit_lin_modify = LIN_DIG_0;
+    /*Fin de sección de variables locales estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
+    ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_config_k_lin_4;
+    fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
+
+    /*Inicio de sección de primer entrada al menú*/
+    if (new_entry == 1)
+    {
+        fm_lcd_clear();
+        new_entry = 0;
+    }
+    /*Fin de sección de primer entrada al menú*/
+
+    /*Inicio de sección de pantalla lcd*/
+    actual_event = event_id;
+    fm_lcd_flowmeter_k_lin(digit_lin_modify, LIN_FACTOR_4);
+    fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
+
+    /*Inicio de sección de máquina de estados de eventos*/
+    switch (event_id)
+    {
+        case EVENT_KEY_UP:
+            if (correct_password)
+            {
+                fm_factory_modify_k_lin_add(digit_lin_modify, LIN_FACTOR_4);
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_DOWN:
+            if (correct_password)
+            {
+                fm_factory_modify_k_lin_subs(digit_lin_modify, LIN_FACTOR_4);
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ENTER:
+            if (correct_password)
+            {
+                if (digit_lin_modify < LIN_DIG_11)
+                {
+                    digit_lin_modify++;
+                }
+                else
+                {
+                    digit_lin_modify = LIN_DIG_0;
+                }
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ESC:
+            new_exit = 1;
+            ret_menu = (ptr_ret_menu_t) fm_menu_config_k_lin_5;
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_LCD_REFRESH:
+        break;
+        default:
+        break;
+    }
+
+    previous_event = event_id;
+    /*Fin de sección de máquina de estados de eventos*/
+
+    /*Inicio de sección de debugging por UART*/
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
+        char msg_buffer[] = "Configurar parametro K_lin_4\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
+
+    /*Inicio de salida del menú actual*/
+    if (new_exit == 1)
+    {
+        digit_lin_modify = LIN_DIG_0;
+        new_entry = 1;
+        new_exit = 0;
+    }
+    /*Fin de salida del menú actual*/
+
+    return (ret_menu);
+}
+
+/*
+ * @brief Función que imprime el menú del K linealizado 5.
+ * @param Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
+ptr_ret_menu_t fm_menu_config_k_lin_5(fm_event_t event_id)
+{
+    /*Inicio de sección de variables locales estáticas*/
+    static uint8_t new_entry = 1;
+    static uint8_t new_exit = 0;
+    static sel_lin_digit_t digit_lin_modify = LIN_DIG_0;
+    /*Fin de sección de variables locales estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
+    ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_config_k_lin_5;
+    fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
+
+    /*Inicio de sección de primer entrada al menú*/
+    if (new_entry == 1)
+    {
+        fm_lcd_clear();
+        new_entry = 0;
+    }
+    /*Fin de sección de primer entrada al menú*/
+
+    /*Inicio de sección de pantalla lcd*/
+    actual_event = event_id;
+    fm_lcd_flowmeter_k_lin(digit_lin_modify, LIN_FACTOR_5);
+    fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
+
+    /*Inicio de sección de máquina de estados de eventos*/
+    switch (event_id)
+    {
+        case EVENT_KEY_UP:
+            if (correct_password)
+            {
+                fm_factory_modify_k_lin_add(digit_lin_modify, LIN_FACTOR_5);
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_DOWN:
+            if (correct_password)
+            {
+                fm_factory_modify_k_lin_subs(digit_lin_modify, LIN_FACTOR_5);
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ENTER:
+            if (correct_password)
+            {
+                if (digit_lin_modify < LIN_DIG_11)
+                {
+                    digit_lin_modify++;
+                }
+                else
+                {
+                    digit_lin_modify = LIN_DIG_0;
+                }
+            }
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ESC:
+            new_exit = 1;
+            ret_menu = (ptr_ret_menu_t) fm_menu_show_init;
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_LCD_REFRESH:
+        break;
+        default:
+        break;
+    }
+
+    previous_event = event_id;
+    /*Fin de sección de máquina de estados de eventos*/
+
+    /*Inicio de sección de debugging por UART*/
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
+        char msg_buffer[] = "Configurar parametro K_lin_5\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
+
+    /*Inicio de salida del menú actual*/
+    if (new_exit == 1)
+    {
+        digit_lin_modify = LIN_DIG_0;
+        new_entry = 1;
+        new_exit = 0;
+    }
+    /*Fin de salida del menú actual*/
+
+    return (ret_menu);
+}
+
+/*
+ * @brief Función que imprime el menú de configuración del factor de calibración
+ * K.
+ * @param  Evento de presión de botones o refresh.
+ * @retval Puntero al retorno de la función.
+ */
+ptr_ret_menu_t fm_menu_config_k_param(fm_event_t event_id)
+{
+    /*Inicio de sección de variables locales estáticas*/
+    static uint8_t new_entry = 1;
+    static uint8_t new_exit = 0;
+    static sel_k_digit_t digit_modify = K_DIG_0;
+    /*Fin de sección de variables locales estáticas*/
+
+    /*Inicio de sección de otras variables no estáticas*/
+
+    /*Fin de sección de otras variables no estáticas*/
+
+    /*Inicio de sección de variables de punteros a función y eventos*/
+    ptr_ret_menu_t ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
+    fm_event_t event_now;
+    /*Fin de sección de variables de punteros a función y eventos*/
+
+    /*Inicio de sección de primer entrada al menú*/
+    if (new_entry == 1)
+    {
+        fm_lcd_clear();
+        new_entry = 0;
+    }
+    /*Fin de sección de primer entrada al menú*/
+
+    /*Inicio de sección de pantalla lcd*/
+    actual_event = event_id;
+    fm_lcd_flowmeter_k_factor(digit_modify);
+    fm_lcd_refresh();
+    /*Fin de sección de pantalla lcd*/
+
+    /*Inicio de sección de máquina de estados de eventos*/
+    switch (event_id)
+    {
+        case EVENT_KEY_UP:
+
+            fm_factory_modify_k_factor_add(digit_modify);
+
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_DOWN:
+
+            fm_factory_modify_k_factor_subs(digit_modify);
+
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ENTER:
+            if (digit_modify == K_DIG_0)
+            {
+                digit_modify = K_DIG_1;
+            }
+            else if (digit_modify == K_DIG_1)
+            {
+                digit_modify = K_DIG_2;
+            }
+            else if (digit_modify == K_DIG_2)
+            {
+                digit_modify = K_DIG_3;
+            }
+            else if (digit_modify == K_DIG_3)
+            {
+                digit_modify = K_DIG_4;
+            }
+            else if (digit_modify == K_DIG_4)
+            {
+                digit_modify = K_DIG_5;
+            }
+            else if (digit_modify == K_DIG_5)
+            {
+                digit_modify = K_DIG_6;
+            }
+            else if (digit_modify == K_DIG_6)
+            {
+                digit_modify = K_DIG_7;
+            }
+            else if (digit_modify == K_DIG_7)
+            {
+                digit_modify = K_DIG_0;
+            }
+
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_KEY_ESC:
+            new_exit = 1;
+            ret_menu = (ptr_ret_menu_t) fm_menu_config_k_lin_1;
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+        break;
+        case EVENT_LCD_REFRESH:
+        break;
+        default:
+        break;
+    }
+
+    previous_event = event_id;
+    /*Fin de sección de máquina de estados de eventos*/
+
+    /*Inicio de sección de debugging por UART*/
+#ifdef FM_DEBUG_UART_TX_MENU_ENTER
+        char msg_buffer[] = "Configurar parametro K\n";
+        fm_debug_msg_uart((uint8_t*) msg_buffer, sizeof(msg_buffer));
+    #endif
+    /*Fin de sección de debugging por UART*/
+
+    /*Inicio de salida del menú actual*/
+    if (new_exit == 1)
+    {
+        digit_modify = K_DIG_0;
+        new_entry = 1;
+        new_exit = 0;
+    }
+    /*Fin de salida del menú actual*/
+
+    return (ret_menu);
+}
+
+/*
  * @brief Función que imprime el menú que permite introducir una contraseña del
  * caudalímetro. Posee un algoritmo que levanta una flag si la contraseña,
  * compuesta por las 4 teclas del teclado mecánico, es la misma que la
@@ -621,9 +1247,9 @@ ptr_ret_menu_t fm_menu_config_pass(fm_event_t event_id)
         {
             correct_password = 1;
 
-//            ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
-//            event_now = EVENT_LCD_REFRESH;
-//            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
+            ret_menu = (ptr_ret_menu_t) fm_menu_config_k_param;
+            event_now = EVENT_LCD_REFRESH;
+            tx_queue_send(&event_queue_ptr, &event_now, TX_NO_WAIT);
 
             password_try = 0;
         }

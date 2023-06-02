@@ -197,6 +197,108 @@ void fm_lcd_flowmeter_freeze_date_hour(sel_date_time_field_t date_time_field)
 }
 
 /*
+ * @brief Función que compacta la visibilidad del menú de configuración del
+ * factor k de calibración.
+ * @param dígito actual que se está modificando.
+ * @retval None
+ */
+void fm_lcd_flowmeter_k_factor(sel_k_digit_t k_digit_modify)
+{
+    static char k_factor_str[PCF8553_DATA_SIZE];
+
+    fp_to_str(fmc_get_acm().factor, '0', LINE_0_DIGITS, k_factor_str,
+    PCF8553_DATA_SIZE);
+    fp_add_dot(fmc_get_acm().factor, k_factor_str, PCF8553_DATA_SIZE);
+    fm_lcd_puts_rows(k_factor_str, HIGH_ROW);
+
+    if (actual_event == EVENT_KEY_ENTER
+    || (previous_event == EVENT_KEY_ENTER && actual_event == EVENT_LCD_REFRESH))
+    {
+        blink = 1;
+    }
+    else if (actual_event == EVENT_KEY_DOWN
+    || (previous_event == EVENT_KEY_DOWN && actual_event == EVENT_LCD_REFRESH)
+    || actual_event == EVENT_KEY_UP
+    || (previous_event == EVENT_KEY_UP && actual_event == EVENT_LCD_REFRESH))
+    {
+        blink = 0;
+    }
+
+    if (blink == 1)
+    {
+        lcd_clear_digit(K_DIG_7 - k_digit_modify, HIGH_ROW);
+        blink = 0;
+    }
+    else
+    {
+        blink = 1;
+    }
+
+    fm_lcd_puts_unit_volume("K ");
+}
+
+/*
+ * @brief Función que compacta la visibilidad de los menús de configuración de
+ * factor k y frecuencia linealizados.
+ * @param dígito actual que se está modificando y que k se está actualizando.
+ * @retval None
+ */
+void fm_lcd_flowmeter_k_lin(sel_lin_digit_t k_digit_modify, uint8_t k_sel)
+{
+    static char k_lin_factor_str[PCF8553_DATA_SIZE];
+    static char frec_lin_str[PCF8553_DATA_SIZE];
+
+    fp_to_str(fm_factory_get_k_factor_lin(k_sel), '0', LINE_0_DIGITS,
+    k_lin_factor_str, PCF8553_DATA_SIZE);
+    fp_add_dot(fm_factory_get_k_factor_lin(k_sel), k_lin_factor_str,
+    PCF8553_DATA_SIZE);
+    fm_lcd_puts_rows(k_lin_factor_str, HIGH_ROW);
+
+    sprintf(frec_lin_str, "F%u %04u", k_sel, fm_factory_get_frec_lin(k_sel));
+    fm_lcd_puts_rows(frec_lin_str, LOW_ROW);
+
+    if (actual_event == EVENT_KEY_ENTER
+    || (previous_event == EVENT_KEY_ENTER && actual_event == EVENT_LCD_REFRESH))
+    {
+        blink = 1;
+    }
+    else if (actual_event == EVENT_KEY_DOWN
+    || (previous_event == EVENT_KEY_DOWN && actual_event == EVENT_LCD_REFRESH)
+    || actual_event == EVENT_KEY_UP
+    || (previous_event == EVENT_KEY_UP && actual_event == EVENT_LCD_REFRESH))
+    {
+        blink = 0;
+    }
+
+    if (k_digit_modify <= LIN_DIG_7)
+    {
+        if (blink == 1)
+        {
+            lcd_clear_digit(LIN_DIG_7 - k_digit_modify, HIGH_ROW);
+            blink = 0;
+        }
+        else
+        {
+            blink = 1;
+        }
+    }
+    else
+    {
+        if (blink == 1)
+        {
+            lcd_clear_digit(LIN_DIG_6 - k_digit_modify + LIN_DIG_8, LOW_ROW);
+            blink = 0;
+        }
+        else
+        {
+            blink = 1;
+        }
+    }
+
+    fm_lcd_puts_unit_volume("Hz");
+}
+
+/*
  * @brief Función que compacta la visibilidad del menú de configuración de
  * contraseña.
  * @param Dígito actual a introducir de la contraseña.
@@ -307,6 +409,8 @@ void fm_lcd_flowmeter_units_tim()
 
         blink = 1;
     }
+
+    fm_lcd_puts_symbol("RATE");
 
 }
 

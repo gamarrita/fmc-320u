@@ -85,8 +85,7 @@ uint64_t frecuency_meter_get_frec_u64()
 {
     static uint64_t frec_u64 = 0;
 
-    frec_u64 = frecuency
-    * g_scalar_frec_meter[frecuency_meter_get_resolution()];
+    frec_u64 = frecuency * g_scalar_frec_meter[frecuency_meter_get_resolution()];
 
     return (frec_u64);
 }

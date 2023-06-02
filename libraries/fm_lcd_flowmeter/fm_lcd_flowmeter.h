@@ -52,6 +52,11 @@ typedef enum
     FIELD_DAY, FIELD_MONTH, FIELD_YEAR, FIELD_HOUR, FIELD_MINUTE, FIELD_SECOND
 } sel_date_time_field_t;
 
+typedef enum
+{
+    K_DIG_0, K_DIG_1, K_DIG_2, K_DIG_3, K_DIG_4, K_DIG_5, K_DIG_6, K_DIG_7
+} sel_k_digit_t;
+
 // Defines.
 
 // Function prototypes
@@ -60,6 +65,8 @@ void fm_lcd_flowmeter_acm_rate();
 void fm_lcd_flowmeter_acm_temp();
 void fm_lcd_flowmeter_date_hour();
 void fm_lcd_flowmeter_freeze_date_hour(sel_date_time_field_t date_time_field);
+void fm_lcd_flowmeter_k_factor(sel_k_digit_t k_digit_modify);
+void fm_lcd_flowmeter_k_lin(sel_lin_digit_t k_digit_modify, uint8_t k_sel);
 void fm_lcd_flowmeter_password(uint8_t password_index);
 void fm_lcd_flowmeter_ttl_rate();
 void fm_lcd_flowmeter_units_tim();
