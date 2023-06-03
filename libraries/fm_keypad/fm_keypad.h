@@ -1,0 +1,44 @@
+/* @file fm_module.h
+ *
+ * @brief A description of the module’s purpose.
+ *
+ * @par
+ * 
+ * COPYRIGHT NOTE: (c) 2023 FLOWMEET. All right reserved.
+ */
+
+// includes
+#include "main.h"
+#include "stdio.h"
+#include "../fm_debug/fm_debug.h"
+
+#ifndef     FM_KEYPAD_H_
+#define     FM_KEYPAD_H_
+
+// Macros, defines, microcontroller pins (dhs).
+
+// Typedef.
+
+typedef enum
+{
+    KEY_UP, KEY_DOWN, KEY_ENTER, KEY_ESC
+} fm_keypad_t;
+
+typedef enum
+{
+    EVENT_NULL = 0,
+    EVENT_LCD_REFRESH,
+    EVENT_KEY_UP,
+    EVENT_KEY_DOWN,
+    EVENT_KEY_ENTER,
+    EVENT_KEY_ESC,
+    EVENT_END
+} fm_event_t;
+
+// Defines.
+
+// Function prototypes
+
+#endif /* MODULE_H */
+
+/*** end of file ***/

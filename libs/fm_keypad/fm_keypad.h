@@ -9,6 +9,8 @@
 
 // includes
 #include "main.h"
+#include "stdio.h"
+#include "../fm_debug/fm_debug.h"
 
 #ifndef     FM_KEYPAD_H_
 #define     FM_KEYPAD_H_
